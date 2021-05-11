@@ -4,12 +4,12 @@
     <section class="content-header">
       
       <h1>
-        Vehículos
+        Usuarios
       </h1>
 
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Ver vehículos</li>
+        <li class="active">Ver Usuarios</li>
       </ol>
 
     </section>
@@ -19,29 +19,214 @@
 
       <!-- Default box -->
       <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
+        <div class="box-header with-border">
+
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
+       
         </div>
+
         <div class="box-body">
-          Start creating your amazing application!
+
+          <table class="table table-bordered table-striped dt-responsive tablas">
+
+            <thead>
+
+              <tr>
+
+                <th style="width: 10px">#</th>
+                <th>Matricula</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Color</th>
+                <th>Observaciones</th>
+                <th>Cliente</th>
+                <th>Acciones</th>
+
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>1</td>
+                <td>ABC123</td>
+                <td>Ford</td>
+                <td>Eco-Sport</td>
+                <td>Gris oscuro</td>
+                <td>Reparacion de Puerta</td>
+                <td>Ricardo Peralta</td>
+                <td>
+
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+              <tr>
+
+                <td>2</td>
+                <td>DFG456</td>
+                <td>Chevrolet</td>
+                <td>Suburban</td>
+                <td>Negro</td>
+                <td>Aplicacion de vinilo brillante</td>
+                <td>Cesar Lopez</td>
+                <td>
+
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+
+              <tr>
+
+                <td>3</td>
+                <td>HIJ789</td>
+                <td>Nissan</td>
+                <td>Frontier</td>
+                <td>Gris</td>
+                <td>Aplicacion de vinilo oscuro</td>
+                <td>Mario Aguilar</td>
+                <td>
+
+                  <div class="btn-group">
+
+                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+
+                  </div>
+
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
         </div>
+
         <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
       </div>
       <!-- /.box -->
-
   </section>
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<!-- modal agregar usuario -->
+<!-- Modal -->
+<div id="modalAgregarUsuario" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <form role="form" method="post" enctype="multipart/form-darta">
+      <!--Cabecera-->
+
+      <div class="modal-header" style="background:#3c8dbc;color: white">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Agregar Usuario</h4>
+      </div>
+
+      <!--Cuerpo-->
+
+      <div class="modal-body">
+
+        <div class="box-body">
+
+          <!--Ingresar nombre-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>              
+            </div>
+          </div>
+
+          <!--Ingresar el usuario-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" required>              
+            </div>
+          </div>
+
+          <!--Ingresar la contraseña-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+              <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>              
+            </div>
+          </div>
+
+          <!--Ingresar el perfil -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              <select class="form-control input-lg" name="nuevoperfil">
+
+                <option value="">Seleccionar perfil</option>
+                <option value="administrador">Administrador</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Jefetaller">Jefe de taller</option>
+                <option value="Secretaria">Secretaria</option>
+                <option value="Cajero">Cajero</option>
+
+              </select>            
+            </div>
+          </div>
+
+          <!--Ingresar foto -->
+          <div class="form-group">
+            <div class="panel">SUBIR FOTO</div>
+            <input type="file" class="nuevaFoto" name="nuevaFoto">
+
+            <p class="help-block">Peso máximo de la foto 2MB</p>
+
+            <img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail previsualizar" width="100px">
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <!--footer-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Guardar Usuario</button>
+      </div>
+
+      <?php
+
+      $crearUsuario = new ControladorUsuarios();
+      $crearUsuario -> ctrCrearUsuario();
+
+      ?>
+
+    </form>
+
+    </div>
+
+  </div>
+
+</div>

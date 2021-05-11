@@ -30,7 +30,7 @@
         <!-- /.col -->
         <div class="col-md-6">
           <div class="form-group">
-            <h4>Usuario</h4>
+            <h4>Cliente</h4>
             <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i>  Agregar</button>
 
           </div>
@@ -78,7 +78,7 @@
           <!--Ingresar el costo-->
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <span class="input-group-addon"><i class="fa fa-usd"></i></span>
               <input type="number" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Costo" required>
             </div>
           </div>
@@ -86,7 +86,7 @@
           <!--Ingresar el Servicio -->
           <div class="form-group">
             <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              <span class="input-group-addon"><i class="fa fa-wrench"></i></span>
               <select class="form-control input-lg" name="nuevoServicio">
 
                 <option value="">Seleccionar Servicio</option>
@@ -162,7 +162,7 @@
             <!--Ingresar Matricula-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
                 <input type="text" class="form-control input-lg" name="nuevaMatricula" placeholder="Ingresar Matricula" required>
               </div>
             </div>
@@ -170,7 +170,7 @@
             <!--Ingresar el Marca-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <span class="input-group-addon"><i class="fa fa-car"></i></span>
                 <input type="text" class="form-control input-lg" name="nuevoMarca" placeholder="Ingresar Marca" required>
               </div>
             </div>
@@ -178,7 +178,7 @@
             <!--Ingresar la Modelo-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
                 <input type="password" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" required>
               </div>
             </div>
@@ -186,7 +186,7 @@
             <!--Ingresar la Color-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-paint-brush"></i></span>
                 <input type="password" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" required>
               </div>
             </div>
@@ -194,7 +194,7 @@
             <!--Ingresar la Observaciones-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
                 <input type="password" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" required>
               </div>
             </div>
@@ -281,7 +281,7 @@
             <!--Ingresar Telefono-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                 <input type="number" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Telefono" required>
               </div>
             </div>
@@ -289,21 +289,21 @@
             <!--Ingresar Calle-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
                 <input type="password" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required>
               </div>
             </div>
             <!--Ingresar Ncalle-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
                 <input type="password" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required>
               </div>
             </div>
             <!--Ingresar Colonia-->
             <div class="form-group">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                <span class="input-group-addon"><i class="fa fa-globe"></i></span>
                 <input type="password" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required>
               </div>
             </div>

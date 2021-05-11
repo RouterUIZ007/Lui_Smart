@@ -44,6 +44,9 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
+  <!-- fontawesome   -->
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
   <!-- ====================================================
     PLUGINS DE JAVASCRIPT
   ======================================================-->
@@ -67,6 +70,7 @@ session_start();
   <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
    <!-- SweetAlert 2 -->
    <script src="vistas/plugins/Sweetalert2/sweetalert2.all.js"></script>
+
 
 </head>
 

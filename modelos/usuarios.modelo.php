@@ -18,12 +18,20 @@ class ModeloUsuarios{
 
 		return $stmt -> fetch();
 
+		$stmt -> close();
+
+		$stmt = null;
+
+
+
 	}
 
 	/*=============================================
-	Agregar USUARIOS
+	REGISTRO DE USUARIOS
 	=============================================*/
-	static public function mdlIngresarUsuarios($tabla, $datos){
+
+	public static function mdlIngresarUsuario($tabla,$datos){
+
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(nombre, usuario, password, rol) 
 		VALUES (:nombre, :usuario, :password, :rol)");
 
@@ -38,10 +46,8 @@ class ModeloUsuarios{
 			return "error";
 		}
 		
-		/* $stmt -> close();
-		$stmt = null; */
-	}																																																														
+		$stmt -> close();
+		$stmt = null; 
 
+	}
 }
-
-?>

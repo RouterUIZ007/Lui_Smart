@@ -1,95 +1,165 @@
+<div class="content-wrapper">
 
-  <div class="content-wrapper">
+  <section class="content-header">
 
-    <section class="content-header">
-      
-      <h1>
-        Usuarios
-      </h1>
+    <h1>
+      Presupuestos
+    </h1>
 
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Ver Usuarios</li>
-      </ol>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li class="active">Generar Presupuestos</li>
+    </ol>
 
-    </section>
+  </section>
 
-    <!-- Main content -->
+  <!-- Main content -->
   <section class="content">
 
-      <!-- Default box -->
-      <div class="box">
+    <!-- Default box -->
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Geberar Presupuesto</h3>
 
-        <div class="box-header with-border">
-
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
-       
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+            <i class="fa fa-minus"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+            <i class="fa fa-times"></i></button>
         </div>
-
-        <div class="box-body">
-
-          <table class="table table-bordered table-striped dt-resposive tablas">
-
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Usuario</th>
-                <th>Foto</th>
-                <th>Rol</th>
-                <th>Estado</th>
-                <th>Ultimo Acceso</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Usuario Administrador</td>
-                <td>admin</td>
-                <td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                <td>Administrador</td>
-                <td><button class="btn btn-success btn-xs">Activado</button></td>
-                <td>2021-05-08 12:05:32</td>
-                <td>
-                  <div class="btn-group">
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          
-        </div>
-
-        <!-- /.box-body -->
       </div>
-      <!-- /.box -->
+      <div class="box-body">
+        <!--  -->
+        <form role="form" method="post" enctype="multipart/form-darta">
+          <!--Cabecera-->
+
+          <div class="modal-header" style="background:#3c8dbc;color: white">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Agregar</h4>
+          </div>
+          <!--Cuerpo-->
+
+          <!--Ingresar concepto-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control input-lg" name="nuevoConcepto" placeholder="Ingresar Concepto" required>
+            </div>
+          </div>
+
+          <!--Ingresar el costo-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <input type="number" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Costo" required>
+            </div>
+          </div>
+
+          <!--Ingresar el Servicio -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              <select class="form-control input-lg" name="nuevoServicio">
+
+                <option value="">Seleccionar Servicio</option>
+                <option value="Hojalatería">Hojalatería</option>
+                <option value="Pintura">Pintura</option>
+
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+      <?php
+      $crearUsuarios = new ControladorUsuarios();
+      $crearUsuarios->ctrCrearUsuario();
+      ?>
+
+      </form>
+      <!--  -->
+    </div>
+    <!-- /.box-body -->
+
+
+
+
+    <div class="box-footer">
+      Footer
+    </div>
+
+  <!-- Default box -->
+  <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Geberar Presupuesto</h3>
+
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+            <i class="fa fa-minus"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+            <i class="fa fa-times"></i></button>
+        </div>
+      </div>
+      <div class="box-body">
+        <!--  -->
+        <form role="form" method="post" enctype="multipart/form-darta">
+          <!--Cabecera-->
+
+          <div class="modal-header" style="background:#3c8dbc;color: white">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Agregar</h4>
+          </div>
+          <!--Cuerpo-->
+
+          <!--Ingresar concepto-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control input-lg" name="nuevoConcepto" placeholder="Ingresar Concepto" required>
+            </div>
+          </div>
+
+          <!--Ingresar el costo-->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <input type="number" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Costo" required>
+            </div>
+          </div>
+
+          <!--Ingresar el Servicio -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-users"></i></span>
+              <select class="form-control input-lg" name="nuevoServicio">
+
+                <option value="">Seleccionar Servicio</option>
+                <option value="Hojalatería">Hojalatería</option>
+                <option value="Pintura">Pintura</option>
+
+              </select>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
+      <?php
+      $crearUsuarios = new ControladorUsuarios();
+      $crearUsuarios->ctrCrearUsuario();
+      ?>
+
+      </form>
+      <!--  -->
+    </div>
+    <!-- /.box-body -->
+
+
+
+
+
   </section>
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-<!-- modal agregar usuario -->
-<!-- Modal -->
-<div id="modalAgregarUsuario" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>

@@ -3,21 +3,20 @@
 /**
  * conexion a base de datos
  */
-class Conexion
-{
-
-	static public function conectar(){
+class Conexion{
+	
+	 public static function conectar(){
 
 		/*Conexion por PDO recibe conexion por servidor, usuario, contraseña y caracteres latinos*/
-		$link = new PDO(
-			"mysql:host=localhost;dbname=luismart",
-			"root",
-			""
-		);
+		$link = new PDO("mysql:host=localhost;dbname=luismart",
+			            "root",
+			            "");
 
 		/*poder utilizar tildes ñ*/
-		$link->exec("set names utf8");
+		$link -> exec("set names utf8");
 
 		return $link;
+
 	}
+	
 }

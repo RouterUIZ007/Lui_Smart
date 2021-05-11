@@ -3,7 +3,7 @@
 
 class ControladorPlantilla{
 
-	static public function ctrPlantilla(){
+	public static function ctrPlantilla(){
 
 		include "vistas/plantilla.php";
 	}

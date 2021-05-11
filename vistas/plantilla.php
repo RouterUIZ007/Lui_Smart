@@ -6,7 +6,6 @@ session_start();
 
 <!DOCTYPE html>
 <html>
-
 <head>
 
   <meta charset="utf-8">
@@ -45,7 +44,6 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
-
   <!-- ====================================================
     PLUGINS DE JAVASCRIPT
   ======================================================-->
@@ -67,15 +65,13 @@ session_start();
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
   <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
-
-  <!-- SweetAlert  -->
-  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
-
+   <!-- SweetAlert 2 -->
+   <script src="vistas/plugins/Sweetalert2/sweetalert2.all.js"></script>
 
 </head>
 
 
-<!-- ====================================================
+ <!-- ====================================================
     Cuerpo del documento 
   ======================================================-->
 
@@ -83,52 +79,56 @@ session_start();
 
   <?php
 
-  if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
+    if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
-    echo '<div class="wrapper">';
+     echo '<div class="wrapper">';
 
     /*el header*/
     include "modulos/cabezote.php";
     /*Menubar*/
     include "modulos/menu.php";
     /*contenido a traves de las rutas*/
-    if (isset($_GET["ruta"])) {
+    if(isset($_GET["ruta"])){
 
-      if (
-        $_GET["ruta"] == "inicio" ||
-        $_GET["ruta"] == "presupuesto" ||
-        $_GET["ruta"] == "vehiculos" ||
-        $_GET["ruta"] == "clientes" ||
-        $_GET["ruta"] == "ventas" ||
-        $_GET["ruta"] == "usuarios" ||
-        $_GET["ruta"] == "reportes" ||
-        $_GET["ruta"] == "salir"
-      ) {
+      if($_GET["ruta"] == "inicio" ||
+         $_GET["ruta"] == "presupuesto" ||
+         $_GET["ruta"] == "vehiculos" ||
+         $_GET["ruta"] == "clientes" ||
+         $_GET["ruta"] == "ventas" ||
+         $_GET["ruta"] == "usuarios" ||
+         $_GET["ruta"] == "reportes"||
+         $_GET["ruta"] == "salir"){
 
-        include "modulos/" . $_GET["ruta"] . ".php";
-      } else {
+        include "modulos/".$_GET["ruta"].".php";
+
+      }else{
 
         include "modulos/404.php";
-      }
-    } else {
 
-      include "modulos/inicio.php";
+      }
+
+    }else{
+
+       include "modulos/inicio.php";
+
     }
 
     /*Footer*/
     include "modulos/footer.php";
 
     echo '</div>';
-  } else {
+
+  } else{
 
     include "modulos/login.php";
+
   }
 
   ?>
 
-  </div>
+</div>
 
-  <script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/plantilla.js"></script>
+<script src="vistas/js/usuarios.js"></script>
 </body>
-
 </html>

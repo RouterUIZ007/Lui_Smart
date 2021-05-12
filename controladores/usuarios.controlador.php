@@ -30,6 +30,12 @@ class ControladorUsuarios{
 			    if($respuesta["usuario"]==$_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 
 			    	$_SESSION["iniciarSesion"] = "ok";
+			    	$_SESSION["id"] = $respuesta["id"];
+			    	$_SESSION["nombre"] = $respuesta["nombre"];
+			    	$_SESSION["usuario"] = $respuesta["usuario"];
+			    	$_SESSION["foto"] = $respuesta["foto"];
+			    	$_SESSION["perfil"] = $respuesta["perfil"];
+
 
 			    	echo '<script>
 
@@ -171,6 +177,18 @@ class ControladorUsuarios{
 
 			}
 		}
+
+	}
+
+	/*Mostrar Usuarios*/
+	public static function ctrMostrarUsuarios($item,$valor){
+
+		/*Se le pasa la tabla*/
+		$tabla = "usuarios";
+
+		/*Hacemos uso del modelo*/
+		$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+		return $respuesta;
 
 	}
 }

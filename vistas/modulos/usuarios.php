@@ -49,27 +49,52 @@
 
             <tbody>
 
-              <tr>
+              <!--Llenando la tabla con la base de datos-->
 
-                <td>1</td>
-                <td>Usuario Administrador</td>
-                <td>admin</td>
-                <td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>
-                <td>Administrador</td>
-                <td><button class="btn btn-success btn-xs">Activado</button></td>
-                <td>2021-05-08 12:05:32</td>
-                <td>
+              <?php
 
-                  <div class="btn-group">
+                /*Se pasan estas variables por que reutilizamos el metodo mostrar usuarios*/
+                $item = null;
+                $valor = null;
 
-                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item,$valor);
 
-                  </div>
+                foreach ($usuarios as $key => $value) {
 
-                </td>
+                  /*pasando los datos de la bd a las filas*/
+                  echo '<tr>
 
-              </tr>
+                          <td>1</td>
+                          <td>'.$value["nombre"].'</td>
+                          <td>'.$value["usuario"].'</td>';
+
+                          if($value["foto"]!= ""){
+
+                            echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+
+                          }else{
+
+                            echo ' <td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+
+                          }
+
+                          echo '<td>'.$value["rol"].'</td>
+                          <td><button class="btn btn-success btn-xs">Activado</button></td>
+                          <td>'.$value["ultimo_login"].'</td>
+                          <td>
+
+                            <div class="btn-group">
+
+                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                            </div>
+                          </td>
+                        </tr>';
+                }
+
+              ?>
+
+              
 
             </tbody>
 

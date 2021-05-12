@@ -19,7 +19,14 @@
     <!-- Default box -->
     <div class="box-body">
       <div class="row">
+      
+      <div class="col-md-6">
+          <div class="form-group">
+            <h4>Cliente</h4>
+            <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i>  Agregar</button>
 
+          </div>
+        </div>
         <div class="col-md-6">
           <div class="form-group">
             <h4>Vehiculo</h4>
@@ -28,13 +35,7 @@
           </div>
         </div>
         <!-- /.col -->
-        <div class="col-md-6">
-          <div class="form-group">
-            <h4>Cliente</h4>
-            <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i>  Agregar</button>
-
-          </div>
-        </div>
+       
         <!-- /.col -->
       </div>
       <!-- /.row -->

@@ -92,6 +92,7 @@ session_start();
 
       if($_GET["ruta"] == "inicio" ||
          $_GET["ruta"] == "presupuesto" ||
+         $_GET["ruta"] == "ver-presupuestos" ||
          $_GET["ruta"] == "vehiculos" ||
          $_GET["ruta"] == "clientes" ||
          $_GET["ruta"] == "ventas" ||

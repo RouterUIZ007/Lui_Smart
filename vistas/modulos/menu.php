@@ -14,14 +14,39 @@
 				</a>
 			</li>
 
-			<!-- Presupuesto -->
-			<li class="active">
-				<a href="presupuesto">
-
+			<!-- Presupuesto y ver presupuesto -->
+			<li class="treeview">
+				<a href="">
 					<i class="fa fa-calculator"></i>
-					<span>Presupuesto</span>
-
+					<span>Presupuestos</span>
+					<span class="pull-right-container">
+					
+						<i class="fa fa-angle-left pull-right"></i>
+					</span>
 				</a>
+				
+				<ul class="treeview-menu">
+				
+					<li>
+						<a href="presupuesto">
+
+						<i class="fa fa-circle-o"></i>
+						<span>Presupuestos</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="ver-presupuestos">
+
+						<i class="fa fa-circle-o"></i>
+						<span>Ver Presupuestos</span>
+						</a>
+					</li>
+				
+				
+				
+				</ul>
+
 			</li>
 			
 

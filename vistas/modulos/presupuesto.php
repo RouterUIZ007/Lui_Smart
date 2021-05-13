@@ -19,37 +19,34 @@
     <!-- Default box -->
     <div class="box-body">
       <div class="row">
-      
-      <div class="col-md-6">
+
+        <div class="col-md-6">
           <div class="form-group">
             <h4>Cliente</h4>
-            <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i>  Agregar</button>
+            <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i> Agregar</button>
 
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <h4>Vehiculo</h4>
-            <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarV"><i class="fa fa-car" aria-hidden="true"></i>  Agregar</button>
+            <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarV"><i class="fa fa-car" aria-hidden="true"></i> Agregar</button>
 
           </div>
         </div>
         <!-- /.col -->
-       
+
         <!-- /.col -->
       </div>
       <!-- /.row -->
     </div>
     <!-- /.box-body -->
 
-
-
-
     <!-- Default box -->
     <div class="box">
+      <!-- Header box -->
       <div class="box-header with-border">
         <h3 class="box-title">Agregar Presupuesto</h3>
-
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             <i class="fa fa-minus"></i></button>
@@ -57,12 +54,14 @@
             <i class="fa fa-times"></i></button>
         </div>
       </div>
+
+      <!-- Input para agrerar -->
       <div class="box-body">
         <!--  -->
         <form role="form" method="post" enctype="multipart/form-darta">
           <!--Cabecera-->
 
-         <!--  <div class="modal-header" style="background:#3c8dbc;color: white">
+          <!--  <div class="modal-header" style="background:#3c8dbc;color: white">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h5 class="modal-title">Agregar</h5>
           </div> -->
@@ -100,26 +99,77 @@
 
           <div class="row justify-content-center">
 
-            <div class="col-md-2 col-md-offset-3">
-              <div class="form-group">
-                <button type="button" class="btn btn-block btn-danger">Salir</button>
-              </div>
-            </div>
             <!-- /.col -->
-            <div class="col-md-2 col-md-offset-1">
+            <div class="col-md-2 col-md-offset-5">
               <div class="form-group">
-                <button type="submit" class="btn btn-block btn-success">Guardar</button>
+                <button type="submit" class="btn btn-block btn-success">Agregar</button>
               </div>
             </div>
           </div>
       </div>
+      <!-- Tabla de lo ya agregado -->
+      <div class="box-body">
+
+        <table class="table table-bordered table-striped dt-responsive tablas">
+
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Costo</th>
+              <th>Servicio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Algo 1</td>
+              <td>$4,000.00</td>
+              <td>Pintura</td>
+              <!-- <td>
+                <button class="btn btn-info"><i class="fa fa-info-circle"></i></button>
+              </td> -->
+
+              <td>
+                <div class="btn-group">
+                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+        <!-- Agregar presupuesto TOTAL -->
+        <div class="row justify-content-center">
+
+          <div class="col-md-2 col-md-offset-3">
+            <div class="form-group">
+              <button type="button" class="btn btn-block btn-danger">Salir</button>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+              <button type="submit" class="btn btn-block btn-success">Guardar</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
       <?php
       $crearUsuarios = new ControladorUsuarios();
       $crearUsuarios->ctrCrearUsuario();
       ?>
 
+
+
+
+
+
       </form>
-      <!--  -->
     </div>
     <!-- /.box-body -->
 
@@ -215,7 +265,7 @@
                   <option value="Cliente6">cliente 6</option>
                   <option value="Cliente7">cliente 7</option>
                   <option value="Cliente8">cliente 8</option>
-                  
+
 
                 </select>
               </div>
@@ -291,25 +341,25 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <input type="password" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required>
+                <input type="text" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required>
               </div>
             </div>
             <!--Ingresar Ncalle-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                <input type="password" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required>
+                <input type="number" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required>
               </div>
             </div>
             <!--Ingresar Colonia-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                <input type="password" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required>
+                <input type="text" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required>
               </div>
             </div>
 
-            
+
 
 
           </div>
@@ -324,8 +374,8 @@
 
         <?php
 
-        $crearUsuario = new ControladorUsuarios();
-        $crearUsuario->ctrCrearUsuario();
+        $crearCliente = new ControladorCliente();
+        $crearCliente->ctrCrearClientes();
 
         ?>
 

@@ -214,7 +214,15 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevaMatricula" placeholder="Ingresar Matricula" required>
+                <input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" required>
+              </div>
+            </div>
+
+            <!--Ingresar Matricula-->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+                <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" required>
               </div>
             </div>
 
@@ -230,7 +238,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="password" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" required>
+                <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" required>
               </div>
             </div>
 
@@ -238,7 +246,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-paint-brush"></i></span>
-                <input type="password" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" required>
+                <input type="text" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" required>
               </div>
             </div>
 
@@ -246,11 +254,11 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="password" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" required>
+                <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" required>
               </div>
             </div>
 
-            <!--Ingresar el Cliente -->
+            <!--Ingresar el Cliente 
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-users"></i></span>
@@ -269,7 +277,7 @@
 
                 </select>
               </div>
-            </div>
+            </div> -->
           </div>
 
         </div>
@@ -282,8 +290,8 @@
 
         <?php
 
-        $crearUsuario = new ControladorUsuarios();
-        $crearUsuario->ctrCrearUsuario();
+        $crearVehiculo = new ControladorVehiculos();
+        $crearVehiculo->ctrCrearVehiculos();
 
         ?>
 

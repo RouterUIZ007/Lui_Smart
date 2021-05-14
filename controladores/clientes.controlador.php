@@ -11,9 +11,9 @@ class ControladorCliente
 
             if (preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
-                preg_match('/^[a-zA-Z]+$/', $_POST["nuevoCalle"]) &&
+                preg_match('/^[a-zA-Z ]+$/', $_POST["nuevoCalle"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoNcalle"]) &&
-                preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoColonia"])
+                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoColonia"])
             ) {
                
                 $tabla = "cliente";
@@ -22,7 +22,7 @@ class ControladorCliente
                     "nombre" => $_POST["nuevoNombre"],
                     "telefono" => $_POST["nuevoTelefono"],
                     "calle" => $_POST["nuevoCalle"],
-                    "numero" => $_POST["nuevoNcalle"],
+                    "nCalle" => $_POST["nuevoNcalle"],
                     "colonia" => $_POST["nuevoColonia"]
                 );
 
@@ -43,7 +43,7 @@ class ControladorCliente
 
 						if(result.value){
 						
-							window.location = "usuarios";
+							window.location = "presupuesto";
 
 						}
 
@@ -68,7 +68,7 @@ class ControladorCliente
 
 							if(result.value){
 
-								window.location = "usuarios";
+								window.location = "presupuesto";
 
 							}
 

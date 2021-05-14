@@ -175,7 +175,7 @@
         <?php
 
         $crearCliente = new ControladorCliente();
-        $crearCliente->ctrCrearClientes();
+        $crearCliente->ctrCrearClientes2();
 
         ?>
 

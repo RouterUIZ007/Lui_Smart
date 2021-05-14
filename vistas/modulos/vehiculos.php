@@ -203,7 +203,7 @@
         <?php
 
         $crearVehiculo = new ControladorVehiculos();
-        $crearVehiculo->ctrCrearVehiculos();
+        $crearVehiculo->ctrCrearVehiculos2();
 
         ?>
 

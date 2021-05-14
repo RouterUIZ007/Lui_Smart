@@ -4,7 +4,7 @@ class ControladorVehiculos{
 
     public static function ctrCrearVehiculos(){
 
-        if (isset($_POST["nuevaMatricula"])){
+        if (isset($_POST["nuevoMatricula"])){
 
             if (preg_match('/^[0-9]+$/', $_POST["nuevoId_c"]) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoMatricula"]) &&

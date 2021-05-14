@@ -15,6 +15,10 @@ class ControladorVehiculos{
             ) {
 
                 $tabla = "vehiculo";
+                /*consultando en el campo matricula*/
+				$item = "matricula";
+				/*valor a consultar que viene del form*/
+				$valor = $_POST["nuevoMatricula"];
 
                 $datos = array(
                     "id_c" => $_POST["nuevoId_c"],
@@ -77,4 +81,17 @@ class ControladorVehiculos{
             }
         }
     }
+
+    /* Mostrar Vehiculos*/
+
+    public static function ctrMostrarVehiculos($item,$valor){
+
+        /*Pasando la tabla*/
+        $tabla = "vehiculo";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloVehiculos::MdlMostrarVehiculos($tabla,$item,$valor);
+        return $respuesta;
+
+    }
+    
 }

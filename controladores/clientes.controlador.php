@@ -17,6 +17,10 @@ class ControladorCliente
             ) {
                
                 $tabla = "cliente";
+                /*consultando en el campo matricula*/
+				$item = "nombre";
+				/*valor a consultar que viene del form*/
+				$valor = $_POST["nuevoNombre"];
             
                 $datos = array(
                     "nombre" => $_POST["nuevoNombre"],
@@ -78,4 +82,18 @@ class ControladorCliente
             }
         }
     }
+
+
+     /* Mostrar Clientes*/
+
+     public static function ctrMostrarClientes($item,$valor){
+
+        /*Pasando la tabla*/
+        $tabla = "cliente";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloClientes::MdlMostrarClientes($tabla,$item,$valor);
+        return $respuesta;
+
+    }
+
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2021 a las 06:28:14
+-- Tiempo de generación: 14-05-2021 a las 07:16:04
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -143,8 +143,9 @@ CREATE TABLE `vehiculo` (
   `id_v` int(11) NOT NULL,
   `Matricula` varchar(50) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `marca` varchar(50) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `modelo` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
   `color` varchar(55) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `obeservaciones` text COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `observaciones` text COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `id_c` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -269,7 +270,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`

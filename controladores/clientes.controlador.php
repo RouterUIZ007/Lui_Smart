@@ -9,7 +9,7 @@ class ControladorCliente
 
         if (isset($_POST["nuevoNombre"])) {
 
-            if (preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoNombre"]) &&
+            if (preg_match('/^[a-zA-Z0-9 ñÑáéíóúÁÉÍÓÚ]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
                 preg_match('/^[a-zA-Z ]+$/', $_POST["nuevoCalle"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoNcalle"]) &&

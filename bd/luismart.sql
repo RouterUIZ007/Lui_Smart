@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-05-2021 a las 07:16:04
+-- Tiempo de generación: 18-05-2021 a las 07:26:48
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -41,7 +41,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `numero`, `colonia`) VALUES
-(1, 'Dani', '123123123123', 'calle', NULL, 'col');
+(1, 'Dani', '123123123123', 'calle', NULL, 'col'),
+(2, 'Jose', '123345', 'a', NULL, 'ASJDA'),
+(3, 'Carlos', '12', 'j', NULL, 'jfosdjoa');
 
 -- --------------------------------------------------------
 
@@ -68,19 +70,7 @@ CREATE TABLE `presupuesto` (
   `folio_p` int(11) NOT NULL,
   `fecha` date DEFAULT NULL,
   `id_v` int(11) DEFAULT NULL,
-  `costo` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `presupuesto_servicio`
---
-
-CREATE TABLE `presupuesto_servicio` (
-  `folio_p` int(11) DEFAULT NULL,
-  `codigo` int(11) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL
+  `total` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -91,8 +81,10 @@ CREATE TABLE `presupuesto_servicio` (
 
 CREATE TABLE `servicio` (
   `codigo` int(11) NOT NULL,
+  `concepto` text COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `costo` decimal(10,2) NOT NULL,
   `tipo` varchar(80) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `descripcion` text COLLATE utf8mb4_spanish_ci DEFAULT NULL
+  `Id_v` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
@@ -143,11 +135,18 @@ CREATE TABLE `vehiculo` (
   `id_v` int(11) NOT NULL,
   `Matricula` varchar(50) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `marca` varchar(50) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `modelo` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
   `color` varchar(55) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `observaciones` text COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `id_c` int(11) DEFAULT NULL
+  `id_c` int(11) DEFAULT NULL,
+  `modelo` varchar(40) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`id_v`, `Matricula`, `marca`, `color`, `observaciones`, `id_c`, `modelo`) VALUES
+(1, 'q213421', 'asdasda', 'sadas', 'asdas', 1, 'asdasq');
 
 -- --------------------------------------------------------
 
@@ -187,17 +186,11 @@ ALTER TABLE `presupuesto`
   ADD KEY `id_v` (`id_v`);
 
 --
--- Indices de la tabla `presupuesto_servicio`
---
-ALTER TABLE `presupuesto_servicio`
-  ADD KEY `codigo` (`codigo`),
-  ADD KEY `folio_p` (`folio_p`);
-
---
 -- Indices de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  ADD PRIMARY KEY (`codigo`);
+  ADD PRIMARY KEY (`codigo`),
+  ADD KEY `Id_v` (`Id_v`);
 
 --
 -- Indices de la tabla `tipo_empleado`
@@ -234,7 +227,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -295,11 +288,10 @@ ALTER TABLE `presupuesto`
   ADD CONSTRAINT `presupuesto_ibfk_1` FOREIGN KEY (`id_v`) REFERENCES `vehiculo` (`id_v`);
 
 --
--- Filtros para la tabla `presupuesto_servicio`
+-- Filtros para la tabla `servicio`
 --
-ALTER TABLE `presupuesto_servicio`
-  ADD CONSTRAINT `presupuesto_servicio_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `servicio` (`codigo`),
-  ADD CONSTRAINT `presupuesto_servicio_ibfk_2` FOREIGN KEY (`folio_p`) REFERENCES `presupuesto` (`folio_p`);
+ALTER TABLE `servicio`
+  ADD CONSTRAINT `servicio_ibfk_1` FOREIGN KEY (`Id_v`) REFERENCES `vehiculo` (`id_v`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `vehiculo`

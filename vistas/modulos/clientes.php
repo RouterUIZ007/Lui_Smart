@@ -106,17 +106,13 @@
 
     <!-- Modal content-->
     <div class="modal-content">
-
       <form role="form" method="post" enctype="multipart/form-darta">
         <!--Cabecera-->
-
         <div class="modal-header" style="background:#3c8dbc;color: white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Agregar Cliente</h4>
         </div>
-
         <!--Cuerpo-->
-
         <div class="modal-body">
 
           <div class="box-body">
@@ -165,7 +161,6 @@
           </div>
 
         </div>
-
         <!--footer-->
         <div class="modal-footer">
           <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>

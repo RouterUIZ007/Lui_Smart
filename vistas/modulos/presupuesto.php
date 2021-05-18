@@ -55,9 +55,8 @@
         </div>
       </div>
 
-      <!-- Input para agrerar -->
+      <!-- Body form xDF -->
       <div class="box-body">
-        <!--  -->
         <form role="form" method="post" enctype="multipart/form-darta">
           <!--Cabecera-->
 
@@ -68,7 +67,8 @@
           <!--Cuerpo-->
 
           <!--ID vehiculo-->
-          <div class="form-group" ><!--  hidden -->
+          <div class="form-group">
+            <!--  hidden -->
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-key"></i></span>
               <input type="text" class="form-control input-lg" name="nuevoV" placeholder="Ingresar Id Vehiculo" required>
@@ -112,73 +112,108 @@
               <div class="form-group">
                 <button type="submit" class="btn btn-block btn-success">Agregar</button>
               </div>
+
             </div>
+            <!-- Tabla de lo ya agregado -->
+
           </div>
+          <!-- /.box-body -->
+
+          <?php
+          $crearServicio = new ControladorServicios();
+          $crearServicio->ctrCrearServicio();
+          ?>
+        </form>
       </div>
-      <!-- Tabla de lo ya agregado -->
+
+
+
+      <!-- Body form xDF -->
       <div class="box-body">
+        <form role="form" method="post" enctype="multipart/form-darta">
 
-        <table class="table table-bordered table-striped dt-responsive tablas">
 
-          <thead>
-            <tr>
-              <th>Concepto</th>
-              <th>Costo</th>
-              <th>Servicio</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
+          <table class="table table-bordered table-striped dt-responsive tablas">
 
-          <tbody>
-            <tr>
-              <td>Algo 1</td>
-              <td>$4,000.00</td>
-              <td>Pintura</td>
-              <!-- <td>
-                <button class="btn btn-info"><i class="fa fa-info-circle"></i></button>
-              </td> -->
+            <thead>
 
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
+              <tr>
 
-        </table>
-        <!-- Agregar presupuesto TOTAL -->
-        <div class="row justify-content-center">
+              <th style="width: 10px">#</th>
+                <th>Vehiculo</th>
+                <th>Concepto</th>
+                <th>Costo</th>
+                <th>Servicio</th>
+                <th>Acciones</th>
 
-          <div class="col-md-2 col-md-offset-3">
-            <div class="form-group">
-              <button type="button" class="btn btn-block btn-default">Salir</button>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <?php
+
+              $item = null;
+              $valor = null;
+
+              $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
+
+              foreach ($clientes as $key => $value) {
+
+                echo '<tr>
+
+                  <td>1</td>
+                  <td>' . $value["Id_v"] . '</td>
+                  <td>' . $value["concepto"] . '</td>
+                  <td>' . $value["costo"] . '</td>
+                  <td>' . $value["tipo"] . '</td>
+                  <td>
+  
+                    <div class="btn-group">
+  
+                      <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+  
+                    </div>
+  
+                  </td>
+  
+                </tr>';
+              }
+
+
+
+              ?>
+
+            </tbody>
+
+          </table>
+
+          <!-- Agregar presupuesto TOTAL -->
+          <div class="row justify-content-center">
+
+            <div class="col-md-2 col-md-offset-3">
+              <div class="form-group">
+                <button type="button" class="btn btn-block btn-default">Salir</button>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-md-2 col-md-offset-1">
+              <div class="form-group">
+                <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+              </div>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-md-2 col-md-offset-1">
-            <div class="form-group">
-              <button type="submit" class="btn btn-block btn-primary">Guardar</button>
-            </div>
-          </div>
-        </div>
+          <!-- /.box-body -->
 
+          <?php
+          $crearUsuarios = new ControladorUsuarios();
+          $crearUsuarios->ctrCrearUsuario();
+          ?>
+        </form>
       </div>
-
-
-      <?php
-      $crearUsuarios = new ControladorUsuarios();
-      $crearUsuarios->ctrCrearUsuario();
-      ?>
-
-
-
-      </form>
     </div>
-    <!-- /.box-body -->
-
-
   </section>
   <!-- /.content -->
 </div>

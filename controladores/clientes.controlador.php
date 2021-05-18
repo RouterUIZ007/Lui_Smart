@@ -26,7 +26,7 @@ class ControladorCliente
                     "nombre" => $_POST["nuevoNombre"],
                     "telefono" => $_POST["nuevoTelefono"],
                     "calle" => $_POST["nuevoCalle"],
-                    "nCalle" => $_POST["nuevoNcalle"],
+                    "numero" => $_POST["nuevoNcalle"],
                     "colonia" => $_POST["nuevoColonia"]
                 );
 

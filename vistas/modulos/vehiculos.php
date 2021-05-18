@@ -122,7 +122,7 @@
 
           <div class="box-body">
 
-            <!--Ingresar Matricula-->
+            <!--id Cliente-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
@@ -196,8 +196,8 @@
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary">Guardar Vehiculo</button>
+          <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary btn-lg ">Guardar Vehiculo</button>
         </div>
 
         <?php

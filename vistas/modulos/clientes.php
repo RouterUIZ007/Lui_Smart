@@ -168,8 +168,8 @@
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+          <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary btn-lg">Guardar Cliente</button>
         </div>
 
         <?php

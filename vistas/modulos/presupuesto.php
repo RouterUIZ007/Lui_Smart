@@ -22,14 +22,14 @@
 
         <div class="col-md-6">
           <div class="form-group">
-            <h4>Cliente</h4>
+            <h2>Cliente</h2>
             <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i> Agregar</button>
 
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <h4>Vehiculo</h4>
+            <h2>Vehiculo</h2>
             <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarV"><i class="fa fa-car" aria-hidden="true"></i> Agregar</button>
 
           </div>
@@ -46,7 +46,7 @@
     <div class="box">
       <!-- Header box -->
       <div class="box-header with-border">
-        <h3 class="box-title">Agregar Servicio</h3>
+        <h3>Agregar Servicio</h3>
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             <i class="fa fa-minus"></i></button>
@@ -66,6 +66,14 @@
             <h5 class="modal-title">Agregar</h5>
           </div> -->
           <!--Cuerpo-->
+
+          <!--ID vehiculo-->
+          <div class="form-group" ><!--  hidden -->
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-key"></i></span>
+              <input type="text" class="form-control input-lg" name="nuevoV" placeholder="Ingresar Id Vehiculo" required>
+            </div>
+          </div>
 
           <!--Ingresar concepto-->
           <div class="form-group">
@@ -145,13 +153,13 @@
 
           <div class="col-md-2 col-md-offset-3">
             <div class="form-group">
-              <button type="button" class="btn btn-block btn-danger">Salir</button>
+              <button type="button" class="btn btn-block btn-default">Salir</button>
             </div>
           </div>
           <!-- /.col -->
           <div class="col-md-2 col-md-offset-1">
             <div class="form-group">
-              <button type="submit" class="btn btn-block btn-success">Guardar</button>
+              <button type="submit" class="btn btn-block btn-primary">Guardar</button>
             </div>
           </div>
         </div>
@@ -203,6 +211,7 @@
 
             <!--Ingresar Matricula-->
             <div class="form-group">
+              <!-- hidden -->
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
                 <input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" required>
@@ -275,8 +284,8 @@
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary">Guardar Vehiculo</button>
+          <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary btn-lg">Guardar Vehiculo</button>
         </div>
 
         <?php
@@ -367,8 +376,8 @@
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+          <button type="button" class="btn btn-secondary btn-lg pull-left" data-dismiss="modal">Salir</button>
+          <button type="submit" class="btn btn-primary btn-lg">Guardar Cliente</button>
         </div>
 
         <?php

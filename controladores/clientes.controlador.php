@@ -174,4 +174,16 @@ class ControladorCliente
 
     }
 
+     /* Mostrar Cliente RECIENTE*/
+
+     public static function ctrMostrarClientes2($item,$valor){
+
+        /*Pasando la tabla*/
+        $tabla = "cliente";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloClientes::MdlMostrarClientes2($tabla,$item,$valor);
+        return $respuesta;
+
+    }
+
 }

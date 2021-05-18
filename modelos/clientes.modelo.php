@@ -2,71 +2,85 @@
 
 require_once "conexion.php";
 
-class ModeloClientes{
+class ModeloClientes
+{
 
 	/*=============================================
 	REGISTRO DE CLIENTES
 	=============================================*/
 
-	public static function mdlIngresarClientes($tabla,$datos){
+	public static function mdlIngresarClientes($tabla, $datos)
+	{
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
             nombre, telefono, calle, numero, colonia) 
             VALUES 
             (:nombre, :telefono, :calle, :numero, :colonia)");
 
-		$stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
-		$stmt -> bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
-		$stmt -> bindParam(":calle", $datos["calle"], PDO::PARAM_STR);
-		$stmt -> bindParam(":numero", $datos["numero"], PDO::PARAM_STR);
-		$stmt -> bindParam(":colonia", $datos["colonia"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+		$stmt->bindParam(":calle", $datos["calle"], PDO::PARAM_STR);
+		$stmt->bindParam(":numero", $datos["numero"], PDO::PARAM_STR);
+		$stmt->bindParam(":colonia", $datos["colonia"], PDO::PARAM_STR);
 
-		if($stmt -> execute()){
+		if ($stmt->execute()) {
 			return "ok";
-		}else{
+		} else {
 			return "error";
 		}
-		
-		$stmt -> close(); 
-		$stmt = null; 
 
+		$stmt->close();
+		$stmt = null;
 	}
 
 	/*=============================================
 	MOSTRAR CLIENTES
 	=============================================*/
 
-	public static function MdlMostrarClientes($tabla, $item, $valor){
+	public static function MdlMostrarClientes($tabla, $item, $valor)
+	{
 
-		if($item != null){
+		if ($item != null) {
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
-		   $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 
-		   $stmt -> execute();
+			$stmt->execute();
 
-		   return $stmt -> fetch();
-
-		}else{
+			return $stmt->fetch();
+		} else {
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
 
-		   $stmt -> execute();
+			$stmt->execute();
 
-		   return $stmt -> fetchAll();
-
+			return $stmt->fetchAll();
 		}
 
-	   $stmt -> close();
+		$stmt->close();
 
-	   $stmt = null;
-
-
-
-   }
+		$stmt = null;
+	}
 
 
+	/*=============================================
+	MOSTRAR CLIENTES reciente
+	=============================================*/
 
+	public static function MdlMostrarClientes2($tabla, $item, $valor)	{
 
+		if ($item != null) {
+
+			$stmt = Conexion::conectar()->prepare("SELECT MAX(id_c) FROM $tabla");
+
+			$stmt->execute();
+
+			return $stmt->fetch();
+		}
+
+		/* $stmt->close(); */
+
+		$stmt = null;
+	}
 }

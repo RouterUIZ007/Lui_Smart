@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2021 a las 07:26:48
+-- Tiempo de generación: 18-05-2021 a las 10:31:51
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -32,7 +32,7 @@ CREATE TABLE `cliente` (
   `nombre` varchar(60) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(15) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `calle` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `numero` int(11) DEFAULT NULL,
+  `numero` varchar(5) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `colonia` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -43,7 +43,9 @@ CREATE TABLE `cliente` (
 INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `numero`, `colonia`) VALUES
 (1, 'Dani', '123123123123', 'calle', NULL, 'col'),
 (2, 'Jose', '123345', 'a', NULL, 'ASJDA'),
-(3, 'Carlos', '12', 'j', NULL, 'jfosdjoa');
+(3, 'Carlos', '12', 'j', NULL, 'jfosdjoa'),
+(5, 'Dani3', '2345678', 'asdasd', '1234', 'dasda'),
+(6, 'Abiamel', '55815692430', 'Camino a Apazco', '100', 'Calvario');
 
 -- --------------------------------------------------------
 
@@ -86,6 +88,15 @@ CREATE TABLE `servicio` (
   `tipo` varchar(80) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `Id_v` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `servicio`
+--
+
+INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
+(1, 'gggg', '1234.00', 'Hojalatería', 1),
+(2, 'pasta', '679.00', 'Hojalatería', 1),
+(3, 'pasta', '345678.00', 'Pintura', 2);
 
 -- --------------------------------------------------------
 
@@ -146,7 +157,8 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`id_v`, `Matricula`, `marca`, `color`, `observaciones`, `id_c`, `modelo`) VALUES
-(1, 'q213421', 'asdasda', 'sadas', 'asdas', 1, 'asdasq');
+(1, 'q213421', 'asdasda', 'sadas', 'asdas', 1, 'asdasq'),
+(2, 'asd', 'asd', 'asd', 'asd', 1, 'asd');
 
 -- --------------------------------------------------------
 
@@ -227,7 +239,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -245,7 +257,7 @@ ALTER TABLE `presupuesto`
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_empleado`
@@ -263,7 +275,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`

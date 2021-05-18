@@ -1,3 +1,4 @@
+<!-- Cuerpo -->
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -139,7 +140,7 @@
 
               <tr>
 
-              <th style="width: 10px">#</th>
+                <th style="width: 10px">#</th>
                 <th>Vehiculo</th>
                 <th>Concepto</th>
                 <th>Costo</th>
@@ -168,17 +169,13 @@
                   <td>' . $value["concepto"] . '</td>
                   <td>' . $value["costo"] . '</td>
                   <td>' . $value["tipo"] . '</td>
-                  <td>
-  
+                  <td>  
                     <div class="btn-group">
-  
                       <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                       <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-  
                     </div>
-  
                   </td>
-  
+
                 </tr>';
               }
 
@@ -189,6 +186,14 @@
             </tbody>
 
           </table>
+
+          <!--TOTAL -->
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-usd"></i></span>
+              <input type="number" class="form-control input-lg" name="nuevoTotal" placeholder="Total" required>
+            </div>
+          </div>
 
           <!-- Agregar presupuesto TOTAL -->
           <div class="row justify-content-center">
@@ -208,8 +213,8 @@
           <!-- /.box-body -->
 
           <?php
-          $crearUsuarios = new ControladorUsuarios();
-          $crearUsuarios->ctrCrearUsuario();
+          $crearPresupuesto = new ControladorPresupuesto();
+          $crearPresupuesto->ctrCrearPresupuesto();
           ?>
         </form>
       </div>
@@ -244,12 +249,51 @@
 
           <div class="box-body">
 
+
             <!--Ingresar Matricula-->
             <div class="form-group">
               <!-- hidden -->
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
+
+
                 <input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" required>
+
+<!--         REGRESAR CLIETNE RECIENTE
+                <?php
+
+                $item = null;
+                $valor = null;
+
+                $clientes = ControladorCliente::ctrMostrarClientes2($item, $valor);
+
+                foreach ($clientes as $key => $value) {
+
+                  echo '<tr>
+                          <td>1</td>
+                          <td>' . $value["Id_v"] . '</td>
+                          <td>' . $value["concepto"] . '</td>
+                          <td>' . $value["costo"] . '</td>
+                          <td>' . $value["tipo"] . '</td>
+                          <td>  
+                            <div class="btn-group">
+                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                            </div>
+                          </td>
+
+                        </tr>';
+                }
+
+                ?>
+ -->
+
+
+
+
+
+
+
               </div>
             </div>
 

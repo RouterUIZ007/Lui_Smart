@@ -72,4 +72,40 @@ class ModeloServicio{
 
    }
 
+
+   public static function MdlMostrarServicio2($tabla, $item){
+
+	if($item != null){
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+
+	   $stmt -> execute();
+
+	   return $stmt -> fetch();
+
+	}else{
+
+		$stmt = Conexion::conectar()->prepare(
+			# "SELECT * FROM $tabla"
+			"SELECT SUM(costo) FROM $tabla as s 
+			inner join `vehiculo` as v 
+			on v.id_v = s.Id_v 
+			where s.Id_v = (SELECT max(Id_v) from `vehiculo`);"
+		);
+
+	   $stmt -> execute();
+
+	   return $stmt -> fetchAll();
+
+	}
+
+   $stmt -> close();
+
+   $stmt = null;
+
+
+
+}
+
 }

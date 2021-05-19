@@ -90,6 +90,15 @@ class ControladorServicios{
         $respuesta = ModeloServicio::MdlMostrarServicio($tabla,$item,$valor);
         return $respuesta;
 
+    }    
+    public static function ctrMostrarServicio2($item){
+
+        /*Pasando la tabla*/
+        $tabla = "servicio";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloServicio::MdlMostrarServicio2($tabla,$item);
+        return $respuesta;
+
     }
     
 }

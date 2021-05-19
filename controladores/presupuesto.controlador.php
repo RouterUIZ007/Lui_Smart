@@ -5,32 +5,21 @@ class ControladorPresupuesto
 
     /*metodo para crear Cliente*/
 
-    public static function ctrCrearPresupuesto(){
-        
-        if (isset($_POST["nuevoNombre"])) {
+    public static function ctrCrearPresupuesto($v)
+    {
 
-            if (preg_match('/^[a-zA-Z0-9 ñÑáéíóúÁÉÍÓÚ]+$/', $_POST["nuevoNombre"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
-                preg_match('/^[a-zA-Z ]+$/', $_POST["nuevoCalle"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoNcalle"]) &&
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoColonia"])
-            ) {
-               
-                $tabla = "cliente";
-                /*consultando en el campo matricula*/
-				$item = "nombre";
-				/*valor a consultar que viene del form*/
-				$valor = $_POST["nuevoNombre"];
-            
+        if (isset($_POST["nuevoCosto"])) {
+
+            if (preg_match('/^[0-9.0-9]+$/', $_POST["nuevoCosto"])) {
+
+                $tabla = "presupuesto";
+
+
                 $datos = array(
-                    "nombre" => $_POST["nuevoNombre"],
-                    "telefono" => $_POST["nuevoTelefono"],
-                    "calle" => $_POST["nuevoCalle"],
-                    "numero" => $_POST["nuevoNcalle"],
-                    "colonia" => $_POST["nuevoColonia"]
+                    "costo" => $_POST["nuevoCosto"]
                 );
 
-                $respuesta = ModeloClientes::mdlIngresarClientes($tabla, $datos);
+                $respuesta = ModeloPresupuesto::mdlIngresarPresupuesto($tabla, $datos, $v);
 
                 if ($respuesta == "ok") {
 
@@ -39,7 +28,7 @@ class ControladorPresupuesto
 					swal({
 
 						type: "success",
-						title: "¡El Cliente ha sido guardado correctamente!",
+						title: "¡El presupuesto se agrego correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -63,7 +52,7 @@ class ControladorPresupuesto
 					swal({
 
 						type:"error",
-						title:"¡El Cliente no puede ir vacío o llevar caracteres especiales!",
+						title:"¡Presupuesto no guardado :c!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false

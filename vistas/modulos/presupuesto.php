@@ -1,5 +1,3 @@
-
-
 <!-- Cuerpo -->
 <div class="content-wrapper">
 
@@ -134,27 +132,26 @@
 
       <!-- Body form xDF -->
       <div class="box-body">
-        <form role="form" method="post" enctype="multipart/form-darta">
 
 
-          <table class="table table-bordered table-striped dt-responsive tablas">
-            <thead>
-              <tr>
-                <th style="width: 10px">#</th>
-                <th>Vehiculo</th>
-                <th>Concepto</th>
-                <th>Costo</th>
-                <th>Servicio</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $item = null;
-              $valor = null;
-              $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
-              foreach ($clientes as $key => $value) {
-                echo '<tr>
+        <table class="table table-bordered table-striped dt-responsive tablas">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Vehiculo</th>
+              <th>Concepto</th>
+              <th>Costo</th>
+              <th>Servicio</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $item = null;
+            $valor = null;
+            $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
+            foreach ($clientes as $key => $value) {
+              echo '<tr>
                   <td>1</td>
                   <td>' . $value["Id_v"] . '</td>
                   <td>' . $value["concepto"] . '</td>
@@ -167,16 +164,27 @@
                     </div>
                   </td>
                 </tr>';
-              }
-              ?>
-            </tbody>
-          </table>
+            }
+            ?>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="box-body">
+        <form role="form" method="post" enctype="multipart/form-darta">
 
           <!--TOTAL -->
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-usd"></i></span>
-              <input type="number" class="form-control input-lg" name="nuevoTotal" placeholder="Total" required>
+              <!-- TOLTAL xD -->
+              <?php
+              $item = null;
+              $total = ControladorServicios::ctrMostrarServicio2($item);
+              #echo json_encode($total[0][0]);
+              echo '<input type="text" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Id Vehiculo" value="' . $total[0][0] . '" disabled required>'
+              ?>
             </div>
           </div>
 
@@ -198,8 +206,14 @@
           <!-- /.box-body -->
 
           <?php
+
+          $item = null;
+
+          $v = ControladorVehiculos::ctrMostrarVehiculo2($item);
+#           echo json_encode($v[0]);
+
           $crearPresupuesto = new ControladorPresupuesto();
-          $crearPresupuesto->ctrCrearPresupuesto();
+          $crearPresupuesto->ctrCrearPresupuesto($v[0]);
           ?>
         </form>
       </div>

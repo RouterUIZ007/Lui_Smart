@@ -19,8 +19,8 @@ class ModeloServicio{
 		$stmt -> bindParam(":concepto", $datos["concepto"], PDO::PARAM_STR);
 		$stmt -> bindParam(":costo", $datos["costo"], PDO::PARAM_STR);
 		$stmt -> bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
-
-		if($stmt -> execute()){
+		$aux = $stmt -> execute();
+		if($aux){
 			return "ok";
 		}else{
 			return "error";
@@ -50,7 +50,13 @@ class ModeloServicio{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare(
+				# "SELECT * FROM $tabla"
+				"SELECT * FROM $tabla as s 
+				inner join `vehiculo` as v 
+				on v.id_v = s.Id_v 
+				where s.Id_v = (SELECT max(Id_v) from `vehiculo`)"
+			);
 
 		   $stmt -> execute();
 

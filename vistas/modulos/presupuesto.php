@@ -1,3 +1,5 @@
+
+
 <!-- Cuerpo -->
 <div class="content-wrapper">
 
@@ -59,20 +61,21 @@
       <!-- Body form xDF -->
       <div class="box-body">
         <form role="form" method="post" enctype="multipart/form-darta">
-          <!--Cabecera-->
 
-          <!--  <div class="modal-header" style="background:#3c8dbc;color: white">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h5 class="modal-title">Agregar</h5>
-          </div> -->
-          <!--Cuerpo-->
 
           <!--ID vehiculo-->
           <div class="form-group">
-            <!--  hidden -->
+            <!--  ID VEHICULO -->
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-key"></i></span>
-              <input type="text" class="form-control input-lg" name="nuevoV" placeholder="Ingresar Id Vehiculo" required>
+
+              <?php
+              $item = null;
+              $vehiculo = ControladorVehiculos::ctrMostrarVehiculo2($item);
+
+              # echo json_encode($vehiculo);
+              echo '<input type="number" class="form-control input-lg" name="nuevoV" placeholder="Ingresar Id Vehiculo" value="' . $vehiculo[0] . '" required>'
+              ?>
             </div>
           </div>
 
@@ -135,35 +138,23 @@
 
 
           <table class="table table-bordered table-striped dt-responsive tablas">
-
             <thead>
-
               <tr>
-
                 <th style="width: 10px">#</th>
                 <th>Vehiculo</th>
                 <th>Concepto</th>
                 <th>Costo</th>
                 <th>Servicio</th>
                 <th>Acciones</th>
-
               </tr>
-
             </thead>
-
             <tbody>
-
               <?php
-
               $item = null;
               $valor = null;
-
               $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
-
               foreach ($clientes as $key => $value) {
-
                 echo '<tr>
-
                   <td>1</td>
                   <td>' . $value["Id_v"] . '</td>
                   <td>' . $value["concepto"] . '</td>
@@ -175,16 +166,10 @@
                       <button class="btn btn-danger"><i class="fa fa-times"></i></button>
                     </div>
                   </td>
-
                 </tr>';
               }
-
-
-
               ?>
-
             </tbody>
-
           </table>
 
           <!--TOTAL -->
@@ -257,43 +242,17 @@
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
 
 
-                <input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" required>
 
-<!--         REGRESAR CLIETNE RECIENTE
+
                 <?php
 
                 $item = null;
-                $valor = null;
+                $clientes = ControladorCliente::ctrMostrarClientes2($item);
+                # echo json_encode($clientes[0]);
 
-                $clientes = ControladorCliente::ctrMostrarClientes2($item, $valor);
-
-                foreach ($clientes as $key => $value) {
-
-                  echo '<tr>
-                          <td>1</td>
-                          <td>' . $value["Id_v"] . '</td>
-                          <td>' . $value["concepto"] . '</td>
-                          <td>' . $value["costo"] . '</td>
-                          <td>' . $value["tipo"] . '</td>
-                          <td>  
-                            <div class="btn-group">
-                              <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                              <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-                            </div>
-                          </td>
-
-                        </tr>';
-                }
+                echo '<input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" value="' . $clientes[0] . '" required >';
 
                 ?>
- -->
-
-
-
-
-
-
-
               </div>
             </div>
 
@@ -383,8 +342,6 @@
 </div>
 
 
-
-
 <!-- modal agregar CLIENTE -->
 <!-- Modal -->
 <div id="modalAgregarC" class="modal fade" role="dialog">
@@ -412,7 +369,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required onkeyup="mayus(this);">
               </div>
             </div>
 
@@ -428,21 +385,21 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required>
+                <input type="text" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required onkeyup="mayus(this);">
               </div>
             </div>
             <!--Ingresar Ncalle-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                <input type="number" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required>
+                <input type="text" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required onkeyup="mayus(this);">
               </div>
             </div>
             <!--Ingresar Colonia-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required>
+                <input type="text" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required onkeyup="mayus(this);">
               </div>
             </div>
 

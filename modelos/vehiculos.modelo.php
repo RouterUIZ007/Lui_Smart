@@ -68,4 +68,23 @@ class ModeloVehiculos{
 
    }
 
+
+
+   public static function MdlMostrarVehiculo2($tabla, $item)	{
+
+	if ($item == null) {
+
+		$stmt = Conexion::conectar()->prepare("SELECT MAX(id_v) FROM $tabla");
+
+		$stmt->execute();
+
+		return $stmt->fetch();
+	} 
+
+
+	$stmt->close();
+	$stmt = null;
+}
+
+
 }

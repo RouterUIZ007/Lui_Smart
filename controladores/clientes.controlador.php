@@ -9,11 +9,11 @@ class ControladorCliente
 
         if (isset($_POST["nuevoNombre"])) {
 
-            if (preg_match('/^[a-zA-Z0-9 ñÑáéíóúÁÉÍÓÚ]+$/', $_POST["nuevoNombre"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
-                preg_match('/^[a-zA-Z ]+$/', $_POST["nuevoCalle"]) &&
+            if (preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
+                preg_match('/^[0-9{10}]+$/', $_POST["nuevoTelefono"]) &&
+                preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCalle"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoNcalle"]) &&
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoColonia"])
+                preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoColonia"])
             ) {
                
                 $tabla = "cliente";
@@ -30,9 +30,9 @@ class ControladorCliente
                     "colonia" => $_POST["nuevoColonia"]
                 );
 
-                $respuesta = ModeloClientes::mdlIngresarClientes($tabla, $datos);
+                # $respuesta = ModeloClientes::mdlIngresarClientes($tabla, $datos);
 
-                if ($respuesta == "ok") {
+                if ($ModeloClientes::mdlIngresarClientes($tabla, $datos) == "ok") {
 
                     echo '<script>
 
@@ -176,12 +176,12 @@ class ControladorCliente
 
      /* Mostrar Cliente RECIENTE*/
 
-     public static function ctrMostrarClientes2($item,$valor){
+     public static function ctrMostrarClientes2($item){
 
         /*Pasando la tabla*/
         $tabla = "cliente";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloClientes::MdlMostrarClientes2($tabla,$item,$valor);
+        $respuesta = ModeloClientes::MdlMostrarClientes2($tabla,$item);
         return $respuesta;
 
     }

@@ -8,7 +8,7 @@ class ControladorServicios{
         if (isset($_POST["nuevoV"])) {
 
             if (
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoV"]) &&
+                preg_match('/^[0-9]+$/', $_POST["nuevoV"]) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoConcepto"]) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoCosto"]) &&
                 preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoServicio"])
@@ -28,9 +28,9 @@ class ControladorServicios{
                     "tipo" => $_POST["nuevoServicio"]
                 );
 
-                $respuesta = ModeloServicio::mdlIngresarServicio($tabla, $datos);
+                # $respuesta = ModeloServicio::mdlIngresarServicio($tabla, $datos);
 
-                if ($respuesta == "ok") {
+                if (ModeloServicio::mdlIngresarServicio($tabla, $datos) == "ok") {
 
                     echo '<script>
 

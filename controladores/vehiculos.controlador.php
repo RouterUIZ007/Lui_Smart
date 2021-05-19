@@ -171,5 +171,16 @@ class ControladorVehiculos{
         return $respuesta;
 
     }
+
+    
+    public static function ctrMostrarVehiculo2($item){
+
+        /*Pasando la tabla*/
+        $tabla = "vehiculo";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloVehiculos::MdlMostrarVehiculo2($tabla,$item);
+        return $respuesta;
+
+    }
     
 }

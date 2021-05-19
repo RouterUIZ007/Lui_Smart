@@ -68,19 +68,19 @@ class ModeloClientes
 	MOSTRAR CLIENTES reciente
 	=============================================*/
 
-	public static function MdlMostrarClientes2($tabla, $item, $valor)	{
+	public static function MdlMostrarClientes2($tabla, $item)	{
 
-		if ($item != null) {
+		if ($item == null) {
 
 			$stmt = Conexion::conectar()->prepare("SELECT MAX(id_c) FROM $tabla");
 
 			$stmt->execute();
 
 			return $stmt->fetch();
-		}
+		} 
 
-		/* $stmt->close(); */
 
+		$stmt->close();
 		$stmt = null;
 	}
 }

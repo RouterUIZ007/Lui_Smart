@@ -30,9 +30,9 @@ class ControladorCliente
                     "colonia" => $_POST["nuevoColonia"]
                 );
 
-                # $respuesta = ModeloClientes::mdlIngresarClientes($tabla, $datos);
+                $respuesta = ModeloClientes::mdlIngresarClientes($tabla, $datos);
 
-                if ($ModeloClientes::mdlIngresarClientes($tabla, $datos) == "ok") {
+                if ($respuesta == "ok") {
 
                     echo '<script>
 

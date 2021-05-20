@@ -2,10 +2,13 @@
 <div class="content-wrapper">
 
   <section class="content-header">
-
-    <h1>
-      Presupuestos
-    </h1>
+    <div class="row">
+      <div class="col">
+        <h1 class="text-center">
+          Agregar Presupuestos
+        </h1>
+      </div>
+    </div>
 
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
@@ -59,8 +62,6 @@
       <!-- Body form xDF -->
       <div class="box-body">
         <form role="form" method="post" enctype="multipart/form-darta">
-
-
           <!--ID vehiculo-->
           <div class="form-group">
             <!--  ID VEHICULO -->
@@ -76,7 +77,6 @@
               ?>
             </div>
           </div>
-
           <!--Ingresar concepto-->
           <div class="form-group">
             <div class="input-group">
@@ -84,7 +84,6 @@
               <input type="text" class="form-control input-lg" name="nuevoConcepto" placeholder="Ingresar Concepto" required>
             </div>
           </div>
-
           <!--Ingresar el costo-->
           <div class="form-group">
             <div class="input-group">
@@ -92,7 +91,6 @@
               <input type="number" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Costo" required>
             </div>
           </div>
-
           <!--Ingresar el Servicio -->
           <div class="form-group">
             <div class="input-group">
@@ -106,7 +104,6 @@
               </select>
             </div>
           </div>
-
           <div class="row justify-content-center">
 
             <!-- /.col -->
@@ -128,11 +125,8 @@
         </form>
       </div>
 
-
-
       <!-- Body form xDF -->
       <div class="box-body">
-
 
         <table class="table table-bordered table-striped dt-responsive tablas">
           <thead>
@@ -152,7 +146,7 @@
             $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
             foreach ($clientes as $key => $value) {
               echo '<tr>
-                  <td>1</td>
+                  <td>' . $value["codigo"] . '</td>
                   <td>' . $value["Id_v"] . '</td>
                   <td>' . $value["concepto"] . '</td>
                   <td>' . $value["costo"] . '</td>
@@ -173,7 +167,6 @@
 
       <div class="box-body">
         <form role="form" method="post" enctype="multipart/form-darta">
-
           <!--TOTAL -->
           <div class="form-group">
             <div class="input-group">
@@ -183,40 +176,37 @@
               $item = null;
               $total = ControladorServicios::ctrMostrarServicio2($item);
               #echo json_encode($total[0][0]);
-              echo '<input type="text" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Id Vehiculo" value="' . $total[0][0] . '" disabled required>'
+              echo '
+              <input type="text" class="form-control input-lg" name="nuevoTotal" 
+              placeholder="Total del presupuesto" value="' . $total[0][0] . '" disabled required>'
               ?>
             </div>
           </div>
-
           <!-- Agregar presupuesto TOTAL -->
           <div class="row justify-content-center">
-
             <div class="col-md-2 col-md-offset-3">
               <div class="form-group">
-                <button type="button" class="btn btn-block btn-default">Salir</button>
+                <button type="button" class="btn btn-block btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Salir</button>
               </div>
             </div>
             <!-- /.col -->
             <div class="col-md-2 col-md-offset-1">
               <div class="form-group">
-                <button type="submit" class="btn btn-block btn-primary">Guardar</button>
+                <button type="submit" name="btn1" class="btn btn-block btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
               </div>
             </div>
           </div>
           <!-- /.box-body -->
-
           <?php
 
-          $item = null;
-
-          $v = ControladorVehiculos::ctrMostrarVehiculo2($item);
-#           echo json_encode($v[0]);
-
-          $crearPresupuesto = new ControladorPresupuesto();
-          $crearPresupuesto->ctrCrearPresupuesto($v[0]);
+          if (isset($_POST["btn1"])) {
+            $crearP = new ControladorPresupuesto();
+            $crearP->ctrCrearPresupuesto();
+          }
           ?>
         </form>
       </div>
+
     </div>
   </section>
   <!-- /.content -->
@@ -248,6 +238,12 @@
 
           <div class="box-body">
 
+            <!--r-->
+            <div class="form-group">
+              <div class="input-group">
+                <p style="color: orange">* Compos obligatorios</p>
+              </div>
+            </div>
 
             <!--Ingresar Matricula-->
             <div class="form-group">
@@ -264,7 +260,7 @@
                 $clientes = ControladorCliente::ctrMostrarClientes2($item);
                 # echo json_encode($clientes[0]);
 
-                echo '<input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" value="' . $clientes[0] . '" required >';
+                echo '<input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" value="' . $clientes[0] . '" onkeyup="mayus(this);" required >';
 
                 ?>
               </div>
@@ -274,7 +270,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" required>
+                <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" onkeyup="mayus(this);" required>
               </div>
             </div>
 
@@ -282,7 +278,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoMarca" placeholder="Ingresar Marca" required>
+                <input type="text" class="form-control input-lg" name="nuevoMarca" placeholder="Ingresar Marca" onkeyup="mayus(this);" required>
               </div>
             </div>
 
@@ -290,7 +286,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" required>
+                <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" onkeyup="mayus(this);" required>
               </div>
             </div>
 
@@ -298,7 +294,7 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-paint-brush"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" required>
+                <input type="text" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" onkeyup="mayus(this);" required>
               </div>
             </div>
 
@@ -306,37 +302,17 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" required>
+                <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" onkeyup="mayus(this);" required>
               </div>
             </div>
 
-            <!--Ingresar el Cliente 
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                <select class="form-control input-lg" name="nuevoCliente">
-
-                  <option value="">Seleccionar Cliente</option>
-                  <option value="Cliente1">cliente 1</option>
-                  <option value="Cliente2">cliente 2</option>
-                  <option value="Cliente3">cliente 3</option>
-                  <option value="Cliente4">cliente 4</option>
-                  <option value="Cliente5">cliente 5</option>
-                  <option value="Cliente6">cliente 6</option>
-                  <option value="Cliente7">cliente 7</option>
-                  <option value="Cliente8">cliente 8</option>
-
-
-                </select>
-              </div>
-            </div> -->
           </div>
 
         </div>
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary btn-lg">Guardar Vehiculo</button>
         </div>
 
@@ -378,6 +354,13 @@
         <div class="modal-body">
 
           <div class="box-body">
+
+            <!--r-->
+            <div class="form-group">
+              <div class="input-group">
+                <p style="color: orange">* Compos obligatorios</p>
+              </div>
+            </div>
 
             <!--Ingresar nombre-->
             <div class="form-group">
@@ -426,7 +409,7 @@
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary btn-lg pull-left" data-dismiss="modal">Salir</button>
+          <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
           <button type="submit" class="btn btn-primary btn-lg">Guardar Cliente</button>
         </div>
 

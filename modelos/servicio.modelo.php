@@ -2,33 +2,33 @@
 
 require_once "conexion.php";
 
-class ModeloServicio{
+class ModeloServicio
+{
 
 	/*=============================================
 	REGISTRO DE VEHICULOS 
 	=============================================*/
 
-	public static function mdlIngresarServicio($tabla,$datos){
+	public static function mdlIngresarServicio($tabla, $datos)
+	{
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
-            Id_v,concepto, costo, tipo) 
+            Id_v, concepto, costo, tipo) 
             VALUES 
             (:Id_v, :concepto, :costo, :tipo)");
+		$stmt->bindParam(":Id_v", $datos["Id_v"], PDO::PARAM_STR);
+		$stmt->bindParam(":concepto", $datos["concepto"], PDO::PARAM_STR);
+		$stmt->bindParam(":costo", $datos["costo"], PDO::PARAM_STR);
+		$stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
 
-		$stmt -> bindParam(":Id_v", $datos["Id_v"], PDO::PARAM_STR);
-		$stmt -> bindParam(":concepto", $datos["concepto"], PDO::PARAM_STR);
-		$stmt -> bindParam(":costo", $datos["costo"], PDO::PARAM_STR);
-		$stmt -> bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
-		$aux = $stmt -> execute();
-		if($aux){
+		if ($stmt->execute()) {
 			return "ok";
-		}else{
+		} else {
 			return "error";
 		}
-		
-		$stmt -> close(); 
-		$stmt = null; 
 
+		$stmt->close();
+		$stmt = null;
 	}
 
 
@@ -36,19 +36,15 @@ class ModeloServicio{
 	MOSTRAR VEHICULOS
 	=============================================*/
 
-	public static function MdlMostrarServicio($tabla, $item, $valor){
+	public static function MdlMostrarServicio($tabla, $item, $valor)
+	{
 
-		if($item != null){
-
+		if ($item != null) {
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-		   $stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
-
-		   $stmt -> execute();
-
-		   return $stmt -> fetch();
-
-		}else{
+			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
+			$stmt->execute();
+			return $stmt->fetch();
+		} else {
 
 			$stmt = Conexion::conectar()->prepare(
 				# "SELECT * FROM $tabla"
@@ -58,54 +54,35 @@ class ModeloServicio{
 				where s.Id_v = (SELECT max(Id_v) from `vehiculo`)"
 			);
 
-		   $stmt -> execute();
+			$stmt->execute();
 
-		   return $stmt -> fetchAll();
-
+			return $stmt->fetchAll();
 		}
 
-	   $stmt -> close();
+		$stmt->close();
 
-	   $stmt = null;
-
-
-
-   }
+		$stmt = null;
+	}
 
 
-   public static function MdlMostrarServicio2($tabla, $item){
+	public static function MdlMostrarServicio2($tabla, $item)
+	{
 
-	if($item != null){
-
-		$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-
-	   $stmt -> execute();
-
-	   return $stmt -> fetch();
-
-	}else{
-
-		$stmt = Conexion::conectar()->prepare(
-			# "SELECT * FROM $tabla"
-			"SELECT SUM(costo) FROM $tabla as s 
+		if ($item == null) {
+			$stmt = Conexion::conectar()->prepare(
+				"SELECT SUM(costo) FROM $tabla as s 
 			inner join `vehiculo` as v 
 			on v.id_v = s.Id_v 
 			where s.Id_v = (SELECT max(Id_v) from `vehiculo`);"
-		);
+			);
 
-	   $stmt -> execute();
+			$stmt->execute();
 
-	   return $stmt -> fetchAll();
+			return $stmt->fetchAll();
+		}
 
+		$stmt->close();
+
+		$stmt = null;
 	}
-
-   $stmt -> close();
-
-   $stmt = null;
-
-
-
-}
-
 }

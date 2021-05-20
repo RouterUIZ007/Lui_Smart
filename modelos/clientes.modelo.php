@@ -9,8 +9,7 @@ class ModeloClientes
 	REGISTRO DE CLIENTES
 	=============================================*/
 
-	public static function mdlIngresarClientes($tabla, $datos)
-	{
+	public static function mdlIngresarClientes($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
             nombre, telefono, calle, numero, colonia) 

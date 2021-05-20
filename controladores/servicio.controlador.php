@@ -2,8 +2,7 @@
 
 class ControladorServicios{
 
-    public static function ctrCrearServicio()
-    {
+    public static function ctrCrearServicio(){
 
         if (isset($_POST["nuevoV"])) {
 
@@ -28,16 +27,16 @@ class ControladorServicios{
                     "tipo" => $_POST["nuevoServicio"]
                 );
 
-                # $respuesta = ModeloServicio::mdlIngresarServicio($tabla, $datos);
+                $respuesta = ModeloServicio::mdlIngresarServicio($tabla, $datos);
 
-                if (ModeloServicio::mdlIngresarServicio($tabla, $datos) == "ok") {
+                if ($respuesta == "ok") {
 
                     echo '<script>
 
 					swal({
 
 						type: "success",
-						title: "¡Se agrego de manera corecta el servicio :)!",
+						title: "¡Se agrego de manera correcta el servicio xD :)!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -91,6 +90,7 @@ class ControladorServicios{
         return $respuesta;
 
     }    
+
     public static function ctrMostrarServicio2($item){
 
         /*Pasando la tabla*/

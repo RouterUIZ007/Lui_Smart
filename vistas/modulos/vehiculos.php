@@ -1,72 +1,71 @@
+<div class="content-wrapper">
 
-  <div class="content-wrapper">
+  <section class="content-header">
 
-    <section class="content-header">
-      
-      <h1>
-        Vehiculos
-      </h1>
+    <h1>
+      Vehiculos
+    </h1>
 
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Vehiculos</li>
-      </ol>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li class="active">Vehiculos</li>
+    </ol>
 
-    </section>
+  </section>
 
-    <!-- Main content -->
+  <!-- Main content -->
   <section class="content">
 
-      <!-- Default box -->
-      <div class="box">
+    <!-- Default box -->
+    <div class="box">
 
-        <div class="box-header with-border">
+      <div class="box-header with-border">
 
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarV2">Agregar Vehiculo</button>
-       
-        </div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarV">Agregar Vehiculo</button>
 
-        <div class="box-body">
+      </div>
 
-          <table class="table table-bordered table-striped dt-responsive tablas">
+      <div class="box-body">
 
-            <thead>
+        <table class="table table-bordered table-striped dt-responsive tablas">
 
-              <tr>
+          <thead>
 
-                <th style="width: 10px">#</th>
-                <th>Matricula</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Color</th>
-                <th>Observaciones</th>
-                <th>Cliente</th>
-                <th>Acciones</th>
+            <tr>
 
-              </tr>
+              <th style="width: 10px">#</th>
+              <th>Matricula</th>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Color</th>
+              <th>Observaciones</th>
+              <th>Cliente</th>
+              <th>Acciones</th>
 
-            </thead>
+            </tr>
 
-            <tbody>
+          </thead>
+
+          <tbody>
 
             <?php
 
-              $item= null;
-              $valor= null;
+            $item = null;
+            $valor = null;
 
-              $vehiculos = ControladorVehiculos::ctrMostrarVehiculos($item,$valor);
+            $vehiculos = ControladorVehiculos::ctrMostrarVehiculos($item, $valor);
 
-              foreach ($vehiculos as $key => $value){
+            foreach ($vehiculos as $key => $value) {
 
-                echo '<tr>
+              echo '<tr>
 
                 <td>1</td>
-                <td>'.$value["Matricula"].'</td>
-                <td>'.$value["marca"].'</td>
-                <td>'.$value["modelo"].'</td>
-                <td>'.$value["color"].'</td>
-                <td>'.$value["observaciones"].'</td>
-                <td>'.$value["id_c"].'</td>
+                <td>' . $value["Matricula"] . '</td>
+                <td>' . $value["marca"] . '</td>
+                <td>' . $value["modelo"] . '</td>
+                <td>' . $value["color"] . '</td>
+                <td>' . $value["observaciones"] . '</td>
+                <td>' . $value["id_c"] . '</td>
                 <td>
 
                   <div class="btn-group">
@@ -79,17 +78,14 @@
                 </td>
 
               </tr>';
+            }
 
-              }
 
-              
-             ?>
+            ?>
 
-            </tbody>
+          </tbody>
 
-          </table>
-
-        </div>
+        </table>
 
         <!-- /.box-body -->
       </div>
@@ -101,7 +97,7 @@
 
 <!-- modal agregar VEHICULO -->
 <!-- Modal -->
-<div id="modalAgregarV2" class="modal fade" role="dialog">
+<div id="modalAgregarV" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
@@ -122,11 +118,32 @@
 
           <div class="box-body">
 
-            <!--id Cliente-->
+            <!--r-->
             <div class="form-group">
               <div class="input-group">
+                <p style="color: orange">* Campos obligatorios</p>
+              </div>
+            </div>
+
+            <!--Ingresar Matricula-->
+            <div class="form-group">
+              <!-- hidden -->
+              <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                <input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" required>
+
+
+                <abbr id="toltipx" title="Ingrese el ID del cliente">
+
+                  <?php
+
+                  $item = null;
+                  $clientes = ControladorCliente::ctrMostrarClientes2($item);
+                  # echo json_encode($clientes[0]);
+
+                  echo '<input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" value="' . $clientes[0] . '" onkeyup="mayus(this);" required >';
+
+                  ?>
+                </abbr>
               </div>
             </div>
 
@@ -134,7 +151,9 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" required>
+                <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
+                  <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" onkeyup="mayus(this);" required>
+                </abbr>
               </div>
             </div>
 
@@ -142,7 +161,9 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoMarca" placeholder="Ingresar Marca" required>
+                <abbr id="toltipx" title="Ingrese la marca del vehículo">
+                  <input type="text" class="form-control input-lg" name="nuevoMarca" placeholder="Ingresar Marca" onkeyup="mayus(this);" required>
+                </abbr>
               </div>
             </div>
 
@@ -150,7 +171,9 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" required>
+                <abbr id="toltipx" title="Ingrese el modelo del vehículo">
+                  <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" onkeyup="mayus(this);" required>
+                </abbr>
               </div>
             </div>
 
@@ -158,7 +181,9 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-paint-brush"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" required>
+                <abbr id="toltipx" title="Ingrese el color del vehículo">
+                  <input type="text" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" onkeyup="mayus(this);" required>
+                </abbr>
               </div>
             </div>
 
@@ -166,44 +191,30 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" required>
+                <abbr id="toltipx" title="Agregue una breve descripción del vehículo">
+                  <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" onkeyup="mayus(this);" required>
+                </abbr>
               </div>
             </div>
 
-            <!--Ingresar el Cliente 
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-users"></i></span>
-                <select class="form-control input-lg" name="nuevoCliente">
-
-                  <option value="">Seleccionar Cliente</option>
-                  <option value="Cliente1">cliente 1</option>
-                  <option value="Cliente2">cliente 2</option>
-                  <option value="Cliente3">cliente 3</option>
-                  <option value="Cliente4">cliente 4</option>
-                  <option value="Cliente5">cliente 5</option>
-                  <option value="Cliente6">cliente 6</option>
-                  <option value="Cliente7">cliente 7</option>
-                  <option value="Cliente8">cliente 8</option>
-
-
-                </select>
-              </div>
-            </div> -->
           </div>
 
         </div>
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary btn-lg ">Guardar Vehiculo</button>
+          <abbr id="toltipx" title="Cancelar formulario del vehículo">
+            <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
+          </abbr>
+          <abbr id="toltipx" title="Guardar formulario del vehículo">
+            <button type="submit" class="btn btn-primary btn-lg">Guardar Vehiculo</button>
+          </abbr>
         </div>
 
         <?php
 
         $crearVehiculo = new ControladorVehiculos();
-        $crearVehiculo->ctrCrearVehiculos2();
+        $crearVehiculo->ctrCrearVehiculos();
 
         ?>
 
@@ -214,4 +225,3 @@
   </div>
 
 </div>
-

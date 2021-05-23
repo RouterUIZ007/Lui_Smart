@@ -1,72 +1,72 @@
+<div class="content-wrapper">
 
-  <div class="content-wrapper">
+  <section class="content-header">
 
-    <section class="content-header">
-      
-      <h1>
-        Clientes
-      </h1>
+    <h1>
+      Clientes
+    </h1>
 
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Clientes</li>
-      </ol>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li class="active">Clientes</li>
+    </ol>
 
-    </section>
+  </section>
 
-    <!-- Main content -->
+  <!-- Main content -->
   <section class="content">
 
-      <!-- Default box -->
-      <div class="box">
+    <!-- Default box -->
+    <div class="box">
 
-        <div class="box-header with-border">
+      <div class="box-header with-border">
 
-          <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarC2">Agregar Cliente</button>
-       
-        </div>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarC">Agregar Cliente</button>
 
-        <div class="box-body">
+      </div>
 
-          <table class="table table-bordered table-striped dt-responsive tablas">
+      <div class="box-body">
 
-            <thead>
+        <table class="table table-bordered table-striped dt-responsive tablas">
 
-              <tr>
+          <thead>
 
-                <th style="width: 10px">#</th>
-                <th>Nombre</th>
-                <th>Telefono</th>
-                <th>Calle</th>
-                <th>Numero de Calle</th>
-                <th>Colonia</th>
-                <th>Acciones</th>
+            <tr>
 
-              </tr>
+              <th style="width: 10px">#</th>
+              <th>Nombre</th>
+              <th>Telefono</th>
+              <th>Calle</th>
+              <th>Numero de Interior</th>
+              <th>Numero de Exterior</th>
+              <th>Colonia</th>
+              <th>Acciones</th>
 
-            </thead>
+            </tr>
 
-            <tbody>
+          </thead>
 
-              <?php
-              
-                $item = null;
-                $valor = null;
+          <tbody>
 
-                $clientes = ControladorCliente::ctrMostrarClientes($item,$valor);
+            <?php
 
-                foreach ($clientes as $key =>$value){
+            $item = null;
+            $valor = null;
 
-                  echo '<tr>
+            $clientes = ControladorCliente::ctrMostrarClientes($item, $valor);
 
-                  <td>1</td>
-                  <td>'.$value["nombre"].'</td>
-                  <td>'.$value["telefono"].'</td>
-                  <td>'.$value["calle"].'</td>
-                  <td>'.$value["numero"].'</td>
-                  <td>'.$value["colonia"].'</td>
+            foreach ($clientes as $key => $value) {
+
+              echo '<tr>
+                  <td>' . $value["id_c"] . '</td>
+                  <td>' . $value["nombre"] . '</td>
+                  <td>' . $value["telefono"] . '</td>
+                  <td>' . $value["calle"] . '</td>
+                  <td>' . $value["inter"] . '</td>
+                  <td>' . $value["exter"] . '</td>
+                  <td>' . $value["colonia"] . '</td>
                   <td>
-  
+
                     <div class="btn-group">
   
                       <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
@@ -77,18 +77,16 @@
                   </td>
   
                 </tr>';
+            }
 
-                }
 
-              
 
-             ?>
+            ?>
 
-            </tbody>
+          </tbody>
 
-          </table>
+        </table>
 
-        </div>
 
         <!-- /.box-body -->
       </div>
@@ -100,28 +98,56 @@
 
 <!-- modal agregar CLIENTE -->
 <!-- Modal -->
-<div id="modalAgregarC2" class="modal fade" role="dialog">
+<div id="modalAgregarC" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
-      <form role="form" method="post" enctype="multipart/form-darta">
+
+
+      <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
         <!--Cabecera-->
+
         <div class="modal-header" style="background:#3c8dbc;color: white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Agregar Cliente</h4>
         </div>
+
         <!--Cuerpo-->
+
         <div class="modal-body">
 
           <div class="box-body">
 
-            <!--Ingresar nombre-->
+            <!--r-->
             <div class="form-group">
               <div class="input-group">
+                <p style="color: orange">* Campos obligatorios</p>
+              </div>
+            </div>
+
+
+
+
+
+            <!--   pueba   AQUI XD-->
+            <div class="form-group" id="grupo__nuevoNombre">
+              <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+                <abbr id="toltipx" title="Ingrese el nombre completo del cliente">
+                  <input id="nuevoNombre" type="text" class="form-control input-lg formulario__input" name="nuevoNombre" placeholder="Ingresar nombre" required onkeyup="mayus(this);">
+                </abbr>
+              </div>
+            </div>
+
+            <!--Ingresar nombre-->
+            <div class="form-group" id="grupo__nuevoNombre">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese el nombre completo del cliente">
+                  <input id="nuevoNombre" type="text" class="form-control input-lg formulario__input" name="nuevoNombre" placeholder="Ingresar nombre" required onkeyup="mayus(this);">
+                </abbr>
               </div>
             </div>
 
@@ -129,7 +155,9 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                <input type="number" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Telefono" required>
+                <abbr id="toltipx" title="Ingrese el teléfono celular del cliente">
+                  <input type="number" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar Telefono" required>
+                </abbr>
               </div>
             </div>
 
@@ -137,21 +165,36 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required>
+                <abbr id="toltipx" title="Ingrese el nombre de la calle del domicilio">
+                  <input type="text" class="form-control input-lg" name="nuevoCalle" placeholder="Ingresar Calle" required onkeyup="mayus(this);">
+                </abbr>
               </div>
             </div>
             <!--Ingresar Ncalle-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                <input type="number" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required>
+                <abbr id="toltipx" title="Ingrese el número interior del domicilio">
+                  <input type="text" class="form-control input-lg" name="nuevoInter" placeholder="Ingresar numero interior" required onkeyup="mayus(this);">
+                </abbr>
+              </div>
+            </div>
+            <!--Ingresar Ncalle-->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
+                <abbr id="toltipx" title="Ingrese el número exterior del domicilio">
+                  <input type="text" class="form-control input-lg" name="nuevoExter" placeholder="Ingresar numero exterior" required onkeyup="mayus(this);">
+                </abbr>
               </div>
             </div>
             <!--Ingresar Colonia-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required>
+                <abbr id="toltipx" title="Ingrese el nombre de la colonia del domicilio">
+                  <input type="text" class="form-control input-lg" name="nuevoColonia" placeholder="Ingresar Colonia" required onkeyup="mayus(this);">
+                </abbr>
               </div>
             </div>
 
@@ -161,16 +204,21 @@
           </div>
 
         </div>
+
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default btn-lg pull-left" data-dismiss="modal">Salir</button>
-          <button type="submit" class="btn btn-primary btn-lg">Guardar Cliente</button>
+          <abbr id="toltipx" title="Cancelar formulario del cliente">
+            <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
+          </abbr>
+          <abbr id="toltipx" title="Guardar formulario del cliente">
+            <button type="submit" class="btn btn-primary btn-lg">Guardar Cliente</button>
+          </abbr>
         </div>
 
         <?php
 
         $crearCliente = new ControladorCliente();
-        $crearCliente->ctrCrearClientes2();
+        $crearCliente->ctrCrearClientes();
 
         ?>
 

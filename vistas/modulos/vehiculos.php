@@ -59,7 +59,7 @@
 
               echo '<tr>
 
-                <td>1</td>
+                <td>' . $value["id_v"] . '</td>
                 <td>' . $value["Matricula"] . '</td>
                 <td>' . $value["marca"] . '</td>
                 <td>' . $value["modelo"] . '</td>
@@ -104,7 +104,7 @@
     <!-- Modal content-->
     <div class="modal-content">
 
-      <form role="form" method="post" enctype="multipart/form-darta">
+      <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
         <!--Cabecera-->
 
         <div class="modal-header" style="background:#3c8dbc;color: white">
@@ -148,6 +148,60 @@
             </div>
 
             <!--Ingresar Matricula-->
+            <div class="form-group formulario__grupo" id="grupo__matricula">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <div class="formulario__grupo-input">
+                  <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Magtricula" required required onkeyup="mayus(this);">
+                </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
+            </div>
+            <!--Ingresar Marca-->
+            <div class="form-group formulario__grupo" id="grupo__marca">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <div class="formulario__grupo-input">
+                  <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
+                </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
+            </div>
+            <!--Ingresar Modelo-->
+            <div class="form-group formulario__grupo" id="grupo__modelo">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <div class="formulario__grupo-input">
+                  <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+                </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
+            </div>
+            <!--Ingresar la Color-->
+            <div class="form-group formulario__grupo" id="grupo__color">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <div class="formulario__grupo-input">
+                  <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
+                </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
+            </div>
+            <!--Ingresar la Observaciones-->
+            <div class="form-group formulario__grupo" id="grupo__observaciones">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <div class="formulario__grupo-input">
+                  <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
+                </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese observaciones.</p>
+            </div>
+
+
+
+
+            <!--             
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
@@ -156,8 +210,6 @@
                 </abbr>
               </div>
             </div>
-
-            <!--Ingresar el Marca-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-car"></i></span>
@@ -166,18 +218,14 @@
                 </abbr>
               </div>
             </div>
-
-            <!--Ingresar la Modelo-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
                 <abbr id="toltipx" title="Ingrese el modelo del vehículo">
-                  <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar Modelo" onkeyup="mayus(this);" required>
+                  <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar el Modelo" onkeyup="mayus(this);" required>
                 </abbr>
               </div>
             </div>
-
-            <!--Ingresar la Color-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-paint-brush"></i></span>
@@ -186,8 +234,6 @@
                 </abbr>
               </div>
             </div>
-
-            <!--Ingresar la Observaciones-->
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
@@ -195,7 +241,10 @@
                   <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" onkeyup="mayus(this);" required>
                 </abbr>
               </div>
-            </div>
+            </div>-->
+
+
+
 
           </div>
 

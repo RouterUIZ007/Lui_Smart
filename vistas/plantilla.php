@@ -137,6 +137,6 @@ session_start();
 
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/usuarios.js"></script>
-<script src="vistas/js/cliente.js"></script>  
+<script src="vistas/js/main.js"></script>  
 </body>
 </html>

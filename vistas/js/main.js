@@ -17,7 +17,7 @@ const expresiones = {
 	/* VEHICULO */
 	matricula: /^[A-Z]{2}[0-9]{4}$/,
 	marca: /^[a-zA-ZÀ-ÿ\s]{1,20}$/,
-	modelo: /^[a-zA-Z0-9À-ÿ\s]{1,20}$/,
+	modelo: /^[a-zA-Z0-9\s]{1,20}$/,
 	color: /^[a-zA-ZÀ-ÿ\s]{1,20}$/,
 	observaciones: /^[a-zA-Z0-9À-ÿ\s]{1,50}$/
 	/* SERVICIO */
@@ -34,7 +34,7 @@ const campos = {
 	/* VEHICULO */
 	matricula: false,
 	marca: false,
-	modelos: false,
+	modelo: false,
 	color: false,
 	observaciones: false
 	/* SERVICIO */
@@ -69,7 +69,7 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.marca, e.target, 'marca');
 		break
 		case "nuevoModelo":
-			validarCampo(expresiones.modelo, e.target, 'modelos');
+			validarCampo(expresiones.modelo, e.target, 'modelo');
 		break
 		case "nuevoColor":
 			validarCampo(expresiones.color, e.target, 'color');

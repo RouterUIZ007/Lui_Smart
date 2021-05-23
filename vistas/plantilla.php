@@ -43,6 +43,11 @@ session_start();
   <!-- DataTables -->
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
+  
+  
+  
+  <!-- CSS xD -->
+  <link rel="stylesheet" href="vistas/css/style.css">
 
   <!-- ====================================================
     PLUGINS DE JAVASCRIPT
@@ -132,6 +137,6 @@ session_start();
 
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/usuarios.js"></script>
-<script src="vistas/js/cliente.js"></script>
+<script src="vistas/js/cliente.js"></script>  
 </body>
 </html>

@@ -12,14 +12,15 @@ class ModeloClientes
 	public static function mdlIngresarClientes($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
-            nombre, telefono, calle, numero, colonia) 
+            nombre, telefono, calle, inter, exter, colonia) 
             VALUES 
-            (:nombre, :telefono, :calle, :numero, :colonia)");
+            (:nombre, :telefono, :calle, :inter, :exter, :colonia)");
 
 		$stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
 		$stmt->bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
 		$stmt->bindParam(":calle", $datos["calle"], PDO::PARAM_STR);
-		$stmt->bindParam(":numero", $datos["numero"], PDO::PARAM_STR);
+		$stmt->bindParam(":inter", $datos["inter"], PDO::PARAM_STR);
+		$stmt->bindParam(":exter", $datos["exter"], PDO::PARAM_STR);
 		$stmt->bindParam(":colonia", $datos["colonia"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {

@@ -12,7 +12,8 @@ class ControladorCliente
             if (preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9{10}]+$/', $_POST["nuevoTelefono"]) &&
                 preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCalle"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoNcalle"]) &&
+                preg_match('/^[0-9]+$/', $_POST["nuevoInter"]) &&
+                preg_match('/^[0-9]+$/', $_POST["nuevoExter"]) &&
                 preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoColonia"])
             ) {
                
@@ -26,7 +27,8 @@ class ControladorCliente
                     "nombre" => $_POST["nuevoNombre"],
                     "telefono" => $_POST["nuevoTelefono"],
                     "calle" => $_POST["nuevoCalle"],
-                    "numero" => $_POST["nuevoNcalle"],
+                    "inter" => $_POST["nuevoInter"],
+                    "exter" => $_POST["nuevoExter"],
                     "colonia" => $_POST["nuevoColonia"]
                 );
 

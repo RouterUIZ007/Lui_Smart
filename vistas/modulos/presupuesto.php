@@ -389,7 +389,14 @@
             <div class="form-group">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
-                <input type="text" class="form-control input-lg" name="nuevoNcalle" placeholder="Ingresar Ncalle" required onkeyup="mayus(this);">
+                <input type="text" class="form-control input-lg" name="nuevoInter" placeholder="Ingresar numero interior" required onkeyup="mayus(this);">
+              </div>
+            </div>
+            <!--Ingresar Ncalle-->
+            <div class="form-group">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-hashtag"></i></span>
+                <input type="text" class="form-control input-lg" name="nuevoExter" placeholder="Ingresar numero exterior" required onkeyup="mayus(this);">
               </div>
             </div>
             <!--Ingresar Colonia-->

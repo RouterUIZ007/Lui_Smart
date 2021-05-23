@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2021 a las 10:31:51
+-- Tiempo de generación: 23-05-2021 a las 02:32:19
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -32,20 +32,19 @@ CREATE TABLE `cliente` (
   `nombre` varchar(60) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `telefono` varchar(15) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `calle` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `numero` varchar(5) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `colonia` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL
+  `inter` varchar(5) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `colonia` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
+  `exter` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `numero`, `colonia`) VALUES
-(1, 'Dani', '123123123123', 'calle', NULL, 'col'),
-(2, 'Jose', '123345', 'a', NULL, 'ASJDA'),
-(3, 'Carlos', '12', 'j', NULL, 'jfosdjoa'),
-(5, 'Dani3', '2345678', 'asdasd', '1234', 'dasda'),
-(6, 'Abiamel', '55815692430', 'Camino a Apazco', '100', 'Calvario');
+INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `inter`, `colonia`, `exter`) VALUES
+(10, 'BRIAN', '9513216548', 'CALLE MUY LEJOS', '52', 'COL COL COL', 0),
+(11, 'ABIMAEL LOPEZ', '9518716225', 'CALLE XD', '1', 'COLONIA', 0),
+(12, 'ABIME', '9518746320', 'GHOLAS', '1', 'COL', 1);
 
 -- --------------------------------------------------------
 
@@ -75,6 +74,14 @@ CREATE TABLE `presupuesto` (
   `total` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `presupuesto`
+--
+
+INSERT INTO `presupuesto` (`folio_p`, `fecha`, `id_v`, `total`) VALUES
+(9, '2021-05-20', 5, '10000.00'),
+(10, '2021-05-22', 6, '1.00');
+
 -- --------------------------------------------------------
 
 --
@@ -94,9 +101,15 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
-(1, 'gggg', '1234.00', 'Hojalatería', 1),
-(2, 'pasta', '679.00', 'Hojalatería', 1),
-(3, 'pasta', '345678.00', 'Pintura', 2);
+(13, 'pintura blanca', '2000.00', 'Pintura', 5),
+(14, 'sera', '1000.00', 'Pintura', 5),
+(15, 'vinilo', '1000.00', 'Pintura', 5),
+(16, 'x', '1000.00', 'Hojalatería', 5),
+(17, 'y', '5000.00', 'Hojalatería', 5),
+(18, 'a', '1.00', 'Hojalatería', 5),
+(19, 'd', '3.00', 'Hojalatería', 5),
+(20, 'a', '1.00', 'Hojalatería', 6),
+(21, 'g', '1.00', 'Hojalatería', 5);
 
 -- --------------------------------------------------------
 
@@ -157,8 +170,8 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`id_v`, `Matricula`, `marca`, `color`, `observaciones`, `id_c`, `modelo`) VALUES
-(1, 'q213421', 'asdasda', 'sadas', 'asdas', 1, 'asdasq'),
-(2, 'asd', 'asd', 'asd', 'asd', 1, 'asd');
+(5, 'XX0000', 'FORD', 'BLANCO', 'UN COMIONENTA XD', 10, 'F150'),
+(6, 'XX0011', 'MARC', 'COLOR', 'OBSERVE', 10, 'MARK');
 
 -- --------------------------------------------------------
 
@@ -239,7 +252,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -251,13 +264,13 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
-  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_empleado`
@@ -275,7 +288,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`

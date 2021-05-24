@@ -32,8 +32,8 @@
             <tr>
               <th style="width: 10px">#</th>
               <th>fecha</th>
-              <th>Vehiculo</th>
               <th>total</th>
+              <th>vehiculo</th>
             </tr>
           </thead>
           <tbody>

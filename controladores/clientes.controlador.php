@@ -11,10 +11,10 @@ class ControladorCliente
 
             if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9{10}]+$/', $_POST["nuevoTelefono"]) &&
-                preg_match('/^[a-zA-À-ÿ\s]+$/', $_POST["nuevoCalle"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoCalle"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoInter"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoExter"]) &&
-                preg_match('/^[a-zA-À-ÿ\s]+$/', $_POST["nuevoColonia"])
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoColonia"])
             ) {
                
                 $tabla = "cliente";
@@ -187,6 +187,124 @@ class ControladorCliente
         /* Haciendo uso del modelo*/
         $respuesta = ModeloClientes::MdlMostrarClientes2($tabla,$item);
         return $respuesta;
+
+    }
+
+
+
+      /* Editar Cliente*/
+
+    public static function ctrEditarcliente(){
+
+        if(isset($_POST["editarNombre"])){
+
+            if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["editarNombre"]) &&
+                preg_match('/^[0-9{10}]+$/', $_POST["editarTelefono"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarCalle"]) &&
+                preg_match('/^[0-9]+$/', $_POST["editarInter"]) &&
+                preg_match('/^[0-9]+$/', $_POST["editarExter"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarColonia"])){
+
+
+                    $tabla = "cliente";
+
+                    $datos = array("nombre" => $_POST["editarNombre"],
+								   "telefono" => $_POST["editarTelefono"],
+								   "calle" => $_POST["editarCalle"],
+                                   "inter" => $_POST["editarInter"],
+                                   "exter" => $_POST["editarExter"],
+								   "colonia" => $_POST["editarColonia"]);
+
+                    $respuesta = ModeloClientes::mdlEditarCliente($tabla,$datos);
+
+                    if($respuesta == "ok"){
+	
+						echo'<script>
+	
+						swal({
+							  type: "success",
+							  title: "El cliente ha sido editado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+	
+										window.location = "clientes";
+	
+										}
+									})
+	
+						</script>';
+	
+					}
+
+
+
+
+            }else{
+
+
+                echo'<script>
+	
+						swal({
+							  type: "error",
+							  title: "¡Verifique los datos del cliente recuerde no puede ir vacío o llevar caracteres especiales!",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+								if (result.value) {
+	
+								window.location = "clientes";
+	
+								}
+							})
+	
+					  </script>';
+	
+
+            }
+
+
+        }
+
+    }
+
+
+    /*Borrar Cliente*/
+
+    public static function ctrBorrarCliente(){
+
+        if(isset($_GET["idCliente"])){
+
+            $tabla="cliente";
+            $datos = $_GET["idCliente"];
+
+            $respuesta = ModeloClientes::mdlBorrarCliente($tabla,$datos);
+
+            
+            if($respuesta == "ok"){
+
+                echo'<script>
+
+                swal({
+                      type: "success",
+                      title: "El cliente ha sido borrado correctamente",
+                      showConfirmButton: true,
+                      confirmButtonText: "Cerrar",
+                      closeOnConfirm: false
+                      }).then(function(result){
+                                if (result.value) {
+
+                                window.location = "clientes";
+
+                                }
+                            })
+
+                </script>';
+
+            }
+
+        }
 
     }
 

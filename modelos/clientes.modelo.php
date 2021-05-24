@@ -83,4 +83,50 @@ class ModeloClientes
 		$stmt->close();
 		$stmt = null;
 	}
+
+
+
+		/*Editar cliente*/
+
+		public static function mdlEditarCliente($tabla,$datos){
+
+			$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, telefono = :telefono, calle = :calle, inter = :inter, exter = :exter, colonia = :colonia WHERE nombre = :nombre");
+	
+			$stmt -> bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
+			$stmt -> bindParam(":telefono", $datos["telefono"], PDO::PARAM_STR);
+			$stmt -> bindParam(":calle", $datos["calle"], PDO::PARAM_STR);
+			$stmt -> bindParam(":inter", $datos["inter"], PDO::PARAM_STR);
+			$stmt -> bindParam(":exter", $datos["exter"], PDO::PARAM_STR);
+			$stmt -> bindParam(":colonia", $datos["colonia"], PDO::PARAM_STR);
+	
+			if($stmt -> execute()){
+				return "ok";
+			}else{
+				return "error";
+			}
+			
+			$stmt -> close(); 
+			$stmt = null; 
+	
+		}
+	
+		/*Borrar Cliente*/
+	
+		public static function mdlBorrarCliente($tabla,$datos){
+	
+			$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id_c = :id_c");
+	
+			$stmt -> bindParam(":id_c", $datos, PDO::PARAM_INT);
+	
+			if($stmt -> execute()){
+				return "ok";
+			}else{
+				return "error";
+			}
+			
+			$stmt -> close(); 
+			$stmt = null; 
+	
+	
+		}
 }

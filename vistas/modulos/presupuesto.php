@@ -1,10 +1,10 @@
 <!-- <?php
-// Conexion a la base de datos para la lista de paises
-function connect()
-{
-  return new mysqli("localhost", "root", "", "luismart");
-}
-?> -->
+      // Conexion a la base de datos para la lista de paises
+      function connect()
+      {
+        return new mysqli("localhost", "root", "", "luismart");
+      }
+      ?> -->
 
 
 <!-- Cuerpo -->
@@ -117,8 +117,8 @@ function connect()
                 <select class="form-control input-lg" name="nuevoServicio">
 
                   <option value="">Seleccionar Servicio</option>
-                  <option value="Hojalatería">HOJALATERIA</option>
-                  <option value="Pintura">PINTURA</option>
+                  <option value="HOJALATERIA">HOJALATERIA</option>
+                  <option value="PINTURA">PINTURA</option>
 
                 </select>
               </abbr>
@@ -175,14 +175,19 @@ function connect()
                   <td>' . $value["tipo"] . '</td>
                   <td>  
                     <div class="btn-group">
-                      <abbr id="toltipx" title="Editar servicio">
-                        <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                      <abbr id="toltipx" title="Editar servicio"> 
+                      <button class="btn btn-warning btnEditarServicio" idServicio="' . $value["codigo"] . '" data-toggle="modal" data-target="#modalEditarServicio"><i class="fa fa-pencil"></i></button>
                       </abbr>
                       <abbr id="toltipx" title="Cancelar servicio">
-                        <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-danger btnEliminarServicio" idServicio="' . $value["codigo"] . '"><i class="fa fa-times"></i></button>
                       </abbr>
                     </div>
                   </td>
+
+                 
+
+
+
                 </tr>';
             }
             ?>
@@ -277,7 +282,7 @@ function connect()
             </div>
 
 
-            
+
 
             <!-- Buscador de cleintes existentes  -->
             <!-- <div class="form-group formulario__grupo" id="grupo__nombre">
@@ -333,9 +338,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Matricula" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Matricula" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
             </div>
@@ -344,9 +349,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese la marca del vehículo">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
             </div>
@@ -355,9 +360,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el modelo del vehículo">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
             </div>
@@ -366,9 +371,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el color del vehículo">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
             </div>
@@ -377,9 +382,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Agregue una breve descripción del vehículo">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese observaciones.</p>
             </div>
@@ -495,9 +500,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el nombre del cliente">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni numeros</p>
             </div>
@@ -506,9 +511,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el telefono">
-                <div class="formulario__grupo-input">
-                  <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero de 10 digitos</p>
             </div>
@@ -517,9 +522,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese la calle">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
@@ -529,9 +534,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese numero interior del domicilio">
-                <div class="formulario__grupo-input">
-                  <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
             </div>
@@ -540,9 +545,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
-                <div class="formulario__grupo-input">
-                  <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
             </div>
@@ -551,9 +556,9 @@ function connect()
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Agregue la colonia">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
-                </div>
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
@@ -590,3 +595,114 @@ function connect()
   </div>
 
 </div>
+
+
+
+<!-- modal editar CLIENTE -->
+<!-- Modal -->
+<div id="modalEditarServicio" class="modal fade" role="dialog">
+
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+
+      <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
+        <!--Cabecera-->
+
+        <div class="modal-header" style="background:#3c8dbc;color: white">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Editar Servicio</h4>
+        </div>
+
+        <!--Cuerpo-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!--leyenda de campos obligatorios-->
+            <div class="form-group">
+              <div class="input-group">
+                <p style="color: orange">* Campos obligatorios</p>
+              </div>
+            </div>
+
+            <!--Ingresar concepto -->
+            <div class="form-group formulario__grupo" id="grupo__concepto">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese concepto de servicio o refaccion">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="editarConcepto" id="editarConcepto" value="" required required onkeyup="mayus(this);">
+                    <input type="hidden" id="conceptoActual" name="conceptoActual">
+                  </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese un copcepto</p>
+            </div>
+            <!--Ingresar costo-->
+            <div class="form-group formulario__grupo" id="grupo__costo">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese el costo">
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="editarCosto" id="editarCosto" value="" required required onkeyup="mayus(this);">
+                    <input type="hidden" id="costoActual" name="costoActual">
+                  </div>
+              </div>
+              <p id="msj" class="formulario__input-error">Ingrese el costo del concepto</p>
+            </div>
+            <!--Ingresar el perfil -->
+            <div class="form-group formulario__grupo" id="grupo__servicio">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                <select class="form-control input-lg" name="editarServicio">
+                  <option value="" id="editarServicio"></option>
+                  <option value="HOJALATERIA">HOJALATERIA</option>
+                  <option value="PINTURA">PINTURA</option>
+
+                </select>
+              </div>
+            </div>
+
+
+
+          </div>
+
+        </div>
+
+        <!--footer-->
+        <div class="modal-footer">
+          <abbr id="toltipx" title="Cancelar formulario del Servicio">
+            <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
+          </abbr>
+          <abbr id="toltipx" title="Guardar formulario del Servicio">
+            <button type="submit" class="btn btn-primary btn-lg">Modificar Servicio</button>
+          </abbr>
+        </div>
+
+
+
+        <?php
+
+        $editarServicio = new ControladorServicios();
+        $editarServicio->ctrEditarServicio();
+
+        ?>
+
+
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<?php
+
+$borrarServicio = new ControladorServicios();
+$borrarServicio->ctrBorrarServicio();
+
+?>

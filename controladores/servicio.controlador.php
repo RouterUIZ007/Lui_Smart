@@ -1,8 +1,10 @@
 <?php
 
-class ControladorServicios{
+class ControladorServicios
+{
 
-    public static function ctrCrearServicio(){
+    public static function ctrCrearServicio()
+    {
 
         if (isset($_POST["nuevoV"])) {
 
@@ -16,9 +18,9 @@ class ControladorServicios{
                 $tabla = "servicio";
 
                 /*consultando en el campo matricula*/
-				$item = "Id_v";
-				/*valor a consultar que viene del form*/
-				$valor = $_POST["nuevoV"];
+                $item = "Id_v";
+                /*valor a consultar que viene del form*/
+                $valor = $_POST["nuevoV"];
 
                 $datos = array(
                     "Id_v" => $_POST["nuevoV"],
@@ -81,24 +83,125 @@ class ControladorServicios{
     }
 
 
-    public static function ctrMostrarServicio($item,$valor){
+    public static function ctrMostrarServicio($item, $valor)
+    {
 
         /*Pasando la tabla*/
         $tabla = "servicio";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloServicio::MdlMostrarServicio($tabla,$item,$valor);
+        $respuesta = ModeloServicio::MdlMostrarServicio($tabla, $item, $valor);
         return $respuesta;
-
-    }    
-
-    public static function ctrMostrarServicio2($item){
-
-        /*Pasando la tabla*/
-        $tabla = "servicio";
-        /* Haciendo uso del modelo*/
-        $respuesta = ModeloServicio::MdlMostrarServicio2($tabla,$item);
-        return $respuesta;
-
     }
-    
+
+    public static function ctrMostrarServicio2($item)
+    {
+
+        /*Pasando la tabla*/
+        $tabla = "servicio";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloServicio::MdlMostrarServicio2($tabla, $item);
+        return $respuesta;
+    }
+
+    /* Editar Servicio*/
+
+    public static function ctrEditarServicio()
+    {
+
+        if (isset($_POST["editarConcepto"])) {
+
+            if (preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarConcepto"]) &&
+                preg_match('/^[0-9À-ÿ\s]+$/', $_POST["editarCosto"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarServicio"])
+            ) {
+
+
+                $tabla = "servicio";
+
+                $datos = array(
+                    "concepto" => $_POST["editarConcepto"],
+                    "costo" => $_POST["editarCosto"],
+                    "tipo" => $_POST["editarServicio"]
+                );
+
+                $respuesta = ModeloServicio::mdlEditarServicio($tabla, $datos);
+
+                if ($respuesta == "ok") {
+
+                    echo '<script>
+	
+						swal({
+							  type: "success",
+							  title: "El Servicio ha sido editado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+	
+										window.location = "presupuesto";
+	
+										}
+									})
+	
+						</script>';
+                }
+            } else {
+
+
+                echo '<script>
+	
+						swal({
+							  type: "error",
+							  title: "¡Verifique los datos del Servicio recuerde no puede ir vacío o llevar caracteres especiales!",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+								if (result.value) {
+	
+								window.location = "presupuesto";
+	
+								}
+							})
+	
+					  </script>';
+            }
+        }
+    }
+
+
+    /*Borrar Servicio*/
+
+    public static function ctrBorrarServicio()
+    {
+
+        if (isset($_GET["idServicio"])) {
+
+            $tabla = "servicio";
+            $datos = $_GET["idServicio"];
+
+            $respuesta = ModeloServicio::mdlBorrarServicio($tabla, $datos);
+
+
+            if ($respuesta == "ok") {
+
+                echo '<script>
+
+                swal({
+                      type: "success",
+                      title: "El Servicio ha sido borrado correctamente",
+                      showConfirmButton: true,
+                      confirmButtonText: "Cerrar",
+                      closeOnConfirm: false
+                      }).then(function(result){
+                                if (result.value) {
+
+                                window.location = "presupuesto";
+
+                                }
+                            })
+
+                </script>';
+            }
+        }
+    }
 }

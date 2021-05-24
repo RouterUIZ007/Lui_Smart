@@ -85,4 +85,50 @@ class ModeloServicio
 
 		$stmt = null;
 	}
+
+
+
+		/*Editar Servicio*/
+
+		public static function mdlEditarServicio($tabla,$datos){
+
+			$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET 
+			concepto = :concepto, costo = :costo, tipo = :tipo WHERE concepto = :concepto");
+	
+			$stmt -> bindParam(":concepto", $datos["concepto"], PDO::PARAM_STR);
+			$stmt -> bindParam(":costo", $datos["costo"], PDO::PARAM_STR);
+			$stmt -> bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
+	
+			if($stmt -> execute()){
+				return "ok";
+			}else{
+				return "error";
+			}
+			
+			$stmt -> close(); 
+			$stmt = null; 
+	
+		}
+	
+		/*Borrar Servicio*/
+	
+		public static function mdlBorrarServicio($tabla,$datos){
+	
+			$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE codigo = :codigo");
+	
+			$stmt -> bindParam(":codigo", $datos, PDO::PARAM_INT);
+	
+			if($stmt -> execute()){
+				return "ok";
+			}else{
+				return "error";
+			}
+			
+			$stmt -> close(); 
+			$stmt = null; 
+	
+	
+		}
+
+
 }

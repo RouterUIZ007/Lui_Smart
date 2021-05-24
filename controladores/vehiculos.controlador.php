@@ -8,9 +8,9 @@ class ControladorVehiculos{
 
             if (preg_match('/^[0-9]+$/', $_POST["nuevoId_c"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ]+$/', $_POST["nuevoMatricula"]) &&
-                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoMarca"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoMarca"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoModelo"]) &&
-                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoColor"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoColor"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoObservaciones"])
             ) {
 

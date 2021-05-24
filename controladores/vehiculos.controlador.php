@@ -182,5 +182,118 @@ class ControladorVehiculos{
         return $respuesta;
 
     }
+    /*Editar Vehiculos*/
+
+    public static function ctrEditarVehiculos(){
+
+        if(isset($_POST["editarMatricula"])){
+
+            if (preg_match('/^[a-zA-Z0-9À-ÿ]+$/', $_POST["editarMatricula"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarMarca"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarModelo"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarColor"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarObservaciones"])){
+
+
+                    $tabla = "vehiculo";
+
+                    $datos = array("Matricula" => $_POST["editarMatricula"],
+								   "marca" => $_POST["editarMarca"],
+								   "color" => $_POST["editarColor"],
+                                   "observaciones" => $_POST["editarObservaciones"],
+								   "modelo" => $_POST["editarModelo"]);
+
+                    $respuesta = ModeloVehiculos::mdlEditarVehiculo($tabla,$datos);
+
+                    if($respuesta == "ok"){
+	
+						echo'<script>
+	
+						swal({
+							  type: "success",
+							  title: "El vehiculo ha sido editado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+	
+										window.location = "vehiculos";
+	
+										}
+									})
+	
+						</script>';
+	
+					}
+
+
+
+
+            }else{
+
+
+                echo'<script>
+	
+						swal({
+							  type: "error",
+							  title: "¡Verifique los datos del vehiculo recuerde no puede ir vacío o llevar caracteres especiales!",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+								if (result.value) {
+	
+								window.location = "vehiculos";
+	
+								}
+							})
+	
+					  </script>';
+	
+
+            }
+
+
+        }
+
+    }
+
+    /*Borrar Vehiculo*/
+
+    public static function ctrBorrarVehiculo(){
+
+        if(isset($_GET["idVehiculo"])){
+
+            $tabla="vehiculo";
+            $datos = $_GET["idVehiculo"];
+
+            $respuesta = ModeloVehiculos::mdlBorrarVehiculo($tabla,$datos);
+
+            
+            if($respuesta == "ok"){
+
+                echo'<script>
+
+                swal({
+                      type: "success",
+                      title: "El vehiculo ha sido borrado correctamente",
+                      showConfirmButton: true,
+                      confirmButtonText: "Cerrar",
+                      closeOnConfirm: false
+                      }).then(function(result){
+                                if (result.value) {
+
+                                window.location = "vehiculos";
+
+                                }
+                            })
+
+                </script>';
+
+            }
+
+        }
+
+    }
+
     
 }

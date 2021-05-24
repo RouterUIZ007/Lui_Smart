@@ -34,6 +34,7 @@
               <th>fecha</th>
               <th>total</th>
               <th>vehiculo</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>

@@ -84,4 +84,15 @@ class ControladorPresupuesto
 
 
     }
+
+	
+	public static function ctrMostrarPresupuesto($item,$valor){
+
+        /*Pasando la tabla*/
+        $tabla = "presupuesto";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloClientes::MdlMostrarClientes($tabla,$item,$valor);
+        return $respuesta;
+
+    }
 }

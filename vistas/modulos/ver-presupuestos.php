@@ -21,63 +21,55 @@
 
       <div class="box-header with-border">
 
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">Agregar Usuario</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarC">Agregar Cliente</button>
 
       </div>
 
       <div class="box-body">
 
-
-        <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+        <table class="table table-bordered table-striped dt-responsive tablas">
           <thead>
-
             <tr>
-
               <th style="width: 10px">#</th>
-              <th>ID</th>
-              <th>Fecha</th>
-              <th>Costo</th>
-              <th>Consultar</th>
-              <th>Acciones</th>
-
+              <th>fecha</th>
+              <th>Vehiculo</th>
+              <th>total</th>
             </tr>
-
           </thead>
-
           <tbody>
+            <?php
+            $item = null;
+            $valor = null;
+            $clientes = ControladorPresupuesto::ctrMostrarPresupuesto($item, $valor);
+            foreach ($clientes as $key => $value) {
+              echo '<tr>
+                  <td>' . $value["folio_p"] . '</td>
+                  <td>' . $value["fecha"] . '</td>
+                  <td>' . $value["total"] . '</td>
+                  <td>' . $value["id_v"] . '</td>
+                  <td>
+                    <div class="btn-group">
+                      <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    </div>
+  
+                  </td>
+  
+                </tr>';
+            }
 
-            <tr>
 
-              <td>1</td>
-              <td>001</td>
-              <td>12/05/2021</td>
-              <td>$5,600.00</td>
-              <td>
-                <button class="btn btn-info"><i class="fa fa-info-circle"></i></button>
-              </td>
-              <td>
 
-                <div class="btn-group">
-
-                  <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-
-                </div>
-
-              </td>
-
-            </tr>
-
+            ?>
 
           </tbody>
 
         </table>
 
-      </div>
 
-      <!-- /.box-body -->
-    </div>
-    <!-- /.box -->
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
   </section>
   <!-- /.content -->
 </div>

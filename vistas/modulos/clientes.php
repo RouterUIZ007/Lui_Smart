@@ -28,11 +28,8 @@
       <div class="box-body">
 
         <table class="table table-bordered table-striped dt-responsive tablas">
-
           <thead>
-
             <tr>
-
               <th style="width: 10px">#</th>
               <th>Nombre</th>
               <th>Telefono</th>
@@ -41,22 +38,14 @@
               <th>Numero de Exterior</th>
               <th>Colonia</th>
               <th>Acciones</th>
-
             </tr>
-
           </thead>
-
           <tbody>
-
             <?php
-
             $item = null;
             $valor = null;
-
             $clientes = ControladorCliente::ctrMostrarClientes($item, $valor);
-
             foreach ($clientes as $key => $value) {
-
               echo '<tr>
                   <td>' . $value["id_c"] . '</td>
                   <td>' . $value["nombre"] . '</td>
@@ -66,12 +55,9 @@
                   <td>' . $value["exter"] . '</td>
                   <td>' . $value["colonia"] . '</td>
                   <td>
-
                     <div class="btn-group">
-  
                       <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
                       <button class="btn btn-danger"><i class="fa fa-times"></i></button>
-  
                     </div>
   
                   </td>
@@ -129,9 +115,10 @@
             <div class="form-group formulario__grupo" id="grupo__nombre">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese el nombre del cliente">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni numeros</p>
             </div>
@@ -139,9 +126,10 @@
             <div class="form-group formulario__grupo" id="grupo__telefono">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese el telefono">
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero de 10 digitos</p>
             </div>
@@ -149,9 +137,10 @@
             <div class="form-group formulario__grupo" id="grupo__calle">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese la calle">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
@@ -160,9 +149,10 @@
             <div class="form-group formulario__grupo" id="grupo__inter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
             </div>
@@ -170,9 +160,10 @@
             <div class="form-group formulario__grupo" id="grupo__exter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
+                  <div class="formulario__grupo-input">
+                    <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
             </div>
@@ -180,12 +171,15 @@
             <div class="form-group formulario__grupo" id="grupo__colonia">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Agregue la colonia">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
+
+
 
 
 

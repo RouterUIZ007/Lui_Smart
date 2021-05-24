@@ -1,3 +1,12 @@
+<!-- <?php
+// Conexion a la base de datos para la lista de paises
+function connect()
+{
+  return new mysqli("localhost", "root", "", "luismart");
+}
+?> -->
+
+
 <!-- Cuerpo -->
 <div class="content-wrapper">
 
@@ -267,6 +276,36 @@
               </div>
             </div>
 
+
+            
+
+            <!-- Buscador de cleintes existentes  -->
+            <!-- <div class="form-group formulario__grupo" id="grupo__nombre">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <div class="formulario__grupo-input">
+                  <select class="selectpicker" data-show-subtext="false" data-live-search="true">
+                    <?php
+                    $con = connect();
+                    if (!$con->set_charset("utf8")) { //asignamos la codificación comprobando que no falle
+                      die("Error cargando el conjunto de caracteres utf8");
+                    }
+                    $consulta = "SELECT * FROM cliente";
+                    $resultado = mysqli_query($con, $consulta);
+                    $contador = 0;
+                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
+                    ?>
+                      <option value="<?php $misdatos["id_c"]; ?>"><?php echo $misdatos["nombre"]; ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+            </div> -->
+
+
+
+
+
             <!--Ingresar Matricula-->
             <div class="form-group">
               <!-- hidden -->
@@ -293,6 +332,7 @@
             <div class="form-group formulario__grupo" id="grupo__matricula">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Magtricula" required required onkeyup="mayus(this);">
                 </div>
@@ -303,6 +343,7 @@
             <div class="form-group formulario__grupo" id="grupo__marca">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese la marca del vehículo">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
                 </div>
@@ -313,6 +354,7 @@
             <div class="form-group formulario__grupo" id="grupo__modelo">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese el modelo del vehículo">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
                 </div>
@@ -323,6 +365,7 @@
             <div class="form-group formulario__grupo" id="grupo__color">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese el color del vehículo">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
                 </div>
@@ -333,6 +376,7 @@
             <div class="form-group formulario__grupo" id="grupo__observaciones">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Agregue una breve descripción del vehículo">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
                 </div>
@@ -450,6 +494,7 @@
             <div class="form-group formulario__grupo" id="grupo__nombre">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese el nombre del cliente">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
                 </div>
@@ -460,6 +505,7 @@
             <div class="form-group formulario__grupo" id="grupo__telefono">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese el telefono">
                 <div class="formulario__grupo-input">
                   <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
                 </div>
@@ -470,6 +516,7 @@
             <div class="form-group formulario__grupo" id="grupo__calle">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese la calle">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
                 </div>
@@ -481,6 +528,7 @@
             <div class="form-group formulario__grupo" id="grupo__inter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
                 <div class="formulario__grupo-input">
                   <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
                 </div>
@@ -491,6 +539,7 @@
             <div class="form-group formulario__grupo" id="grupo__exter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
                 <div class="formulario__grupo-input">
                   <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
                 </div>
@@ -501,6 +550,7 @@
             <div class="form-group formulario__grupo" id="grupo__colonia">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Agregue la colonia">
                 <div class="formulario__grupo-input">
                   <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
                 </div>

@@ -133,15 +133,11 @@
 
 
                 <abbr id="toltipx" title="Ingrese el ID del cliente">
-
                   <?php
-
                   $item = null;
                   $clientes = ControladorCliente::ctrMostrarClientes2($item);
                   # echo json_encode($clientes[0]);
-
                   echo '<input type="number" class="form-control input-lg" name="nuevoId_c" placeholder="Id Cliente" value="' . $clientes[0] . '" onkeyup="mayus(this);" required >';
-
                   ?>
                 </abbr>
               </div>
@@ -151,9 +147,10 @@
             <div class="form-group formulario__grupo" id="grupo__matricula">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Magtricula" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Magtricula" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
             </div>
@@ -161,9 +158,10 @@
             <div class="form-group formulario__grupo" id="grupo__marca">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese la marca del vehículo">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
             </div>
@@ -171,9 +169,10 @@
             <div class="form-group formulario__grupo" id="grupo__modelo">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese el modelo del vehículo">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
             </div>
@@ -181,9 +180,10 @@
             <div class="form-group formulario__grupo" id="grupo__color">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Ingrese el color del vehículo">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
             </div>
@@ -191,9 +191,10 @@
             <div class="form-group formulario__grupo" id="grupo__observaciones">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
-                </div>
+                <abbr id="toltipx" title="Agregue una breve descripción del vehículo">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
+                  </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese observaciones.</p>
             </div>

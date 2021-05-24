@@ -6,12 +6,12 @@ class ControladorVehiculos{
 
         if (isset($_POST["nuevoMatricula"])){
 
-            if (preg_match('/^[0-9ñÑáéíóúÁÉÍÓÚ]+$/', $_POST["nuevoId_c"]) &&
-                preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoMatricula"]) &&
-                preg_match('/^[a-zA-Z]+$/', $_POST["nuevoMarca"]) &&
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoModelo"]) &&
-                preg_match('/^[a-zA-Z ]+$/', $_POST["nuevoColor"]) &&
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoObservaciones"])
+            if (preg_match('/^[0-9]+$/', $_POST["nuevoId_c"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ]+$/', $_POST["nuevoMatricula"]) &&
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoMarca"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoModelo"]) &&
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoColor"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoObservaciones"])
             ) {
 
                 $tabla = "vehiculo";
@@ -86,11 +86,11 @@ class ControladorVehiculos{
         if (isset($_POST["nuevoMatricula"])){
 
             if (preg_match('/^[0-9]+$/', $_POST["nuevoId_c"]) &&
-                preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoMatricula"]) &&
-                preg_match('/^[a-zA-Z]+$/', $_POST["nuevoMarca"]) &&
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoModelo"]) &&
-                preg_match('/^[a-zA-Z ]+$/', $_POST["nuevoColor"]) &&
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoObservaciones"])
+                preg_match('/^[a-zA-Z0-9À-ÿ]+$/', $_POST["nuevoMatricula"]) &&
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoMarca"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoModelo"]) &&
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoColor"]) &&
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoObservaciones"])
             ) {
 
                 $tabla = "vehiculo";

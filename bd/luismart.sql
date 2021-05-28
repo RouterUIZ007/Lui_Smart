@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-05-2021 a las 02:32:19
+-- Tiempo de generación: 28-05-2021 a las 08:14:21
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -34,7 +34,7 @@ CREATE TABLE `cliente` (
   `calle` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `inter` varchar(5) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `colonia` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `exter` int(11) NOT NULL
+  `exter` varchar(5) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -42,9 +42,9 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `inter`, `colonia`, `exter`) VALUES
-(10, 'BRIAN', '9513216548', 'CALLE MUY LEJOS', '52', 'COL COL COL', 0),
-(11, 'ABIMAEL LOPEZ', '9518716225', 'CALLE XD', '1', 'COLONIA', 0),
-(12, 'ABIME', '9518746320', 'GHOLAS', '1', 'COL', 1);
+(18, 'ABIMAEL ISAI LOPEZ SANCHEZ', '9518746325', 'APAZCO', '4', 'LAS FLORES', '3'),
+(19, 'RAUL', '9516324785', 'MATAMOROS', '1', 'SAN JANCINTO', '2'),
+(22, 'XD', '9283749287', 'C', 'S/N', 'COL', 'A87');
 
 -- --------------------------------------------------------
 
@@ -79,8 +79,8 @@ CREATE TABLE `presupuesto` (
 --
 
 INSERT INTO `presupuesto` (`folio_p`, `fecha`, `id_v`, `total`) VALUES
-(9, '2021-05-20', 5, '10000.00'),
-(10, '2021-05-22', 6, '1.00');
+(11, '2021-05-24', 8, '900.00'),
+(12, '2021-05-24', 9, '900.00');
 
 -- --------------------------------------------------------
 
@@ -101,15 +101,9 @@ CREATE TABLE `servicio` (
 --
 
 INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
-(13, 'pintura blanca', '2000.00', 'Pintura', 5),
-(14, 'sera', '1000.00', 'Pintura', 5),
-(15, 'vinilo', '1000.00', 'Pintura', 5),
-(16, 'x', '1000.00', 'Hojalatería', 5),
-(17, 'y', '5000.00', 'Hojalatería', 5),
-(18, 'a', '1.00', 'Hojalatería', 5),
-(19, 'd', '3.00', 'Hojalatería', 5),
-(20, 'a', '1.00', 'Hojalatería', 6),
-(21, 'g', '1.00', 'Hojalatería', 5);
+(28, 'PASTA', '200.00', 'HOJALATERIA', 8),
+(29, 'PINTURA', '300.00', 'HOJALATERIA', 8),
+(31, 'COBRO DE SERVICIO', '400.00', 'HOJALATERIA', 8);
 
 -- --------------------------------------------------------
 
@@ -145,9 +139,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `rol`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(7, 'Alexis', 'alexis', '$2a$07$asxx54ahjppf45sd87a5auwbT3U74NyPrrhU4hwJRTdJ/20zuC.bK', 'Cajero', '', 0, '0000-00-00 00:00:00', '2021-05-11 02:30:58'),
-(8, 'Raúl Acevedo Flores', 'raul', '$2a$07$asxx54ahjppf45sd87a5auv7UPUslMtVdBRUG/fW42//pNjvPm9ZC', 'Gerente', '', 0, '0000-00-00 00:00:00', '2021-05-11 19:14:50'),
-(9, 'Abimael', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 0, '0000-00-00 00:00:00', '2021-05-14 04:11:42');
+(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-05-28 01:00:02', '2021-05-28 06:00:02');
 
 -- --------------------------------------------------------
 
@@ -170,8 +162,9 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`id_v`, `Matricula`, `marca`, `color`, `observaciones`, `id_c`, `modelo`) VALUES
-(5, 'XX0000', 'FORD', 'BLANCO', 'UN COMIONENTA XD', 10, 'F150'),
-(6, 'XX0011', 'MARC', 'COLOR', 'OBSERVE', 10, 'MARK');
+(8, 'MX0275', 'FORD', 'ROJO', 'LLEGO CON RAYONES EN LA PUERTA DERECHA', 18, 'F150'),
+(9, 'XX3164', 'NISSAN', 'BLANCO', 'UNA LLANTA PONCHADA', 19, 'SUZRU'),
+(10, 'XX2323', 'PORCHE', 'NEGRO', 'HOLAS XD', 22, '911 TURBO S');
 
 -- --------------------------------------------------------
 
@@ -252,7 +245,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -264,13 +257,13 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
-  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_empleado`
@@ -282,13 +275,13 @@ ALTER TABLE `tipo_empleado`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`

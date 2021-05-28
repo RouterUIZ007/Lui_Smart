@@ -32,10 +32,9 @@
     <!-- Default box -->
     <div class="box-body">
       <div class="row">
-
         <div class="col-md-6">
-          <div class="form-group">
-            <h2>Cliente</h2>
+          <div class="form-group ">
+            <h2 class="text-center">Cliente</h2>
             <abbr id="toltipx" title="Agregar cliente">
               <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-user-plus" aria-hidden="true"></i> Agregar</button>
             </abbr>
@@ -44,7 +43,7 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <h2>Vehiculo</h2>
+            <h2 class="text-center">Vehiculo</h2>
             <abbr id="toltipx" title="Agregar vehículo">
               <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarV"><i class="fa fa-car" aria-hidden="true"></i> Agregar</button>
             </abbr>
@@ -63,7 +62,7 @@
     <div class="box">
       <!-- Header box -->
       <div class="box-header with-border">
-        <h3>Agregar Servicio</h3>
+        <h3 class="text-center">Agregar Servicio</h3>
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
             <i class="fa fa-minus"></i></button>
@@ -311,7 +310,7 @@
 
 
 
-            <!--Ingresar Matricula-->
+            <!--CLIENTE RECUPERADO-->
             <div class="form-group">
               <!-- hidden -->
               <div class="input-group">
@@ -332,58 +331,81 @@
                 </abbr>
               </div>
             </div>
+            <!-- Grupo 1 -->
+            <div class="row">
+              <div class="col-xs-6">
 
-            <!--Ingresar Matricula-->
-            <div class="form-group formulario__grupo" id="grupo__matricula">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Matricula" required required onkeyup="mayus(this);">
+                <!--Ingresar Matricula-->
+                <div class="form-group formulario__grupo" id="grupo__matricula">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Matricula" required required onkeyup="mayus(this);">
+                      </div>
                   </div>
+                  <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
+                </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
-            </div>
-            <!--Ingresar Marca-->
-            <div class="form-group formulario__grupo" id="grupo__marca">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese la marca del vehículo">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
+              <div class="col-xs-6">
+                <!--Ingresar Marca-->
+                <div class="form-group formulario__grupo" id="grupo__marca">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese la marca del vehículo">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
+                      </div>
                   </div>
+                  <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
+                </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
             </div>
-            <!--Ingresar Modelo-->
-            <div class="form-group formulario__grupo" id="grupo__modelo">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese el modelo del vehículo">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+            <!-- Grupo 2 -->
+            <div class="row">
+              <div class="col-xs-6">
+
+                <!--Ingresar Modelo-->
+                <div class="form-group formulario__grupo" id="grupo__modelo">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese el modelo del vehículo">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+                      </div>
                   </div>
+                  <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
+                </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
-            </div>
-            <!--Ingresar la Color-->
-            <div class="form-group formulario__grupo" id="grupo__color">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese el color del vehículo">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required required onkeyup="mayus(this);">
+              <div class="col-xs-6">
+                <!--Ingresar la Color-->
+                <div class="form-group formulario__grupo" id="grupo__color">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese el color del vehículo">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required onkeyup="mayus(this);">
+                      </div>
                   </div>
+                  <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
+                </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
             </div>
+
+
+
+
+
+
             <!--Ingresar la Observaciones-->
             <div class="form-group formulario__grupo" id="grupo__observaciones">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Agregue una breve descripción del vehículo">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required required onkeyup="mayus(this);">
+
+                    <textarea class="form-control" rows="5" name="nuevoObservaciones" id="nuevoObservaciones" placeholder="Observaciones" required onkeyup="mayus(this);"></textarea>
+
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese observaciones.</p>
@@ -528,28 +550,57 @@
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
-
-            <!--Ingresar num inter-->
+            <!--Ingresar num inter-
             <div class="form-group formulario__grupo" id="grupo__inter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese numero interior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
             </div>
-            <!--Ingresar num exter-->
+            Ingresar num exter
             <div class="form-group formulario__grupo" id="grupo__exter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
+            </div>-->
+            <div class="row">
+              <div class="col-xs-6">
+                <!--Ingresar num inter-->
+                <div class="form-group formulario__grupo" id="grupo__inter">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+                      </div>
+                  </div>
+                  <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <!--Ingresar num exter-->
+                <div class="form-group formulario__grupo" id="grupo__exter">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" onkeyup="mayus(this);">
+                      </div>
+                  </div>
+                  <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
+                </div>
+
+
+              </div>
             </div>
             <!--Ingresar col-->
             <div class="form-group formulario__grupo" id="grupo__colonia">
@@ -562,10 +613,6 @@
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
-
-
-
-
 
           </div>
 
@@ -598,7 +645,7 @@
 
 
 
-<!-- modal editar CLIENTE -->
+<!-- modal editar servicio -->
 <!-- Modal -->
 <div id="modalEditarServicio" class="modal fade" role="dialog">
 

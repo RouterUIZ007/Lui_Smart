@@ -10,7 +10,7 @@ const inputs = document.querySelectorAll('#formulario input');
 
 const expresiones = {
 	/* CLIENTE */
-	numero: /^\d{0,5}$/, // Letras, numeros, guion y guion_bajo
+	numero: /^[a-zA-Z0-9/]{0,5}$/, // Letras, numeros, guion y guion_bajo
 	nombre: /^[a-zA-ZÀ-ÿ\s ]{1,50}$/, // Letras y espacios, pueden llevar acentos.
 	calle: /^[a-zA-Z0-9À-ÿ\s]{1,50}$/, // Letras y espacios, pueden llevar acentos.
 	telefono: /^\d{10}$/, // 7 a 14 numeros.

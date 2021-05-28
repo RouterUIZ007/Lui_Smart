@@ -89,6 +89,8 @@
 </div>
 <!-- /.content-wrapper -->
 
+
+
 <!-- modal agregar CLIENTE -->
 <!-- Modal -->
 <div id="modalAgregarC" class="modal fade" role="dialog">
@@ -151,28 +153,57 @@
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
-
-            <!--Ingresar num inter-->
+            <!--Ingresar num inter-
             <div class="form-group formulario__grupo" id="grupo__inter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese numero interior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
             </div>
-            <!--Ingresar num exter-->
+            Ingresar num exter
             <div class="form-group formulario__grupo" id="grupo__exter">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
+            </div>-->
+            <div class="row">
+              <div class="col-xs-6">
+                <!--Ingresar num inter-->
+                <div class="form-group formulario__grupo" id="grupo__inter">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+                      </div>
+                  </div>
+                  <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <!--Ingresar num exter-->
+                <div class="form-group formulario__grupo" id="grupo__exter">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" onkeyup="mayus(this);">
+                      </div>
+                  </div>
+                  <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
+                </div>
+
+
+              </div>
             </div>
             <!--Ingresar col-->
             <div class="form-group formulario__grupo" id="grupo__colonia">
@@ -185,10 +216,6 @@
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
-
-
-
-
 
           </div>
 
@@ -210,147 +237,6 @@
         $crearCliente->ctrCrearClientes2();
 
         ?>
-
-      </form>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-<!-- modal editar CLIENTE -->
-<!-- Modal -->
-<div id="modalEditarUsuario" class="modal fade" role="dialog">
-
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-
-      <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
-        <!--Cabecera-->
-
-        <div class="modal-header" style="background:#3c8dbc;color: white">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Editar Cliente</h4>
-        </div>
-
-        <!--Cuerpo-->
-
-        <div class="modal-body">
-
-          <div class="box-body">
-
-            <!--leyenda de campos obligatorios-->
-            <div class="form-group">
-              <div class="input-group">
-                <p style="color: orange">* Campos obligatorios</p>
-              </div>
-            </div>
-            <!--Ingresar nombre-->
-            <div class="form-group formulario__grupo" id="grupo__nombre">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese el nombre del cliente">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarNombre" id="editarNombre" value="" required required onkeyup="mayus(this);">
-                    <input type="hidden" id="nombreActual" name="nombreActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni numeros</p>
-            </div>
-            <!--Ingresar telefono-->
-            <div class="form-group formulario__grupo" id="grupo__telefono">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese el telefono">
-                  <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="editarTelefono" id="editarTelefono" value="" required required onkeyup="mayus(this);">
-                    <input type="hidden" id="telefonoActual" name="telefonoActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero de 10 digitos</p>
-            </div>
-            <!--Ingresar Calle-->
-            <div class="form-group formulario__grupo" id="grupo__calle">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese la calle">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarCalle" id="editarCalle" value="" required required onkeyup="mayus(this);">
-                    <input type="hidden" id="calleActual" name="calleActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
-            </div>
-
-            <!--Ingresar num inter-->
-            <div class="form-group formulario__grupo" id="grupo__inter">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
-                  <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="editarInter" id="editarInter" value="" required required onkeyup="mayus(this);">
-                    <input type="hidden" id="interActual" name="interActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
-            </div>
-            <!--Ingresar num exter-->
-            <div class="form-group formulario__grupo" id="grupo__exter">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
-                  <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="editarExter" id="editarExter" value="" required required onkeyup="mayus(this);">
-                    <input type="hidden" id="exterActual" name="exterActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
-            </div>
-            <!--Ingresar col-->
-            <div class="form-group formulario__grupo" id="grupo__colonia">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Agregue la colonia">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarColonia" id="editarColonia" value="" required required onkeyup="mayus(this);">
-                    <input type="hidden" id="coloniaActual" name="coloniaActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
-            </div>
-
-
-
-          </div>
-
-        </div>
-
-        <!--footer-->
-        <div class="modal-footer">
-          <abbr id="toltipx" title="Cancelar formulario del cliente">
-            <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
-          </abbr>
-          <abbr id="toltipx" title="Guardar formulario del cliente">
-            <button type="submit" class="btn btn-primary btn-lg">Modificar Cliente</button>
-          </abbr>
-        </div>
-
-
-
-        <?php
-
-        $editarCliente = new ControladorCliente();
-        $editarCliente->ctrEditarcliente();
-
-        ?>
-
-
 
       </form>
 

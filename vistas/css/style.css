@@ -1,11 +1,18 @@
-#toltipx{
-    text-decoration: none;
+#toltipx {
+	text-decoration: none;
 }
 
+#nuevoObservaciones {
+	resize: none;
+}
 
+.btn{
+	font-size: 1.5em;
+}
 
-#msj{
-    color: red; font-size:18px;
+#msj {
+	color: red;
+	font-size: 18px;
 }
 
 .formulario__input {
@@ -22,7 +29,7 @@
 .formulario__input:focus {
 	border: 3px solid #0075FF;
 	outline: none;
-	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+	box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
 }
 
 .formulario__input-error {
@@ -48,9 +55,7 @@
 	margin-right: 10px;
 }
 
-.formulario__grupo-terminos, 
-.formulario__mensaje,
-.formulario__grupo-btn-enviar {
+.formulario__grupo-terminos, .formulario__mensaje, .formulario__grupo-btn-enviar {
 	grid-column: span 2;
 }
 
@@ -91,7 +96,7 @@
 }
 
 .formulario__btn:hover {
-	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+	box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
 }
 
 .formulario__mensaje-exito {
@@ -105,6 +110,7 @@
 }
 
 /* ----- -----  Estilos para Validacion ----- ----- */
+
 .formulario__grupo-correcto .formulario__validacion-estado {
 	color: #1ed12d;
 	opacity: 1;
@@ -122,5 +128,3 @@
 .formulario__grupo-incorrecto .formulario__input {
 	border: 3px solid #bb2929;
 }
-
-

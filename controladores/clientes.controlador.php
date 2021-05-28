@@ -12,8 +12,6 @@ class ControladorCliente
             if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9{10}]+$/', $_POST["nuevoTelefono"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoCalle"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoInter"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoExter"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoColonia"])
             ) {
                
@@ -92,8 +90,6 @@ class ControladorCliente
             if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
                 preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoCalle"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoInter"]) &&
-                preg_match('/^[0-9]+$/', $_POST["nuevoExter"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoColonia"])
             ) {
                
@@ -201,8 +197,8 @@ class ControladorCliente
             if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["editarNombre"]) &&
                 preg_match('/^[0-9{10}]+$/', $_POST["editarTelefono"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarCalle"]) &&
-                preg_match('/^[0-9]+$/', $_POST["editarInter"]) &&
-                preg_match('/^[0-9]+$/', $_POST["editarExter"]) &&
+                preg_match('/^[a-zA-Z0-9/]*$/', $_POST["editarInter"]) &&
+                preg_match('/^[a-zA-Z0-9/]*$/', $_POST["editarExter"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarColonia"])){
 
 

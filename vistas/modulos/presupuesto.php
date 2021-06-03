@@ -748,8 +748,6 @@
 </div>
 
 <?php
-
 $borrarServicio = new ControladorServicios();
 $borrarServicio->ctrBorrarServicio();
-
 ?>

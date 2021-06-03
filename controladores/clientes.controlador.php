@@ -5,22 +5,24 @@ class ControladorCliente
 
     /*metodo para crear Cliente*/
 
-    public static function ctrCrearClientes(){
+    public static function ctrCrearClientes()
+    {
 
         if (isset($_POST["nuevoNombre"])) {
 
-            if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
+            if (
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9{10}]+$/', $_POST["nuevoTelefono"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoCalle"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoColonia"])
             ) {
-               
+
                 $tabla = "cliente";
                 /*consultando en el campo matricula*/
-				$item = "nombre";
-				/*valor a consultar que viene del form*/
-				$valor = $_POST["nuevoNombre"];
-            
+                $item = "nombre";
+                /*valor a consultar que viene del form*/
+                $valor = $_POST["nuevoNombre"];
+
                 $datos = array(
                     "nombre" => $_POST["nuevoNombre"],
                     "telefono" => $_POST["nuevoTelefono"],
@@ -82,23 +84,25 @@ class ControladorCliente
             }
         }
     }
-    
-    public static function ctrCrearClientes2(){
+
+    public static function ctrCrearClientes2()
+    {
 
         if (isset($_POST["nuevoNombre"])) {
 
-            if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
+            if (
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoNombre"]) &&
                 preg_match('/^[0-9]+$/', $_POST["nuevoTelefono"]) &&
                 preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["nuevoCalle"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["nuevoColonia"])
             ) {
-               
+
                 $tabla = "cliente";
                 /*consultando en el campo matricula*/
-				$item = "nombre";
-				/*valor a consultar que viene del form*/
-				$valor = $_POST["nuevoNombre"];
-            
+                $item = "nombre";
+                /*valor a consultar que viene del form*/
+                $valor = $_POST["nuevoNombre"];
+
                 $datos = array(
                     "nombre" => $_POST["nuevoNombre"],
                     "telefono" => $_POST["nuevoTelefono"],
@@ -162,60 +166,64 @@ class ControladorCliente
     }
 
 
-     /* Mostrar Clientes*/
+    /* Mostrar Clientes*/
 
-     public static function ctrMostrarClientes($item,$valor){
-
-        /*Pasando la tabla*/
-        $tabla = "cliente";
-        /* Haciendo uso del modelo*/
-        $respuesta = ModeloClientes::MdlMostrarClientes($tabla,$item,$valor);
-        return $respuesta;
-
-    }
-
-     /* Mostrar Cliente RECIENTE*/
-
-     public static function ctrMostrarClientes2($item){
+    public static function ctrMostrarClientes($item, $valor)
+    {
 
         /*Pasando la tabla*/
         $tabla = "cliente";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloClientes::MdlMostrarClientes2($tabla,$item);
+        $respuesta = ModeloClientes::MdlMostrarClientes($tabla, $item, $valor);
         return $respuesta;
+    }
 
+    /* Mostrar Cliente RECIENTE*/
+
+    public static function ctrMostrarClientes2($item)
+    {
+
+        /*Pasando la tabla*/
+        $tabla = "cliente";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloClientes::MdlMostrarClientes2($tabla, $item);
+        return $respuesta;
     }
 
 
 
-      /* Editar Cliente*/
+    /* Editar Cliente*/
 
-    public static function ctrEditarcliente(){
+    public static function ctrEditarcliente()
+    {
 
-        if(isset($_POST["editarNombre"])){
+        if (isset($_POST["editarNombre"])) {
 
-            if (preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["editarNombre"]) &&
+            if (
+
+                preg_match('/^[a-zA-ZÀ-ÿ\s]+$/', $_POST["editarNombre"]) &&
                 preg_match('/^[0-9{10}]+$/', $_POST["editarTelefono"]) &&
                 preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarCalle"]) &&
-                preg_match('/^[a-zA-Z0-9/]*$/', $_POST["editarInter"]) &&
-                preg_match('/^[a-zA-Z0-9/]*$/', $_POST["editarExter"]) &&
-                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarColonia"])){
+                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarColonia"])
+            ) {
 
 
-                    $tabla = "cliente";
+                $tabla = "cliente";
 
-                    $datos = array("nombre" => $_POST["editarNombre"],
-								   "telefono" => $_POST["editarTelefono"],
-								   "calle" => $_POST["editarCalle"],
-                                   "inter" => $_POST["editarInter"],
-                                   "exter" => $_POST["editarExter"],
-								   "colonia" => $_POST["editarColonia"]);
+                $datos = array(
+                    "nombre" => $_POST["editarNombre"],
+                    "telefono" => $_POST["editarTelefono"],
+                    "calle" => $_POST["editarCalle"],
+                    "inter" => $_POST["editarInter"],
+                    "exter" => $_POST["editarExter"],
+                    "colonia" => $_POST["editarColonia"]
+                );
 
-                    $respuesta = ModeloClientes::mdlEditarCliente($tabla,$datos);
+                $respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
 
-                    if($respuesta == "ok"){
-	
-						echo'<script>
+                if ($respuesta == "ok") {
+
+                    echo '<script>
 	
 						swal({
 							  type: "success",
@@ -231,16 +239,11 @@ class ControladorCliente
 									})
 	
 						</script>';
-	
-					}
+                }
+            } else {
 
 
-
-
-            }else{
-
-
-                echo'<script>
+                echo '<script>
 	
 						swal({
 							  type: "error",
@@ -256,31 +259,27 @@ class ControladorCliente
 							})
 	
 					  </script>';
-	
-
             }
-
-
         }
-
     }
 
 
     /*Borrar Cliente*/
 
-    public static function ctrBorrarCliente(){
+    public static function ctrBorrarCliente()
+    {
 
-        if(isset($_GET["idCliente"])){
+        if (isset($_GET["idCliente"])) {
 
-            $tabla="cliente";
+            $tabla = "cliente";
             $datos = $_GET["idCliente"];
 
-            $respuesta = ModeloClientes::mdlBorrarCliente($tabla,$datos);
+            $respuesta = ModeloClientes::mdlBorrarCliente($tabla, $datos);
 
-            
-            if($respuesta == "ok"){
 
-                echo'<script>
+            if ($respuesta == "ok") {
+
+                echo '<script>
 
                 swal({
                       type: "success",
@@ -297,11 +296,7 @@ class ControladorCliente
                             })
 
                 </script>';
-
             }
-
         }
-
     }
-
 }

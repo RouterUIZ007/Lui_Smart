@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2021 a las 08:14:21
+-- Tiempo de generación: 03-06-2021 a las 06:38:27
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -37,15 +37,6 @@ CREATE TABLE `cliente` (
   `exter` varchar(5) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
--- Volcado de datos para la tabla `cliente`
---
-
-INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `inter`, `colonia`, `exter`) VALUES
-(18, 'ABIMAEL ISAI LOPEZ SANCHEZ', '9518746325', 'APAZCO', '4', 'LAS FLORES', '3'),
-(19, 'RAUL', '9516324785', 'MATAMOROS', '1', 'SAN JANCINTO', '2'),
-(22, 'XD', '9283749287', 'C', 'S/N', 'COL', 'A87');
-
 -- --------------------------------------------------------
 
 --
@@ -74,14 +65,6 @@ CREATE TABLE `presupuesto` (
   `total` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
--- Volcado de datos para la tabla `presupuesto`
---
-
-INSERT INTO `presupuesto` (`folio_p`, `fecha`, `id_v`, `total`) VALUES
-(11, '2021-05-24', 8, '900.00'),
-(12, '2021-05-24', 9, '900.00');
-
 -- --------------------------------------------------------
 
 --
@@ -95,15 +78,6 @@ CREATE TABLE `servicio` (
   `tipo` varchar(80) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
   `Id_v` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `servicio`
---
-
-INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
-(28, 'PASTA', '200.00', 'HOJALATERIA', 8),
-(29, 'PINTURA', '300.00', 'HOJALATERIA', 8),
-(31, 'COBRO DE SERVICIO', '400.00', 'HOJALATERIA', 8);
 
 -- --------------------------------------------------------
 
@@ -139,7 +113,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `rol`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-05-28 01:00:02', '2021-05-28 06:00:02');
+(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-06-02 23:21:31', '2021-06-03 04:21:31'),
+(12, 'xxx', 'xxx', '$2a$07$asxx54ahjppf45sd87a5auxk2cXQ.31g3rBG7bmaL.q.jFcrQh9Q2', 'administrador', '', 1, '2021-05-30 22:51:25', '2021-05-31 03:51:25');
 
 -- --------------------------------------------------------
 
@@ -156,15 +131,6 @@ CREATE TABLE `vehiculo` (
   `id_c` int(11) DEFAULT NULL,
   `modelo` varchar(40) COLLATE utf8mb4_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
--- Volcado de datos para la tabla `vehiculo`
---
-
-INSERT INTO `vehiculo` (`id_v`, `Matricula`, `marca`, `color`, `observaciones`, `id_c`, `modelo`) VALUES
-(8, 'MX0275', 'FORD', 'ROJO', 'LLEGO CON RAYONES EN LA PUERTA DERECHA', 18, 'F150'),
-(9, 'XX3164', 'NISSAN', 'BLANCO', 'UNA LLANTA PONCHADA', 19, 'SUZRU'),
-(10, 'XX2323', 'PORCHE', 'NEGRO', 'HOLAS XD', 22, '911 TURBO S');
 
 -- --------------------------------------------------------
 
@@ -245,7 +211,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
@@ -257,13 +223,13 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
-  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_empleado`
@@ -275,13 +241,13 @@ ALTER TABLE `tipo_empleado`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
@@ -303,7 +269,7 @@ ALTER TABLE `empleado`
 -- Filtros para la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
-  ADD CONSTRAINT `presupuesto_ibfk_1` FOREIGN KEY (`id_v`) REFERENCES `vehiculo` (`id_v`);
+  ADD CONSTRAINT `presupuesto_ibfk_1` FOREIGN KEY (`id_v`) REFERENCES `vehiculo` (`id_v`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `servicio`
@@ -315,7 +281,7 @@ ALTER TABLE `servicio`
 -- Filtros para la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`id_c`) REFERENCES `cliente` (`id_c`);
+  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`id_c`) REFERENCES `cliente` (`id_c`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `venta`

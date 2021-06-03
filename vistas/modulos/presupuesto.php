@@ -681,24 +681,26 @@
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese concepto de servicio o refaccion">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarConcepto" id="editarConcepto" value="" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="editarConcepto" id="editarConcepto" value="" required onkeyup="mayus(this);">
                     <input type="hidden" id="conceptoActual" name="conceptoActual">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese un copcepto</p>
             </div>
+
             <!--Ingresar costo-->
             <div class="form-group formulario__grupo" id="grupo__costo">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el costo">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="editarCosto" id="editarCosto" value="" required required onkeyup="mayus(this);">
+                    <input type="number" class="form-control input-lg " name="editarCosto" id="editarCosto" value="" required onkeyup="mayus(this);">
                     <input type="hidden" id="costoActual" name="costoActual">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el costo del concepto</p>
             </div>
+            
             <!--Ingresar el perfil -->
             <div class="form-group formulario__grupo" id="grupo__servicio">
               <div class="input-group">

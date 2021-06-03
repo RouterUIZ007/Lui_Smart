@@ -17,9 +17,6 @@ class AjaxServicios{
 
         echo json_encode($respuesta);
 
-        
-
-
 
     }
 

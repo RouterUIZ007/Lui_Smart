@@ -110,10 +110,7 @@ class ControladorServicios
 
         if (isset($_POST["editarConcepto"])) {
 
-            if (preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarConcepto"]) &&
-                preg_match('/^[0-9À-ÿ\s]+$/', $_POST["editarCosto"]) &&
-                preg_match('/^[a-zA-Z0-9À-ÿ\s]+$/', $_POST["editarServicio"])
-            ) {
+            if (true) {
 
 
                 $tabla = "servicio";

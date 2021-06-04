@@ -19,8 +19,11 @@ const expresiones = {
 	marca: /^[a-zA-ZÀ-ÿ\s]{1,20}$/,
 	modelo: /^[a-zA-Z0-9\s]{1,20}$/,
 	color: /^[a-zA-ZÀ-ÿ\s]{1,20}$/,
-	observaciones: /^[a-zA-Z0-9À-ÿ\s]{1,50}$/
+	observaciones: /^[a-zA-Z0-9À-ÿ\s]{1,50}$/,
 	/* SERVICIO */
+	/* PRESUPUESTO */
+	fecha: /^[0-9]{4}[-/]{1}[0-9]{2}[-/]{1}[0-9]{2}$/,
+	precio: /^[a-zA-Z0-9\s]{1,20}$/
 }
 
 const campos = {
@@ -36,8 +39,12 @@ const campos = {
 	marca: false,
 	modelo: false,
 	color: false,
-	observaciones: false
+	observaciones: false,
 	/* SERVICIO */
+	/* PRESUPUESTO */
+	fecha: false,
+	precio: false
+
 }
 
 const validarFormulario = (e) => {
@@ -78,6 +85,13 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.observaciones, e.target, 'observaciones');
 		break
 		/* SERVICIOS */
+	/* PRESUPUESTO */
+		case "editarFecha":
+			validarCampo(expresiones.fecha, e.target, 'fecha');
+		break
+		case "editarPrecio":
+			validarCampo(expresiones.precio, e.target, 'precio');
+		break
 
 
 	}

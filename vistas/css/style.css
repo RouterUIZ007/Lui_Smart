@@ -1,3 +1,8 @@
+.modal-ku {
+	width: 10em;
+	margin: auto;
+  }
+
 #toltipx {
 	text-decoration: none;
 }
@@ -10,11 +15,11 @@
 	font-size: 1.5em;
 }
 
+#msj {
+	color: red;
+	font-size: 18px;
+}
 
-.modal-ku {
-	width: 10em;
-	margin: auto;
-  }
 .formulario__input {
 	width: 100%;
 	background: #fff;

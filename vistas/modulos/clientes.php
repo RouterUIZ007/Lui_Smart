@@ -50,7 +50,7 @@
 
             foreach ($clientes as $key => $value) {
 
-              echo '<tr>
+            echo '<tr>
                   <td>' . $value["id_c"] . '</td>
                   <td>' . $value["nombre"] . '</td>
                   <td>' . $value["telefono"] . '</td>
@@ -387,3 +387,5 @@
 $borrarCliente = new ControladorCliente();
 $borrarCliente->ctrBorrarCliente();
 ?>
+
+

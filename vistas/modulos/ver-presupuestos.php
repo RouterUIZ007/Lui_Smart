@@ -1,6 +1,7 @@
 <div class="content-wrapper">
 
   <section class="content-header">
+
     <h1>
       Ver Presupuestos
     </h1>
@@ -20,8 +21,7 @@
 
       <div class="box-header with-border">
 
-        <!--   <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarC">Agregar Cliente</button>
- -->
+        <!--  <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarC">Agregar Cliente</button> -->
       </div>
 
       <div class="box-body">
@@ -111,8 +111,6 @@
             <!-- Grupo 1 -->
             <div class="row">
               <div class="col-xs-6">
-
-
                 <!-- EDITAR FEHCA -->
                 <div class="form-group formulario__grupo" id="grupo__fecha">
                   <div class="input-group">
@@ -125,10 +123,7 @@
                   </div>
                   <p id="msj" class="formulario__input-error">Edite la fecha</p>
                 </div>
-
-
               </div>
-
               <div class="col-xs-6">
                 <!-- EDITAR PRECIO-->
                 <div class="form-group formulario__grupo" id="grupo__precio">
@@ -143,11 +138,7 @@
                   <p id="msj" class="formulario__input-error">Edite el precio</p>
                 </div>
               </div>
-
             </div>
-
-
-
             <!-- Grupo 2 -->
             <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
               <thead>
@@ -164,10 +155,8 @@
                 <?php
                 $item = null;
                 $valor = null;
-                
-                $ser = ControladorServicios::ctrMostrarServicio($item, $valor);
-
-                foreach ($ser as $key => $value) {
+                $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
+                foreach ($clientes as $key => $value) {
                   echo '<tr>
                   <td>' . $value["codigo"] . '</td>
                   <td>' . $value["Id_v"] . '</td>
@@ -177,16 +166,13 @@
                   <td>  
                     <div class="btn-group">
                       <abbr id="toltipx" title="Editar servicio"> 
-                      <button class="btn btn-warning btnEditarServicio" idServicio="' . $value["codigo"] . '" data-toggle="modal" data-target="#modalEditarSer2"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-warning btnEditarServicio" idServicio="' . $value["codigo"] . '" data-toggle="modal" data-target="#modalEditarServicio"><i class="fa fa-pencil"></i></button>
                       </abbr>
                       <abbr id="toltipx" title="Cancelar servicio">
                       <button class="btn btn-danger btnEliminarServicio" idServicio="' . $value["codigo"] . '"><i class="fa fa-times"></i></button>
                       </abbr>
                     </div>
                   </td>
-
-                 
-
 
 
                 </tr>';
@@ -195,7 +181,7 @@
               </tbody>
             </table>
 
-            <div id="visible" >
+            <div id="visible" hidden>
 
               <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
 
@@ -268,6 +254,8 @@
               </form>
 
             </div>
+
+
           </div>
 
         </div>
@@ -285,6 +273,7 @@
         <?php
 
 
+
         ?>
 
       </form>
@@ -297,7 +286,11 @@
 
 
 
+
+
 <?php
+
 $borrarPresupuesto = new ControladorPresupuesto();
 $borrarPresupuesto->ctrBorrarPresupuestos();
+
 ?>

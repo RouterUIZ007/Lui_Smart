@@ -1,7 +1,7 @@
 
 function mayus(e) {
-    e.value = e.value.toUpperCase();
-    
+	e.value = e.value.toUpperCase();
+
 }
 
 
@@ -44,7 +44,6 @@ const campos = {
 	/* PRESUPUESTO */
 	fecha: false,
 	precio: false
-
 }
 
 const validarFormulario = (e) => {
@@ -52,53 +51,52 @@ const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "nuevoNombre":
 			validarCampo(expresiones.nombre, e.target, 'nombre');
-		break;
+			break;
 		case "nuevoTelefono":
 			validarCampo(expresiones.telefono, e.target, 'telefono');
-		break;
+			break;
 		case "nuevoCalle":
 			validarCampo(expresiones.calle, e.target, 'calle');
-		break;
+			break;
 		case "nuevoInter":
 			validarCampo(expresiones.numero, e.target, 'inter');
-		break;
+			break;
 		case "nuevoExter":
 			validarCampo(expresiones.numero, e.target, 'exter');
-		break;
+			break;
 		case "nuevoColonia":
 			validarCampo(expresiones.calle, e.target, 'colonia');
-		break;
-	/* VEHICULO */
+			break;
+		/* VEHICULO */
 		case "nuevoMatricula":
 			validarCampo(expresiones.matricula, e.target, 'matricula');
-		break
+			break
 		case "nuevoMarca":
 			validarCampo(expresiones.marca, e.target, 'marca');
-		break
+			break
 		case "nuevoModelo":
 			validarCampo(expresiones.modelo, e.target, 'modelo');
-		break
+			break
 		case "nuevoColor":
 			validarCampo(expresiones.color, e.target, 'color');
-		break
+			break
 		case "nuevoObservaciones":
 			validarCampo(expresiones.observaciones, e.target, 'observaciones');
-		break
+			break
 		/* SERVICIOS */
-	/* PRESUPUESTO */
+		/* PRESUPUESTO */
 		case "editarFecha":
 			validarCampo(expresiones.fecha, e.target, 'fecha');
-		break
+			break
 		case "editarPrecio":
 			validarCampo(expresiones.precio, e.target, 'precio');
-		break
-
+			break
 
 	}
 }
 
 const validarCampo = (expresion, input, campo) => {
-	if(expresion.test(input.value)){
+	if (expresion.test(input.value)) {
 		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
 		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
 		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');

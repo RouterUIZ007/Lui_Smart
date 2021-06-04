@@ -147,7 +147,8 @@ session_start();
   <script src="vistas/js/main.js"></script>
   <script src="vistas/js/clientes.js"></script>
   <script src="vistas/js/servicio.js"></script>
-  <script src="vistas/js/vehiculos.js"></script> 
+  <script src="vistas/js/vehiculos.js"></script>
+  <script src="vistas/js/presupuestos.js"></script> 
 </body>
 
 </html>

@@ -67,5 +67,31 @@ class ModeloPresupuesto
 		$stmt = null;
 	}
 
+    /*=============================================
+	EDITAR PRESUPUESTOS
+	=============================================*/
+
+
+    /*=============================================
+	ELIMINAR PRESUPUESTOS
+	=============================================*/
+
+    public static function mdlBorrarPresupuesto($tabla, $datos)
+	{
+
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE folio_p = :folio_p");
+
+		$stmt->bindParam(":folio_p", $datos, PDO::PARAM_INT);
+
+		if ($stmt->execute()) {
+			return "ok";
+		} else {
+			return "error";
+		}
+
+		$stmt->close();
+		$stmt = null;
+	}
+
 
 }

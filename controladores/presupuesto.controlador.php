@@ -95,4 +95,50 @@ class ControladorPresupuesto
         return $respuesta;
 
     }
+
+
+	/*Editar presupuestos*/
+
+
+	/*Eliminar presupuestos*/
+
+	public static function ctrBorrarPresupuestos(){
+
+        if(isset($_GET["foliopresupuesto"])){
+
+            $tabla="presupuesto";
+            $datos = $_GET["foliopresupuesto"];
+
+            $respuesta = ModeloPresupuesto::mdlBorrarPresupuesto($tabla,$datos);
+
+            
+            if($respuesta == "ok"){
+
+                echo'<script>
+
+                swal({
+                      type: "success",
+                      title: "El presupuesto ha sido borrado correctamente",
+                      showConfirmButton: true,
+                      confirmButtonText: "Cerrar",
+                      closeOnConfirm: false
+                      }).then(function(result){
+                                if (result.value) {
+
+                                window.location = "ver-presupuestos";
+
+                                }
+                            })
+
+                </script>';
+
+            }
+
+        }
+
+    }
+
+
+
+
 }

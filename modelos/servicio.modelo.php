@@ -41,7 +41,8 @@ class ModeloServicio
 
 		if ($item != null) {
 			$stmt = Conexion::conectar()->prepare(
-				"SELECT * FROM $tabla WHERE $item = :$item");
+				"SELECT * FROM $tabla WHERE $item = :$item"
+			);
 			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
 			$stmt->execute();
 			return $stmt->fetch();
@@ -81,6 +82,33 @@ class ModeloServicio
 
 			return $stmt->fetchAll();
 		}
+
+		$stmt->close();
+
+		$stmt = null;
+	}
+
+	public static function MdlMostrarServicioPre($tabla, $item)
+	{
+
+		if ($item != null) {
+
+			$stmt = Conexion::conectar()->prepare(
+				"
+				SELECT * FROM $tabla as ser
+				where ser.Id_v = :Id_v
+				"
+			);
+
+
+			$stmt->bindParam(":Id_v", $item, PDO::PARAM_STR);
+
+			$stmt->execute();
+
+			return $stmt->fetchAll();
+		}
+
+		
 
 		$stmt->close();
 

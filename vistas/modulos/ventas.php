@@ -33,84 +33,160 @@
           <div class="box-body">
 
 
+            <!-- PHP -->
+
+
+
 
             <!--TITULO-->
             <div class="">
               <h3>Datos de presupuesto</h3>
             </div>
+            <br>
+            <br>
 
 
-            <!-- ID no visible xD -->
-            <div class="form-group formulario__grupo" id="grupo__concepto">
-              <div class="input-group">
-                <div class="formulario__grupo-input">
-                  <input type="text" class="form-control input-lg " name="idPresu" id="idPresu" placeholder="ID de presupuesto a cobrar" onkeyup="mayus(this);">
-                </div>
-              </div>
-            </div>
 
-            <!-- Grupo 1 -->
-            <div class="row">
-              <div class="col-xs-6">
-                <!-- EDITAR FEHCA -->
-                <div class="form-group formulario__grupo" id="grupo__fecha">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                    <abbr id="toltipx" title="Fecha de presupuesto">
+
+
+            <!-- BOTON BUSAR -->
+            <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
+              <div class="row justify-content-center">
+
+                <div class="col-md-4 col-md-offset-2">
+                  <div class="form-group formulario__grupo" id="grupo__concepto">
+                    <div class="input-group">
                       <div class="formulario__grupo-input">
-
-                        <input type="text" class="form-control input-lg " name="nuevoFecha" id="nuevoFecha" placeholder="Fecha de presupuesto" onkeyup="mayus(this);">
+                        <input type="text" value="" class="form-control input-lg " name="idPresu" id="idPresu" placeholder="ID de presupuesto a cobrar" onkeyup="mayus(this);">
                       </div>
+                    </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Fecha de presupuesto</p>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-4 col-md-offset-0">
+                  <div class="form-group">
+                    <abbr id="toltipx" title="Guardar presupuesto">
+                      <button type="submit" name="btn1" class="btn btn-block btn-primary"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+                    </abbr>
+                  </div>
+                </div>
+              </div>
+              <?php
+                  if (!empty($_POST['idPresu'])) {
+                    $item = $_POST['idPresu'];
+                  }else{
+                    $item = 1;
+                  }
+                  /* echo json_encode($item); */
+                  $valor = null;
+                  $IDSSS = ControladorPresupuesto::ctrMostrarPresupuestoVenta($item, $valor);
+
+
+
+
+                  if ($IDSSS == false) {
+                    $item = 1;
+                    $IDSSS = ControladorPresupuesto::ctrMostrarPresupuestoVenta($item, $valor);
+
+                  }
+
+
+                  /* echo json_encode($IDSSS); */
+                  #echo json_encode($total[0][0]);
+              ?>
+              <!-- EDITAR FEHCA -->
+              <div class="form-group formulario__grupo" id="grupo__id">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                  <abbr id="toltipx" title="Id de presupuesto">
+                    <div class="formulario__grupo-input">
+                      <?php
+                      echo '
+                      <input type="text" class="form-control input-lg" name="idValor" id="idValor"
+                      placeholder="Total del presupuesto" value="' . $IDSSS[0] . '" disabled required>'
+                      ?>
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error">Id de presupuesto</p>
+              </div>
+              <br>
+              <br>
+
+
+
+
+              <!-- Grupo 1 -->
+              <div class="row">
+                <div class="col-xs-6">
+                  <!-- EDITAR FEHCA -->
+                  <div class="form-group formulario__grupo" id="grupo__fecha">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                      <abbr id="toltipx" title="Fecha de presupuesto">
+                        <div class="formulario__grupo-input">
+                          <?php
+                          echo '
+                            <input type="text" class="form-control input-lg " name="nuevoFecha" id="nuevoFecha" placeholder="Fecha de presupuesto" value="' . $IDSSS[1] . '">
+                            '
+                          ?>
+                        </div>
+                    </div>
+                    <p id="msj" class="formulario__input-error">Fecha de presupuesto</p>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-xs-6">
+
+
+                  <!-- EDITAR FEHCA -->
+                  <div class="form-group formulario__grupo" id="grupo__precio">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                      <abbr id="toltipx" title="Precio de presupuesto">
+                        <div class="formulario__grupo-input">
+                          <?php
+                          echo '
+                          <input type="text" class="form-control input-lg " name="nuevoPrecio" id="nuevoPrecio" placeholder="Precio de presupuesto" value="' . $IDSSS[3] . '">
+                            '
+                          ?>
+                        </div>
+                    </div>
+                    <p id="msj" class="formulario__input-error">Precio de repsupuesto</p>
+                  </div>
+
+
                 </div>
               </div>
 
 
 
+              <!-- Grupo 2 -->
+              <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+                <thead>
+                  <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Vehiculo</th>
+                    <th>Concepto</th>
+                    <th>Costo</th>
+                    <th>Servicio</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
 
-              <div class="col-xs-6">
+                  if ($IDSSS[2] != null) {
+                    $ite = $IDSSS[2];
+                  }else{
+                    $ite = 1;
+                  }
+                  /* CAMBIAR PARA QUE CARGUE un ID de presupuesto espedificoo */
+                  $serv = ControladorServicios::ctrMostrarServicioPre($ite);
 
-
-                <!-- EDITAR FEHCA -->
-                <div class="form-group formulario__grupo" id="grupo__precio">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                    <abbr id="toltipx" title="Precio de presupuesto">
-                      <div class="formulario__grupo-input">
-
-                        <input type="text" class="form-control input-lg " name="nuevoPrecio" id="nuevoPrecio" placeholder="Precio de presupuesto" onkeyup="mayus(this);">
-                      </div>
-                  </div>
-                  <p id="msj" class="formulario__input-error">Precio de repsupuesto</p>
-                </div>
-
-
-              </div>
-            </div>
-
-
-
-            <!-- Grupo 2 -->
-            <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-              <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Vehiculo</th>
-                  <th>Concepto</th>
-                  <th>Costo</th>
-                  <th>Servicio</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $item = null;
-                $valor = null;
-                /* CAMBIAR PARA QUE CARGUE un ID de presupuesto espedificoo */
-                $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
-
-                foreach ($clientes as $key => $value) {
-                  echo '<tr>
+                  foreach ($serv as $key => $value) {
+                    echo '<tr>
                   <td>' . $value["codigo"] . '</td>
                   <td>' . $value["Id_v"] . '</td>
                   <td>' . $value["concepto"] . '</td>
@@ -120,16 +196,14 @@
 
 
                 </tr>';
-                }
-                ?>
-              </tbody>
-            </table>
+                  }
+                  ?>
+                </tbody>
+              </table>
 
 
-
-
-
-
+            </form>
+            <!-- END PHP -->
 
           </div>
           <!-- /.box-body -->
@@ -145,7 +219,7 @@
         <!-- Default box -->
         <div class="box">
           <div class="box-header with-border">
-            <h3 class="box-title">Title</h3>
+            <h3 class="box-title"></h3>
 
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -169,7 +243,12 @@
                 <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                 <abbr id="toltipx" title="Ingrese numero interior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+
+                    <?php
+                    echo '
+                      <input type="text" class="form-control input-lg " name="nuevoTotal" id="nuevoTotal" placeholder="Numero interior" value="' . $IDSSS[3] . '">
+                      '
+                    ?>
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
@@ -181,7 +260,7 @@
                 <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                 <abbr id="toltipx" title="Ingrese numero interior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoCantidad" id="nuevoCantidad" placeholder="Numero interior" onkeyup="mayus(this);">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
@@ -193,7 +272,7 @@
                 <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
                 <abbr id="toltipx" title="Ingrese numero interior del domicilio">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoCambio" id="nuevoCambio" placeholder="Numero interior" onkeyup="mayus(this);">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>

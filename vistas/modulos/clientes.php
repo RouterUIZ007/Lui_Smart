@@ -50,7 +50,7 @@
 
             foreach ($clientes as $key => $value) {
 
-            echo '<tr>
+              echo '<tr>
                   <td>' . $value["id_c"] . '</td>
                   <td>' . $value["nombre"] . '</td>
                   <td>' . $value["telefono"] . '</td>
@@ -152,28 +152,8 @@
               </div>
               <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
             </div>
-            <!--Ingresar num inter-
-            <div class="form-group formulario__grupo" id="grupo__inter">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Ingresar el Numero interior" required required onkeyup="mayus(this);">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
-            </div>
-            Ingresar num exter
-            <div class="form-group formulario__grupo" id="grupo__exter">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" required required onkeyup="mayus(this);">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
-            </div>-->
+
+
             <div class="row">
               <div class="col-xs-6">
                 <!--Ingresar num inter-->
@@ -387,5 +367,3 @@
 $borrarCliente = new ControladorCliente();
 $borrarCliente->ctrBorrarCliente();
 ?>
-
-

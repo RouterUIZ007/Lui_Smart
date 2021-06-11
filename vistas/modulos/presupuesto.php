@@ -164,6 +164,7 @@
             <?php
             $item = null;
             $valor = null;
+
             $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
             foreach ($clientes as $key => $value) {
               echo '<tr>
@@ -182,11 +183,6 @@
                       </abbr>
                     </div>
                   </td>
-
-                 
-
-
-
                 </tr>';
             }
             ?>
@@ -700,7 +696,7 @@
               </div>
               <p id="msj" class="formulario__input-error">Ingrese el costo del concepto</p>
             </div>
-            
+
             <!--Ingresar el perfil -->
             <div class="form-group formulario__grupo" id="grupo__servicio">
               <div class="input-group">

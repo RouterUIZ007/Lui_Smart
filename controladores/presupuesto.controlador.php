@@ -11,7 +11,7 @@ class ControladorPresupuesto
         if (isset($_POST["btn1"])) {
 
             # if (preg_match('/^[[0-9]+([.][0-9])]+$/', $_POST["nuevoTotal"])) {
-			if (true) {
+            if (true) {
 
                 $tabla = "presupuesto";
                 $datos = array(
@@ -58,8 +58,8 @@ class ControladorPresupuesto
 				</script>';
             }
         } else {
-			
-			echo '<script>
+
+            echo '<script>
 
 			swal({
 
@@ -80,34 +80,65 @@ class ControladorPresupuesto
 				});
 
 		</script>';
-		}
-
-
+        }
     }
 
-	
-	public static function ctrMostrarPresupuesto($item,$valor){
+
+    public static function ctrMostrarPresupuesto($item, $valor)
+    {
 
         /*Pasando la tabla*/
         $tabla = "presupuesto";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloClientes::MdlMostrarClientes($tabla,$item,$valor);
+        $respuesta = ModeloClientes::MdlMostrarClientes($tabla, $item, $valor);
         return $respuesta;
-
     }
 
-	public static function ctrMostrarPresupuestoS($item,$valor){
+    public static function ctrMostrarPresupuestoS($item, $valor)
+    {
 
         /*Pasando la tabla*/
         $tabla = "presupuesto";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloPresupuesto::MdlMostrarPresupuestoS($tabla,$item,$valor);
+        $respuesta = ModeloPresupuesto::MdlMostrarPresupuestoS($tabla, $item, $valor);
         return $respuesta;
+    }
+
+    public static function ctrMostrarPresupuestoVenta($item, $valor)
+    {
+
+        /*Pasando la tabla*/
+        $tabla = "presupuesto";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloPresupuesto::MdlMostrarPresupuestoVenta($tabla, $item, $valor);
+
+        if ($respuesta == false) {
+            echo '<script>
+
+					swal({
+						type:"error",
+						title:"Presupuesto no encontrado",
+						showConfirmButton: true,
+						confirmButtonText:"Cerrar",
+						closeOnConfirm:false
+
+						}).then((result)=>{
+							if(result.value){
+								window.location = "ventas";
+							}
+						});
+
+				</script>';
+                return null;
+        }
+
+        return $respuesta;
+
 
     }
 
 
-	/*Editar presupuestos*/
+    /*Editar presupuestos*/
     public static function ctrEditarPresupuesto()
     {
 
@@ -170,21 +201,22 @@ class ControladorPresupuesto
     }
 
 
-	/*Eliminar presupuestos*/
+    /*Eliminar presupuestos*/
 
-	public static function ctrBorrarPresupuestos(){
+    public static function ctrBorrarPresupuestos()
+    {
 
-        if(isset($_GET["foliopresupuesto"])){
+        if (isset($_GET["foliopresupuesto"])) {
 
-            $tabla="presupuesto";
+            $tabla = "presupuesto";
             $datos = $_GET["foliopresupuesto"];
 
-            $respuesta = ModeloPresupuesto::mdlBorrarPresupuesto($tabla,$datos);
+            $respuesta = ModeloPresupuesto::mdlBorrarPresupuesto($tabla, $datos);
 
-            
-            if($respuesta == "ok"){
 
-                echo'<script>
+            if ($respuesta == "ok") {
+
+                echo '<script>
 
                 swal({
                       type: "success",
@@ -201,14 +233,7 @@ class ControladorPresupuesto
                             })
 
                 </script>';
-
             }
-
         }
-
     }
-
-
-
-
 }

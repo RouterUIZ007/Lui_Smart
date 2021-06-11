@@ -41,7 +41,7 @@ class ModeloPresupuesto
         $stmt = null;
     }
 
-	public static function MdlMostrarClientes($tabla, $item, $valor)
+	public static function MdlMostrarPresupuestoS($tabla, $item, $valor)
 	{
 
 		if ($item != null) {
@@ -70,6 +70,27 @@ class ModeloPresupuesto
     /*=============================================
 	EDITAR PRESUPUESTOS
 	=============================================*/
+	public static function MdlEditarPresupuesto($tabla,$datos){
+
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET fecha = :fecha, precio = :precio WHERE nombre = :nombre");
+
+		$stmt -> bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
+		$stmt -> bindParam(":precio", $datos["precio"], PDO::PARAM_STR);
+		$stmt -> bindParam(":calle", $datos["calle"], PDO::PARAM_STR);
+		$stmt -> bindParam(":inter", $datos["inter"], PDO::PARAM_STR);
+		$stmt -> bindParam(":exter", $datos["exter"], PDO::PARAM_STR);
+		$stmt -> bindParam(":colonia", $datos["colonia"], PDO::PARAM_STR);
+
+		if($stmt -> execute()){
+			return "ok";
+		}else{
+			return "error";
+		}
+		
+		$stmt -> close(); 
+		$stmt = null; 
+
+	}
 
 
     /*=============================================

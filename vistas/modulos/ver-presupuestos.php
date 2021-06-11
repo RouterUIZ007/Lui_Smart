@@ -49,25 +49,18 @@
                   <td>' . $value["id_v"] . '</td>
                   <td>
                     <div class="btn-group">
-                      <button class="btn btn-warning" data-toggle="modal" data-target="#modalEditarPresupuesto"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btnEliminarPresupuesto"  foliopresupuesto="' . $value["folio_p"] . '"><i class="fa fa-times"></i></button>
+                      <button class="btn btn-warning btnEditarPre" idPre="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalEditarPresupuesto"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btnEliminarPresupuesto"  idPre="' . $value["folio_p"] . '"><i class="fa fa-times"></i></button>
+                      
+
                     </div>
-  
                   </td>
-  
                 </tr>';
             }
 
-
-
-
             ?>
-
           </tbody>
-
         </table>
-
-
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
@@ -272,9 +265,11 @@
 
         <?php
 
-
+        $editarPre = new ControladorPresupuesto();
+        $editarPre->ctrEditarPresupuesto();
 
         ?>
+
 
       </form>
 
@@ -283,14 +278,7 @@
   </div>
 
 </div>
-
-
-
-
-
 <?php
-
 $borrarPresupuesto = new ControladorPresupuesto();
 $borrarPresupuesto->ctrBorrarPresupuestos();
-
 ?>

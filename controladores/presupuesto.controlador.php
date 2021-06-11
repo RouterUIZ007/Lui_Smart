@@ -96,8 +96,78 @@ class ControladorPresupuesto
 
     }
 
+	public static function ctrMostrarPresupuestoS($item,$valor){
+
+        /*Pasando la tabla*/
+        $tabla = "presupuesto";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloPresupuesto::MdlMostrarPresupuestoS($tabla,$item,$valor);
+        return $respuesta;
+
+    }
+
 
 	/*Editar presupuestos*/
+    public static function ctrEditarPresupuesto()
+    {
+
+        if (isset($_POST["fecha"])) {
+
+            if (
+                true
+            ) {
+
+
+                $tabla = "presupuesto";
+
+                $datos = array(
+                    "fecha" => $_POST["editarFecha"],
+                    "precio" => $_POST["editarPrecio"]
+                );
+
+                $respuesta = ModeloPresupuesto::MdlEditarPresupuesto($tabla, $datos);
+
+                if ($respuesta == "ok") {
+
+                    echo '<script>
+	
+						swal({
+							  type: "success",
+							  title: "El Presupuesto ha sido editado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+										if (result.value) {
+	
+										window.location = "ver-presupuesto";
+	
+										}
+									})
+	
+						</script>';
+                }
+            } else {
+
+
+                echo '<script>
+	
+						swal({
+							  type: "error",
+							  title: "¡Verifique los datos del PResupuesto recuerde no puede ir vacío o llevar caracteres especiales!",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
+							  }).then(function(result){
+								if (result.value) {
+	
+								window.location = "ver-presupuesto";
+	
+								}
+							})
+	
+					  </script>';
+            }
+        }
+    }
 
 
 	/*Eliminar presupuestos*/

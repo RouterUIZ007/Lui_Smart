@@ -1,5 +1,36 @@
 /*Editar Presupuestos*/
 
+$(document).on("click",".btnEditarPre",function(){
+
+  /*Capturando el id*/
+  var idPre = $(this).attr("idPre");
+
+  var datos = new FormData();
+  datos.append("idPre",idPre);
+
+  /*Ajax para traer los datos*/
+  $.ajax({
+
+      url:"ajax/ver-presupuesto.ajax.php",
+      method: "POST",
+      data: datos,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: "json",
+      success: function(respuesta){
+
+          $("#editarFecha").val(respuesta["fecha"]);
+          $("#editarPrecio").val(respuesta["precio"]);
+
+          $("#fechaActual").val(respuesta["fecha"]);
+          $("#precioActual").val(respuesta["precio"]);       
+
+      }
+
+  });
+
+})
 
 /*Eliminar Presupuestos*/
 

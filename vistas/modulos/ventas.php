@@ -72,27 +72,26 @@
                 </div>
               </div>
               <?php
-                  if (!empty($_POST['idPresu'])) {
-                    $item = $_POST['idPresu'];
-                  }else{
-                    $item = 1;
-                  }
-                  /* echo json_encode($item); */
-                  $valor = null;
-                  $IDSSS = ControladorPresupuesto::ctrMostrarPresupuestoVenta($item, $valor);
+              if (!empty($_POST['idPresu'])) {
+                $item = $_POST['idPresu'];
+              } else {
+                $item = 1;
+              }
+              /* echo json_encode($item); */
+              $valor = null;
+              $IDSSS = ControladorPresupuesto::ctrMostrarPresupuestoVenta($item, $valor);
 
 
 
 
-                  if ($IDSSS == false) {
-                    $item = 1;
-                    $IDSSS = ControladorPresupuesto::ctrMostrarPresupuestoVenta($item, $valor);
+              if ($IDSSS == false) {
+                $item = 1;
+                $IDSSS = ControladorPresupuesto::ctrMostrarPresupuestoVenta($item, $valor);
+              }
 
-                  }
 
-
-                  /* echo json_encode($IDSSS); */
-                  #echo json_encode($total[0][0]);
+              /* echo json_encode($IDSSS); */
+              #echo json_encode($total[0][0]);
               ?>
               <!-- EDITAR FEHCA -->
               <div class="form-group formulario__grupo" id="grupo__id" hidden>
@@ -179,7 +178,7 @@
 
                   if ($IDSSS[2] != null) {
                     $ite = $IDSSS[2];
-                  }else{
+                  } else {
                     $ite = 1;
                   }
                   /* CAMBIAR PARA QUE CARGUE un ID de presupuesto espedificoo */
@@ -216,72 +215,76 @@
       </div>
       <!-- Right column -->
       <div class="col-md-6">
+
         <!-- Default box -->
         <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title"></h3>
 
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                <i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                <i class="fa fa-times"></i></button>
+          <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
+
+            <div class="box-header with-border">
+              <h3 class="box-title"></h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                  <i class="fa fa-times"></i></button>
+              </div>
             </div>
-          </div>
 
 
 
 
 
 
-          <div class="box-body">
+            <div class="box-body">
 
-            <!--TOTAL A PAGAR-->
-            <div class="form-group formulario__grupo" id="grupo__pago">
-              <h3>Total</h3>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                <abbr id="toltipx" title="Total a pagar">
-                  <div class="formulario__grupo-input">
+              <!--TOTAL A PAGAR-->
+              <div class="form-group formulario__grupo" id="grupo__pago">
+                <h3>Total</h3>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                  <abbr id="toltipx" title="Total a pagar">
+                    <div class="formulario__grupo-input">
 
-                    <?php
-                    echo '
+                      <?php
+                      echo '
                       <input type="text" class="form-control input-lg " name="nuevoPago" id="nuevoPago" placeholder="Total" value="' . $IDSSS[3] . '" disabled>
                       '
-                    ?>
-                  </div>
+                      ?>
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error">Total a pagar</p>
               </div>
-              <p id="msj" class="formulario__input-error">Total a pagar</p>
-            </div>
 
-            <!-- Cantidad a pagar -->
-            <div class="form-group formulario__grupo" id="grupo__inter">
-              <h3>Cantidad a pagar</h3>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                <abbr id="toltipx" title="Cantidad a pagar">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoCantidad" id="nuevoCantidad" placeholder="Pago" onkeyup="cambio(this);">
-                  </div>
+              <!-- Cantidad a pagar -->
+              <div class="form-group formulario__grupo" id="grupo__inter">
+                <h3>Cantidad a pagar</h3>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                  <abbr id="toltipx" title="Cantidad a pagar">
+                    <div class="formulario__grupo-input">
+                      <input type="text" class="form-control input-lg " name="nuevoCantidad" id="nuevoCantidad" placeholder="Pago" onkeyup="cambio(this);">
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error">Cantidad a pagar</p>
               </div>
-              <p id="msj" class="formulario__input-error">Cantidad a pagar</p>
-            </div>
-            <!--caambio-->
-            <div class="form-group formulario__grupo" id="grupo__inter">
-              <h3>Cambio</h3>
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                <abbr id="toltipx" title="Cambio">
-                  <div class="formulario__grupo-input">
-                    <input value="" type="text" class="form-control input-lg " name="nuevoCambio" id="nuevoCambio" placeholder="Cambio" onkeyup="mayus(this);">
-                  </div>
+              <!--caambio-->
+              <div class="form-group formulario__grupo" id="grupo__inter">
+                <h3>Cambio</h3>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                  <abbr id="toltipx" title="Cambio">
+                    <div class="formulario__grupo-input">
+                      <input value="" type="text" class="form-control input-lg " name="nuevoCambio" id="nuevoCambio" placeholder="Cambio" onkeyup="mayus(this);">
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error">Cambio</p>
               </div>
-              <p id="msj" class="formulario__input-error">Cambio</p>
+
+
             </div>
-
-
-          </div>
-          <!-- /.box-body -->
+            <!-- /.box-body -->
 
 
 
@@ -290,28 +293,34 @@
 
 
 
-          <div class="box-footer">
-            <!-- Agregar presupuesto TOTAL -->
-            <div class="row justify-content-center">
-              <div class="col-md-2 col-md-offset-3">
-                <div class="form-group">
-                  <abbr id="toltipx" title="Cancelar presupuesto">
-                    <button type="button" class="btn btn-block btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Cancelar</button>
-                  </abbr>
+            <div class="box-footer">
+              <!-- Agregar presupuesto TOTAL -->
+              <div class="row justify-content-center">
+                <div class="col-md-2 col-md-offset-3">
+                  <div class="form-group">
+                    <abbr id="toltipx" title="Cancelar presupuesto">
+                      <button type="button" class="btn btn-block btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Cancelar</button>
+                    </abbr>
+                  </div>
+                </div>
+                <!-- /.col -->
+                <div class="col-md-2 col-md-offset-1">
+                  <div class="form-group">
+                    <abbr id="toltipx" title="Guardar presupuesto">
+                      <button type="submit" name="btn1x" id="btn1x" class="btn btn-block btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Cobrar</button>
+                    </abbr>
+                  </div>
                 </div>
               </div>
-              <!-- /.col -->
-              <div class="col-md-2 col-md-offset-1">
-                <div class="form-group">
-                  <abbr id="toltipx" title="Guardar presupuesto">
-                    <button type="submit" name="btn1" class="btn btn-block btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i> Cobrar</button>
-                  </abbr>
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- /.box-footer -->
+            <!-- /.box-footer -->
 
+            <?php
+            $crearVenta = new ControladorVentas();
+            $crearVenta->ctrCrearVentas();
+            ?>
+
+          </form>
 
         </div>
       </div>

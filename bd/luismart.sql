@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2021 a las 11:22:26
+-- Tiempo de generación: 15-06-2021 a las 07:09:56
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -43,21 +43,6 @@ CREATE TABLE `cliente` (
 
 INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `inter`, `colonia`, `exter`) VALUES
 (26, 'LUIS', '9516549873', 'HOLAS', '98', 'BUENA VIUSTA SSSSSS', 'A7');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `empleado`
---
-
-CREATE TABLE `empleado` (
-  `id_e` int(11) NOT NULL,
-  `nombre` varchar(60) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `fecha_ingreso` date DEFAULT NULL,
-  `fecha_nacimiento` date DEFAULT NULL,
-  `turno` varchar(15) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `id_te` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -115,17 +100,6 @@ INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
 (53, '9', '9.00', 'HOJALATERIA', 14),
 (54, '0', '0.00', 'HOJALATERIA', 14),
 (55, '11', '11.00', 'PINTURA', 14);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipo_empleado`
---
-
-CREATE TABLE `tipo_empleado` (
-  `id_te` int(11) NOT NULL,
-  `tipo` varchar(255) COLLATE utf8mb4_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 -- --------------------------------------------------------
 
@@ -202,13 +176,6 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id_c`);
 
 --
--- Indices de la tabla `empleado`
---
-ALTER TABLE `empleado`
-  ADD PRIMARY KEY (`id_e`),
-  ADD KEY `id_te` (`id_te`);
-
---
 -- Indices de la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
@@ -221,12 +188,6 @@ ALTER TABLE `presupuesto`
 ALTER TABLE `servicio`
   ADD PRIMARY KEY (`codigo`),
   ADD KEY `Id_v` (`Id_v`);
-
---
--- Indices de la tabla `tipo_empleado`
---
-ALTER TABLE `tipo_empleado`
-  ADD PRIMARY KEY (`id_te`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -260,12 +221,6 @@ ALTER TABLE `cliente`
   MODIFY `id_c` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
--- AUTO_INCREMENT de la tabla `empleado`
---
-ALTER TABLE `empleado`
-  MODIFY `id_e` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
@@ -276,12 +231,6 @@ ALTER TABLE `presupuesto`
 --
 ALTER TABLE `servicio`
   MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
-
---
--- AUTO_INCREMENT de la tabla `tipo_empleado`
---
-ALTER TABLE `tipo_empleado`
-  MODIFY `id_te` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -306,12 +255,6 @@ ALTER TABLE `venta`
 --
 
 --
--- Filtros para la tabla `empleado`
---
-ALTER TABLE `empleado`
-  ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`id_te`) REFERENCES `tipo_empleado` (`id_te`);
-
---
 -- Filtros para la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
@@ -333,8 +276,8 @@ ALTER TABLE `vehiculo`
 -- Filtros para la tabla `venta`
 --
 ALTER TABLE `venta`
-  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`folio_p`) REFERENCES `presupuesto` (`folio_p`),
-  ADD CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_e`) REFERENCES `empleado` (`id_e`);
+  ADD CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`folio_p`) REFERENCES `presupuesto` (`folio_p`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_e`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

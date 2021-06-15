@@ -95,7 +95,7 @@
                   #echo json_encode($total[0][0]);
               ?>
               <!-- EDITAR FEHCA -->
-              <div class="form-group formulario__grupo" id="grupo__id">
+              <div class="form-group formulario__grupo" id="grupo__id" hidden>
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                   <abbr id="toltipx" title="Id de presupuesto">
@@ -208,7 +208,7 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
-            Footer
+
           </div>
           <!-- /.box-footer-->
         </div>
@@ -236,46 +236,47 @@
 
           <div class="box-body">
 
-            <!--Ingresar num inter-->
-            <div class="form-group formulario__grupo" id="grupo__inter">
+            <!--TOTAL A PAGAR-->
+            <div class="form-group formulario__grupo" id="grupo__pago">
               <h3>Total</h3>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                <abbr id="toltipx" title="Total a pagar">
                   <div class="formulario__grupo-input">
 
                     <?php
                     echo '
-                      <input type="text" class="form-control input-lg " name="nuevoTotal" id="nuevoTotal" placeholder="Numero interior" value="' . $IDSSS[3] . '">
+                      <input type="text" class="form-control input-lg " name="nuevoPago" id="nuevoPago" placeholder="Total" value="' . $IDSSS[3] . '" disabled>
                       '
                     ?>
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+              <p id="msj" class="formulario__input-error">Total a pagar</p>
             </div>
-            <!--Ingresar num inter-->
+
+            <!-- Cantidad a pagar -->
             <div class="form-group formulario__grupo" id="grupo__inter">
               <h3>Cantidad a pagar</h3>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                <abbr id="toltipx" title="Cantidad a pagar">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoCantidad" id="nuevoCantidad" placeholder="Numero interior" onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoCantidad" id="nuevoCantidad" placeholder="Pago" onkeyup="cambio(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+              <p id="msj" class="formulario__input-error">Cantidad a pagar</p>
             </div>
-            <!--Ingresar num inter-->
+            <!--caambio-->
             <div class="form-group formulario__grupo" id="grupo__inter">
               <h3>Cambio</h3>
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-usd" aria-hidden="true"></i></span>
-                <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                <abbr id="toltipx" title="Cambio">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoCambio" id="nuevoCambio" placeholder="Numero interior" onkeyup="mayus(this);">
+                    <input value="" type="text" class="form-control input-lg " name="nuevoCambio" id="nuevoCambio" placeholder="Cambio" onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+              <p id="msj" class="formulario__input-error">Cambio</p>
             </div>
 
 

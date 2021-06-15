@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2021 a las 07:09:56
+-- Tiempo de generación: 15-06-2021 a las 07:32:25
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -64,7 +64,8 @@ CREATE TABLE `presupuesto` (
 INSERT INTO `presupuesto` (`folio_p`, `fecha`, `id_v`, `total`) VALUES
 (1, NULL, NULL, NULL),
 (15, '2021-06-02', 12, '1200.00'),
-(17, '2021-06-04', 14, '56.00');
+(17, '2021-06-04', 14, '56.00'),
+(18, '2021-06-15', 14, '5056.00');
 
 -- --------------------------------------------------------
 
@@ -99,7 +100,8 @@ INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
 (52, '8', '8.00', 'HOJALATERIA', 14),
 (53, '9', '9.00', 'HOJALATERIA', 14),
 (54, '0', '0.00', 'HOJALATERIA', 14),
-(55, '11', '11.00', 'PINTURA', 14);
+(55, '11', '11.00', 'PINTURA', 14),
+(56, '242342', '5000.00', 'PINTURA', 14);
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `rol`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-06-11 03:38:02', '2021-06-11 08:38:02'),
+(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-06-11 03:38:02', '2021-06-15 05:16:58'),
 (12, 'xxx', 'xxx', '$2a$07$asxx54ahjppf45sd87a5auxk2cXQ.31g3rBG7bmaL.q.jFcrQh9Q2', 'administrador', '', 1, '2021-05-30 22:51:25', '2021-05-31 03:51:25');
 
 -- --------------------------------------------------------
@@ -224,13 +226,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `presupuesto`
 --
 ALTER TABLE `presupuesto`
-  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `folio_p` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de la tabla `servicio`
 --
 ALTER TABLE `servicio`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

@@ -1,46 +1,144 @@
+<div class="content-wrapper">
 
-  <div class="content-wrapper">
+  <section class="content-header">
 
-    <section class="content-header">
-      
-      <h1>
-        Inicio
-        <small>Panel de Control</small>
-      </h1>
+    <h1>
+      Inicio
+      <small>Panel de Control</small>
+    </h1>
 
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Tablero</li>
-      </ol>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+      <li class="active">Tablero</li>
+    </ol>
 
-    </section>
+  </section>
 
-    <!-- Main content -->
+  <!-- Main content -->
   <section class="content">
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+    <br>
+    <br>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-4 col-xs-12 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-maroon">
+          <div class="inner text-center">
+            <br><br><br><br>
+            <h3>Presupuestos</h3>
+            <p><br><br><br></p>
           </div>
+
+          <div class="icon">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+          </div>
+          <a href="presupuesto" class="small-box-footer">
+            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          </a>
         </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
       </div>
-      <!-- /.box -->
+
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-12 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-orange">
+          <div class="inner text-center">
+            <br><br><br><br>
+            <h3>Clientes</h3>
+            <p><br><br><br></p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-users" aria-hidden="true"></i>
+          </div>
+          <a href="clientes" class="small-box-footer">
+            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-12 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-teal">
+          <div class="inner text-center">
+            <br><br><br><br>
+            <h3>Vehiculos</h3>
+            <p><br><br><br></p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-car" aria-hidden="true"></i>
+          </div>
+          <a href="vehiculos" class="small-box-footer">
+            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+    <!-- /.row -->
+
+    <br>
+    <br>
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+      <div class="col-lg-4 col-xs-12 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+          <div class="inner text-center">
+            <br><br><br><br>
+            <h3>Ventas</h3>
+            <p><br><br><br></p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-usd" aria-hidden="true"></i>
+          </div>
+          <a href="venta" class="small-box-footer">
+            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-12 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+          <div class="inner text-center">
+            <br><br><br><br>
+            <h3>Reportes</h3>
+            <p><br><br><br></p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+          </div>
+          <a href="reportes" class="small-box-footer">
+            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ./col -->
+      <div class="col-lg-4 col-xs-12 col-md-6">
+        <!-- small box -->
+        <div class="small-box bg-purple">
+          <div class="inner text-center">
+            <br><br><br><br>
+            <h3>Usuarios</h3>
+            <p><br><br><br></p>
+          </div>
+          <div class="icon">
+            <i class="ion ion-person-add"></i>
+          </div>
+          <a href="usuarios" class="small-box-footer">
+            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+      <!-- ./col -->
+    </div>
+    <!-- /.row -->
 
   </section>
   <!-- /.content -->

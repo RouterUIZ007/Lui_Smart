@@ -53,9 +53,9 @@
                 <td>' . $value["fecha"] . '</td>
                 <td>' . $value["total"] . '</td>
                 <td>' . $value["id_v"] . '</td>
-                <td>
+                <td class="text-center" style="width: 200 px">
                   <div class="btn-group">
-                  <button class="btn btn-success btnEditarPresupuesto" idPres="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalAgregarVenta"> <i class="fa fa-pencil"> Cobrar Presupuesto</i></button>
+                    <button class="btn btn-success btnEditarPresupuesto" idPres="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalAgregarVenta"><i class="fa fa-pencil"> Cobrar Presupuesto</i></button>
                   </div>
                 </td>
               </tr>';
@@ -114,7 +114,7 @@
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Folio de presupuesto">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarFolio" id="editarFolio">
+                    <input type="text" class="form-control input-lg " name="editarFolio" placeholder="folio" id="editarFolio">
                     <input type="hidden" id="folioActual" name="folioActual">
                   </div>
               </div>
@@ -127,59 +127,118 @@
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Fecha del presupuesto">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarFecha" id="editarFecha">
+                    <input type="text" class="form-control input-lg " name="editarFecha" placeholder="fecha" id="editarFecha">
                     <input type="hidden" id="fechaActual" name="fechaActual">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error"></p>
             </div>
-
-            <!--Ingresar Modelo-->
-            <div class="form-group formulario__grupo" id="grupo__modelo">
+            <!--Vehiculo-->
+            <div class="form-group formulario__grupo" id="">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <abbr id="toltipx" title="Vehiculo del presupuesto">
+                  <div class="formulario__grupo-input">
+                    <input type="text" class="form-control input-lg " name="editarVeh" placeholder="vehiculo" id="editarVeh">
+                    <input type="hidden" id="vehActual" name="vehActual">
+                  </div>
+              </div>
+              <p id="msj" class="formulario__input-error"></p>
+            </div>
+            <!--Bubtotal-->
+            <div class="form-group formulario__grupo" id="">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Total del presupuesto">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarTotal" id="editarTotal">
+                    <input type="text" class="form-control input-lg " name="editarTotal" placeholder="SubTotal" id="editarTotal" onkeyup="iva(this);">
                     <input type="hidden" id="totalActual" name="totalActual">
                   </div>
               </div>
               <p id="msj" class="formulario__input-error"></p>
             </div>
 
-            <!--Ingresar la Color-->
-            <div class="form-group formulario__grupo" id="">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Vehiculo del presupuesto">
-                  <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="editarVeh" id="editarVeh">
-                    <input type="hidden" id="vehActual" name="vehActual">
-                  </div>
-              </div>
-              <p id="msj" class="formulario__input-error"></p>
+            <div class="col text-center" id="">
+              <br><br>
+              <button type="button" class="btn btn-warning" id="btnEfectivo" onclick="mostrar(this);">
+                Ingresar Efectivo
+              </button>
+              <br><br>
             </div>
 
 
+            <!-- DIV PARA OCULTR  -->
+            <div id="efectivo" style="display:none;">
+              <!--IVA-->
+              <div class="form-group formulario__grupo" id="">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <abbr id="toltipx" title="Total del presupuesto">
+                    <div class="formulario__grupo-input">
+                      <input type="text" class="form-control input-lg " name="editarIva" id="editarIva" placeholder="IVA">
+                      <input type="hidden" id="ivaActual" name="ivaActual">
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error"></p>
+              </div>
+              <!--Total-->
+              <div class="form-group formulario__grupo" id="">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <abbr id="toltipx" title="Total del presupuesto">
+                    <div class="formulario__grupo-input">
+                      <input type="text" class="form-control input-lg " name="editarTotal2" id="editarTotal2" placeholder="Total">
+                      <input type="hidden" id="total2Actual" name="total2Actual">
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error"></p>
+              </div>
+              <!--DINERO-->
+              <div class="form-group formulario__grupo" id="">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <abbr id="toltipx" title="Total del presupuesto">
+                    <div class="formulario__grupo-input">
+                      <input type="text" class="form-control input-lg " name="editarDinero" placeholder="pago" id="editarDinero" onkeyup="cambio(this);">
+                      <input type="hidden" id="dineroActual" name="dineroActual">
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error"></p>
+              </div>
+              <!--Cambio-->
+              <div class="form-group formulario__grupo" id="">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <abbr id="toltipx" title="Total del presupuesto">
+                    <div class="formulario__grupo-input">
+                      <input type="text" class="form-control input-lg " name="editarCambio" id="editarCambio" placeholder="cambio">
+                      <input type="hidden" id="cambioActual" name="cambioActual">
+                    </div>
+                </div>
+                <p id="msj" class="formulario__input-error"></p>
+              </div>
+            </div>
+
+
+
           </div>
-        </div>
 
-        <!--footer-->
-        <div class="modal-footer">
-          <abbr id="toltipx" title="Cancelar formulario del vehículo">
-            <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
-          </abbr>
-          <abbr id="toltipx" title="Guardar formulario del vehículo">
-            <button type="submit" class="btn btn-primary btn-lg">Cobrar</button>
-          </abbr>
-        </div>
-
+          <!--footer-->
+          <div class="modal-footer">
+            <abbr id="toltipx" title="Cancelar formulario del vehículo">
+              <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
+            </abbr>
+            <abbr id="toltipx" title="Guardar formulario del vehículo">
+              <button type="submit" class="btn btn-primary btn-lg">Cobrar</button>
+            </abbr>
+          </div>
 
 
-        <?php
-        $editarVenta = new ControladorVenta();
-        $editarVenta->ctrAgregarVenta();
-        ?>
+
+          <?php
+          $editarVenta = new ControladorVenta();
+          $editarVenta->ctrAgregarVenta();
+          ?>
 
 
       </form>

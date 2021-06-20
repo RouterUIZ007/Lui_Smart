@@ -13,6 +13,10 @@ class ControladorVenta
                 $tabla = "venta";
                 $datos = array(
                     "folio_p" => $_POST["editarFolio"],
+                    "total" => $_POST["editarTotal2"],
+                    "subtotal" => $_POST["editarTotal"],
+                    "cantidad" => $_POST["editarDinero"],
+                    "cambio" => $_POST["editarCambio"],
                     "id_e" => $_SESSION["id"]
                 );
 

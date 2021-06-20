@@ -13,12 +13,17 @@ class ModeloVenta
 	{
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
-            folio_p,fecha, id_e) 
+            folio_p,fecha, id_e, total, subtotal, cantidad, cambio) 
             VALUES 
-            (:folio_p, NOW(), :id_e)");
+            (:folio_p, NOW(), :id_e, :total, :subtotal, :cantidad, :cambio)");
 
 		$stmt->bindParam(":folio_p", $datos["folio_p"], PDO::PARAM_STR);
 		$stmt->bindParam(":id_e", $datos["id_e"], PDO::PARAM_STR);
+
+		$stmt->bindParam(":total", $datos["total"], PDO::PARAM_STR);
+		$stmt->bindParam(":subtotal", $datos["subtotal"], PDO::PARAM_STR);
+		$stmt->bindParam(":cantidad", $datos["cantidad"], PDO::PARAM_STR);
+		$stmt->bindParam(":cambio", $datos["cambio"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {
 			return "ok";

@@ -4,20 +4,6 @@ function mayus(e) {
 
 }
 
-function cambio(e) {
-	var precio = document.getElementById("nuevoPago").value;
-	var total = e.value - precio;
-	/* 	console.log(total); */
-
-
-	if (total < 0) {
-
-	} else {
-		var s = document.getElementById("nuevoCambio");
-		s.value = total;
-	}
-}
-
 
 const formulario = document.getElementById('formulario');
 const inputs = document.querySelectorAll('#formulario input');

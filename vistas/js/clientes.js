@@ -8,6 +8,7 @@ $(document).on("click",".btnEditarCliente",function(){
     var datos = new FormData();
     datos.append("idCliente",idCliente);
 
+    console.log(datos);
     /*Ajax para traer los datos*/
     $.ajax({
 

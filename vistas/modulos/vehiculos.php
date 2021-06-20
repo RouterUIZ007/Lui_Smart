@@ -365,50 +365,6 @@
 
 
 
-            <!--             
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-id-card-o"></i></span>
-                <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
-                  <input type="text" class="form-control input-lg" name="nuevoMatricula" placeholder="Ingresar Matricula" onkeyup="mayus(this);" required>
-                </abbr>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-car"></i></span>
-                <abbr id="toltipx" title="Ingrese la marca del vehículo">
-                  <input type="text" class="form-control input-lg" name="nuevoMarca" placeholder="Ingresar Marca" onkeyup="mayus(this);" required>
-                </abbr>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
-                <abbr id="toltipx" title="Ingrese el modelo del vehículo">
-                  <input type="text" class="form-control input-lg" name="nuevoModelo" placeholder="Ingresar el Modelo" onkeyup="mayus(this);" required>
-                </abbr>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-paint-brush"></i></span>
-                <abbr id="toltipx" title="Ingrese el color del vehículo">
-                  <input type="text" class="form-control input-lg" name="nuevoColor" placeholder="Ingresar Color" onkeyup="mayus(this);" required>
-                </abbr>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <abbr id="toltipx" title="Agregue una breve descripción del vehículo">
-                  <input type="text" class="form-control input-lg" name="nuevoObservaciones" placeholder="Ingresar Observaciones" onkeyup="mayus(this);" required>
-                </abbr>
-              </div>
-            </div>-->
-
-
-
 
           </div>
 

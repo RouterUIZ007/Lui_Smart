@@ -76,7 +76,7 @@
 			<!-- Ventas -->
 
 			<li class="active">
-				<a href="ventas">
+				<a href="venta">
 
 					<i class="fa fa-shopping-basket"></i>
 					<span>Ventas</span>

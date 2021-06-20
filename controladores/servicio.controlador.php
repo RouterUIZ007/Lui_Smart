@@ -103,13 +103,13 @@ class ControladorServicios
         return $respuesta;
     }
 
-    public static function ctrMostrarServicioPre($item)
+    public static function ctrMostrarServicioPre($valor)
     {
 
         /*Pasando la tabla*/
         $tabla = "servicio";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla, $item);
+        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla,$valor);
         return $respuesta;
     }
 

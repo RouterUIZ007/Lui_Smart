@@ -47,7 +47,6 @@ class ModeloServicio
 			$stmt->execute();
 			return $stmt->fetch();
 		} else {
-
 			$stmt = Conexion::conectar()->prepare(
 				# "SELECT * FROM $tabla"
 				"SELECT * FROM $tabla as s 
@@ -88,32 +87,25 @@ class ModeloServicio
 		$stmt = null;
 	}
 
-	public static function MdlMostrarServicioPre($tabla, $item)
+	public static function MdlMostrarServicioPre($tabla,$valor)
 	{
 
-		if ($item != null) {
+		if ($valor != null) {
 
-			$stmt = Conexion::conectar()->prepare(
-				"
-				SELECT * FROM $tabla as ser
-				where ser.Id_v = :Id_v
-				"
-			);
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE Id_v = :Id_v");
 
-
-			$stmt->bindParam(":Id_v", $item, PDO::PARAM_STR);
+			$stmt->bindParam(":Id_v", $valor, PDO::PARAM_STR);
 
 			$stmt->execute();
 
 			return $stmt->fetchAll();
 		}
 
-		
-
 		$stmt->close();
 
 		$stmt = null;
 	}
+
 
 
 

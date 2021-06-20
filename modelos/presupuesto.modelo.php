@@ -74,9 +74,9 @@ class ModeloPresupuesto
 
 		if ($item != null) {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE folio_p = :folio");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :folio_p");
 
-			$stmt->bindParam(":folio", $item, PDO::PARAM_STR);
+			$stmt->bindParam(":folio_p", $valor, PDO::PARAM_STR);
 
 			$stmt->execute();
 

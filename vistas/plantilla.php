@@ -109,7 +109,7 @@ session_start();
         $_GET["ruta"] == "ver-presupuestos" ||
         $_GET["ruta"] == "vehiculos" ||
         $_GET["ruta"] == "clientes" ||
-        $_GET["ruta"] == "ventas" ||
+        $_GET["ruta"] == "venta" ||
         $_GET["ruta"] == "usuarios" ||
         $_GET["ruta"] == "reportes" ||
         $_GET["ruta"] == "salir"
@@ -149,6 +149,7 @@ session_start();
   <script src="vistas/js/servicio.js"></script>
   <script src="vistas/js/vehiculos.js"></script>
   <script src="vistas/js/presupuestos.js"></script> 
+  <script src="vistas/js/venta.js"></script> 
 </body>
 
 </html>

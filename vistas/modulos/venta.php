@@ -177,10 +177,8 @@
 
 
         <?php
-
         $editarVenta = new ControladorVenta();
         $editarVenta->ctrAgregarVenta();
-
         ?>
 
 

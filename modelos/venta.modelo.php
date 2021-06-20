@@ -15,10 +15,9 @@ class ModeloVenta
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
             folio_p,fecha, id_e) 
             VALUES 
-            (:folio_p, :fecha, :id_e)");
+            (:folio_p, NOW(), :id_e)");
 
 		$stmt->bindParam(":folio_p", $datos["folio_p"], PDO::PARAM_STR);
-		$stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
 		$stmt->bindParam(":id_e", $datos["id_e"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {
@@ -51,30 +50,4 @@ class ModeloVenta
 		$stmt = null;
 	}	
 	
-	
-	public static function MdlMostrarV($tabla, $item, $valor)
-	{
-
-		if ($item != null) {
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
-
-			$stmt->bindParam(":" . $item, $valor, PDO::PARAM_STR);
-
-			$stmt->execute();
-
-			return $stmt->fetch();
-		} else {
-
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
-
-			$stmt->execute();
-
-			return $stmt->fetchAll();
-		}
-
-		$stmt->close();
-
-		$stmt = null;
-	}
 }

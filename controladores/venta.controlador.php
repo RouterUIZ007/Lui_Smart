@@ -13,7 +13,6 @@ class ControladorVenta
                 $tabla = "venta";
                 $datos = array(
                     "folio_p" => $_POST["editarFolio"],
-                    "fecha" => $_POST["editarFecha"],
                     "id_e" => $_SESSION["id"]
                 );
 

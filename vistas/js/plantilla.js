@@ -1,39 +1,51 @@
-  /* =====================================
-  =          SideBar Menu                =
-  ======================================*/
+/* =====================================
+=          SideBar Menu                =
+======================================*/
 
-  $('.sidebar-menu').tree()
+$('.sidebar-menu').tree()
 
-  /* =====================================
-  =          Data table               =
-  ======================================*/
+/* =====================================
+=          Data table               =
+======================================*/
 
-  $(".tablas").DataTable({
-  	"language": {
+$(".tablas").DataTable({
+	"language": {
 
-  		"sProcessing":     "Procesando...",
-		"sLengthMenu":     "Mostrar _MENU_ registros",
-		"sZeroRecords":    "No se encontraron resultados",
-		"sEmptyTable":     "Ningún dato disponible en esta tabla",
-		"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
-		"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0",
-		"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-		"sInfoPostFix":    "",
-		"sSearch":         "Buscar:",
-		"sUrl":            "",
-		"sInfoThousands":  ",",
+		"sProcessing": "Procesando...",
+		"sLengthMenu": "Mostrar _MENU_ registros",
+		"sZeroRecords": "No se encontraron resultados",
+		"sEmptyTable": "Ningún dato disponible en esta tabla",
+		"sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+		"sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0",
+		"sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+		"sInfoPostFix": "",
+		"sSearch": "Buscar:",
+		"sUrl": "",
+		"sInfoThousands": ",",
 		"sLoadingRecords": "Cargando...",
 		"oPaginate": {
-		"sFirst":    "Primero",
-		"sLast":     "Último",
-		"sNext":     "Siguiente",
-		"sPrevious": "Anterior"
+			"sFirst": "Primero",
+			"sLast": "Último",
+			"sNext": "Siguiente",
+			"sPrevious": "Anterior"
 		},
 		"oAria": {
-			"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+			"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
 			"sSortDescending": ": Activar para ordenar la columna de manera descendente"
 		}
 
-  	}
-  });
+	}
+});
 
+
+/* =====================================
+=          Date                        =
+======================================*/
+$('.grupodefechas').datepicker({
+	format: "dd/mm/yyyy",
+	todayBtn: "linked",
+	clearBtn: true,
+	todayHighlight: true,
+	language: "es"
+
+});

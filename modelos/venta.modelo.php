@@ -33,15 +33,38 @@ class ModeloVenta
 		$stmt->close();
 		$stmt = null;
 	}
+
+
+
 	public static function MdlMostrarPresupuestoVenta($tabla, $item, $valor)
 	{
-
-
 		if ($valor != null) {
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :folio_p");
 
 			$stmt->bindParam(":folio_p", $valor, PDO::PARAM_STR);
+			$stmt->execute();
+			return $stmt->fetch();
+		} else {
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+		$stmt->close();
+		$stmt = null;
+	}	
+
+
+	
+	public static function MdlMostrarVentas($tabla, $item, $valor)
+	{
+		if ($valor != null) {
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :folio_v ");
+
+			$stmt->bindParam(":folio_v ", $valor, PDO::PARAM_STR);
 			$stmt->execute();
 			return $stmt->fetch();
 		} else {

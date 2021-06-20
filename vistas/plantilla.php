@@ -45,6 +45,9 @@ session_start();
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
+  <!-- CALENDAR -->
+  <link rel="stylesheet" href="vistas/bower_components/bootstrap-datepicker2/css/bootstrap-datepicker.css"/>
+
   <!-- CSS xD -->
   <link rel="stylesheet" href="vistas/css/style.css">
 
@@ -76,6 +79,10 @@ session_start();
 
   <!-- SweetAlert 2 -->
   <script src="vistas/plugins/Sweetalert2/sweetalert2.all.js"></script>
+
+  <!-- CALENDAR -->
+  <script src="vistas/bower_components/bootstrap-datepicker2/js/bootstrap-datepicker.js"></script>
+  <script src="vistas/bower_components/bootstrap-datepicker2/locales/bootstrap-datepicker.es.min.js"></script>
 
   <!-- 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -148,8 +155,12 @@ session_start();
   <script src="vistas/js/clientes.js"></script>
   <script src="vistas/js/servicio.js"></script>
   <script src="vistas/js/vehiculos.js"></script>
-  <script src="vistas/js/presupuestos.js"></script> 
-  <script src="vistas/js/venta.js"></script> 
+  <script src="vistas/js/presupuestos.js"></script>
+  <script src="vistas/js/venta.js"></script>
+
+
+
+
 </body>
 
 </html>

@@ -66,7 +66,35 @@ class ControladorVenta
             echo '<script>
 					swal({
 						type:"error",
-						title:"Presupuesto no encontrad  o",
+						title:"Presupuesto no encontrado",
+						showConfirmButton: true,
+						confirmButtonText:"Cerrar",
+						closeOnConfirm:false
+						}).then((result)=>{
+							if(result.value){
+								window.location = "venta";
+							}
+						});
+
+				</script>';
+            return null;
+        }
+
+        return $respuesta;
+    }
+    public static function ctrMostrarVentas($item, $valor)
+    {
+
+        /*Pasando la tabla*/
+        $tabla = "venta";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloVenta::MdlMostrarVentas($tabla, $item, $valor);
+
+        if ($respuesta == false) {
+            echo '<script>
+					swal({
+						type:"error",
+						title:"Ventas no encontradas",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false

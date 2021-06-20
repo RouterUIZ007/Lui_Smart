@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-06-2021 a las 07:32:25
+-- Tiempo de generación: 20-06-2021 a las 10:12:42
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.5
 
@@ -42,7 +42,7 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_c`, `nombre`, `telefono`, `calle`, `inter`, `colonia`, `exter`) VALUES
-(26, 'LUIS', '9516549873', 'HOLAS', '98', 'BUENA VIUSTA SSSSSS', 'A7');
+(26, 'LUIS', '9516549873', 'H', '98', 'BUENA VIUSTA SSSSSS', 'A7');
 
 -- --------------------------------------------------------
 
@@ -62,7 +62,6 @@ CREATE TABLE `presupuesto` (
 --
 
 INSERT INTO `presupuesto` (`folio_p`, `fecha`, `id_v`, `total`) VALUES
-(1, NULL, NULL, NULL),
 (15, '2021-06-02', 12, '1200.00'),
 (17, '2021-06-04', 14, '56.00'),
 (18, '2021-06-15', 14, '5056.00');
@@ -90,16 +89,13 @@ INSERT INTO `servicio` (`codigo`, `concepto`, `costo`, `tipo`, `Id_v`) VALUES
 (37, 'PINTURA NEGRA', '800.00', 'PINTURA', 12),
 (38, 'COBRO DE PINTADA', '400.00', 'PINTURA', 12),
 (40, 'ASD', '456.00', 'PINTURA', 12),
-(45, '1', '1.00', 'HOJALATERIA', 14),
 (46, '2', '2.00', 'HOJALATERIA', 14),
-(47, '3', '3.00', 'HOJALATERIA', 14),
 (48, '4', '4.00', 'PINTURA', 14),
 (49, '5', '5.00', 'HOJALATERIA', 14),
 (50, '6', '6.00', 'HOJALATERIA', 14),
 (51, '7', '7.00', 'HOJALATERIA', 14),
 (52, '8', '8.00', 'HOJALATERIA', 14),
 (53, '9', '9.00', 'HOJALATERIA', 14),
-(54, '0', '0.00', 'HOJALATERIA', 14),
 (55, '11', '11.00', 'PINTURA', 14),
 (56, '242342', '5000.00', 'PINTURA', 14);
 
@@ -126,8 +122,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `rol`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-06-11 03:38:02', '2021-06-15 05:16:58'),
-(12, 'xxx', 'xxx', '$2a$07$asxx54ahjppf45sd87a5auxk2cXQ.31g3rBG7bmaL.q.jFcrQh9Q2', 'administrador', '', 1, '2021-05-30 22:51:25', '2021-05-31 03:51:25');
+(9, 'admin', 'root', '$2a$07$asxx54ahjppf45sd87a5auNOqyQU6vZUWwwmFM.tBJOLW4X/5sf0y', 'administrador', '', 1, '2021-06-20 00:52:16', '2021-06-20 05:52:16'),
+(12, 'xxx', 'xxx', '$2a$07$asxx54ahjppf45sd87a5auxk2cXQ.31g3rBG7bmaL.q.jFcrQh9Q2', 'administrador', '', 1, '2021-05-30 22:51:25', '2021-05-31 03:51:25'),
+(13, 'Jose', 'admin', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'administrador', '', 1, '0000-00-00 00:00:00', '2021-06-16 01:53:19');
 
 -- --------------------------------------------------------
 
@@ -150,9 +147,8 @@ CREATE TABLE `vehiculo` (
 --
 
 INSERT INTO `vehiculo` (`id_v`, `Matricula`, `marca`, `color`, `observaciones`, `id_c`, `modelo`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, ''),
-(12, 'XX0022', 'FORD', 'NEGRO', 'HALOS SOY UNA CAMIONETASASDASDASDASD', 26, 'F150'),
-(14, 'XX0000', 'MARCA', 'COL', 'ASDASD', 26, 'MOLDE');
+(12, 'XX0022', 'FORD', 'NEGRO', 'HALOS SOY ASDASDASD', 26, 'F150'),
+(14, 'XX0000', 'MARCA', 'COL3456789', 'ASDASD', 26, 'MOLDE');
 
 -- --------------------------------------------------------
 
@@ -164,8 +160,19 @@ CREATE TABLE `venta` (
   `folio_v` int(11) NOT NULL,
   `fecha` date DEFAULT NULL,
   `folio_p` int(11) DEFAULT NULL,
-  `id_e` int(11) DEFAULT NULL
+  `id_e` int(11) DEFAULT NULL,
+  `total` double NOT NULL,
+  `subtotal` double NOT NULL,
+  `cantidad` double NOT NULL,
+  `cambio` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`folio_v`, `fecha`, `folio_p`, `id_e`, `total`, `subtotal`, `cantidad`, `cambio`) VALUES
+(64, '2021-06-20', 17, 9, 64.96, 56, 70, 5.04);
 
 --
 -- Índices para tablas volcadas
@@ -238,7 +245,7 @@ ALTER TABLE `servicio`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
@@ -250,7 +257,7 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `folio_v` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `folio_v` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- Restricciones para tablas volcadas

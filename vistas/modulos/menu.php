@@ -86,7 +86,7 @@
 
 			<!-- Reportes -->
 			<li class="active">
-				<a href="reportes">
+				<a href="prueba">
 
 					<i class="fa fa-bar-chart"></i>
 					<span>Reportes</span>

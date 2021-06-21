@@ -118,7 +118,7 @@ session_start();
         $_GET["ruta"] == "clientes" ||
         $_GET["ruta"] == "venta" ||
         $_GET["ruta"] == "usuarios" ||
-        $_GET["ruta"] == "reportes" ||
+        $_GET["ruta"] == "prueba" ||
         $_GET["ruta"] == "salir"
       ) {
 

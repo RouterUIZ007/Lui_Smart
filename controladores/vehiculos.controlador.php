@@ -163,7 +163,6 @@ class ControladorVehiculos{
     /* Mostrar Vehiculos*/
 
     public static function ctrMostrarVehiculos($item,$valor){
-
         /*Pasando la tabla*/
         $tabla = "vehiculo";
         /* Haciendo uso del modelo*/

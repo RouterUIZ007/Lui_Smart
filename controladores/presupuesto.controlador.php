@@ -19,6 +19,78 @@ class ControladorPresupuesto
                 );
                 $respuesta = ModeloPresupuesto::mdlIngresarPresupuesto($tabla, $datos);
 
+                /* GENERAR PDF DE PRESUPUESTO */
+
+
+                $pdf = new PRESUPEUSTOPDF();
+                $pdf->AliasNbPages();
+                $pdf->AddPage();
+                $pdf->SetFont('Times', '', 12);
+
+                /* RESUTLADO DE LA CONSULTA */
+                $item = null;
+                $valor = null;
+                $servicios = ControladorServicios::ctrMostrarServicio($item, $valor);
+                //echo json_encode($servicios);
+                $idvehiculo = $servicios[0][4];
+                $vehiculos = ControladorVehiculos::ctrMostrarVehiculos("id_v", $idvehiculo);
+                //echo json_encode($vehiculos);
+                $idcliente = $vehiculos[5];
+                $cliente = ControladorCliente::ctrMostrarClientes("id_c", $idcliente);
+
+
+
+                /* Cabecera */
+                $pdf->cell(22, 10, 'Nombre', 1, 0, 'C', 0);
+                $pdf->cell(22, 10, 'telefono', 1, 1, 'C', 0);
+
+                $pdf->cell(22, 10, $cliente['nombre'], 1, 0, 'C', 0);
+                $pdf->cell(22, 10, $cliente['telefono'], 1, 1, 'C', 0);
+                $pdf->Ln(10);
+
+                /* SERVICIOS */
+                $pdf->cell(22, 10, 'codigo', 1, 0, 'C', 0);
+                $pdf->cell(22, 10, 'concepto', 1, 0, 'C', 0);
+                $pdf->cell(22, 10, 'costo', 1, 0, 'C', 0);
+                $pdf->cell(22, 10, 'tipo', 1, 0, 'C', 0);
+                $pdf->cell(22, 10, 'Id_v', 1, 1, 'C', 0);
+
+
+
+                foreach ($servicios as $key => $value) {
+                    $pdf->cell(22, 10, $value['codigo'], 1, 0, 'C', 0);
+                    $pdf->cell(22, 10, $value['concepto'], 1, 0, 'C', 0);
+                    $pdf->cell(22, 10, $value['costo'], 1, 0, 'C', 0);
+                    $pdf->cell(22, 10, $value['tipo'], 1, 0, 'C', 0);
+                    $pdf->cell(22, 10, $value['Id_v'], 1, 1, 'C', 0);
+                }
+                $pdf->Ln(10);
+
+
+
+                $total = ControladorServicios::ctrMostrarServicio2($item);
+                $pdf->cell(22, 10, 'TOTAL:', 1, 0, 'C', 0);
+                $pdf->cell(22, 10, $total[0][0], 1, 1, 'C', 0);
+
+                echo '<script>console.log("recorio los valores");</script>';
+                $hoy = getdate();
+                $pdf->Output("presupuesto_$hoy[year]$hoy[mon]$hoy[mday]$hoy[hours]$hoy[minutes].pdf", "F");
+                echo '<script>console.log("genero PDF");</script>';
+
+
+
+
+
+
+
+
+
+
+
+
+
+                /* TERMINO DE GENERARCE */
+                /* NOTOFOCACION DE AGREGAR EN PRESUPUESTo */
                 if ($respuesta == "ok") {
                     echo '<script>
 					swal({
@@ -129,12 +201,10 @@ class ControladorPresupuesto
 						});
 
 				</script>';
-                return null;
+            return null;
         }
 
         return $respuesta;
-
-
     }
 
 

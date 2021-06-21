@@ -1,12 +1,3 @@
-<!-- <?php
-      // Conexion a la base de datos para la lista de paises
-      function connect()
-      {
-        return new mysqli("localhost", "root", "", "luismart");
-      }
-      ?> -->
-
-
 <!-- Cuerpo AGREGAR SERVICIO PRESUPUESTO-->
 <div class="content-wrapper">
 
@@ -143,6 +134,7 @@
           $crearServicio = new ControladorServicios();
           $crearServicio->ctrCrearServicio();
           ?>
+
         </form>
       </div>
 
@@ -202,7 +194,7 @@
                 <?php
                 $item = null;
                 $total = ControladorServicios::ctrMostrarServicio2($item);
-                #echo json_encode($total[0][0]);
+                // echo json_encode($total[0][0]);
                 echo '
                 <input type="text" class="form-control input-lg" name="nuevoTotal" 
                 placeholder="Total del presupuesto" value="' . $total[0][0] . '" disabled required>'
@@ -275,34 +267,6 @@
                 <p style="color: orange">* Campos obligatorios</p>
               </div>
             </div>
-
-
-
-
-            <!-- Buscador de cleintes existentes  -->
-            <!-- <div class="form-group formulario__grupo" id="grupo__nombre">
-              <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <div class="formulario__grupo-input">
-                  <select class="selectpicker" data-show-subtext="false" data-live-search="true">
-                    <?php
-                    $con = connect();
-                    if (!$con->set_charset("utf8")) { //asignamos la codificación comprobando que no falle
-                      die("Error cargando el conjunto de caracteres utf8");
-                    }
-                    $consulta = "SELECT * FROM cliente";
-                    $resultado = mysqli_query($con, $consulta);
-                    $contador = 0;
-                    while ($misdatos = mysqli_fetch_assoc($resultado)) {
-                    ?>
-                      <option value="<?php $misdatos["id_c"]; ?>"><?php echo $misdatos["nombre"]; ?></option>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-            </div> -->
-
-
 
 
 

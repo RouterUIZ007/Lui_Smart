@@ -168,9 +168,7 @@ class ControladorCliente
 
     /* Mostrar Clientes*/
 
-    public static function ctrMostrarClientes($item, $valor)
-    {
-
+    public static function ctrMostrarClientes($item, $valor){
         /*Pasando la tabla*/
         $tabla = "cliente";
         /* Haciendo uso del modelo*/

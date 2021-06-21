@@ -22,6 +22,13 @@ class ControladorReporte
 
 
             echo '<script>console.log("Entrega de resultado");</script>';
+
+
+
+
+
+
+            /* GENEAR PDF */
             // Creación del objeto de la clase heredada
             $pdf = new PDF();
             $pdf->AliasNbPages();
@@ -41,12 +48,11 @@ class ControladorReporte
 
             echo '<script>console.log("recorio los valores");</script>';
             $hoy = getdate();
-
-
             $pdf->Output("reporte_$hoy[year]$hoy[mon]$hoy[mday]$hoy[hours]$hoy[minutes].pdf", "F");
-
             echo '<script>console.log("genero PDF");</script>';
 
+
+            /* IMPRIMIR NOTIFICACION */
             echo '<script>
                 swal({
                     type: "success",

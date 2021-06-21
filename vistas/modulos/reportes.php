@@ -36,40 +36,54 @@
           <h5 class="box-title text-center">Selecciones el rango de fechas para el reporte</h5>
 
 
+          <br>
           <!-- DATA 1 -->
 
           <div class="row">
             <div class="col-xs-12 col-md-6">
-
               <label>Desde:</label>
               <div class="input-group-addon">
-                <div class="grupodefechas">
-                  <input id="fecha1" type="text" class="form-control">
+                <div class="form-group grupodefechas">
+                  <input type="text" class="form-control input-lg" name="fecha1" id="fecha1">
                   <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span> -->
                 </div>
               </div>
-
             </div>
             <div class="col-xs-12 col-md-6">
-
               <label>Hasta:</label>
               <div class="input-group-addon">
-                <div class="grupodefechas">
-                  <input id="fecha2" type="text" class="form-control">
+                <div class="form-group  grupodefechas">
+                  <input type="text" class="form-control input-lg" name="fecha2" id="fecha2">
                   <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span> -->
                 </div>
               </div>
-
             </div>
           </div>
+
+          <br>
+
+          <!--folio-->
+
+
           <br>
 
           <!--footer-->
           <div class="text-center">
             <abbr id="toltipx" title="Guardar formulario del cliente">
-              <button type="submit" class="btn btn-primary btn-lg">Generar PDF </button>
+              <button id="botonpdf" type="submit" class="btn btn-primary btn-lg">Generar PDF </button>
             </abbr>
           </div>
+
+
+
+          <?php
+
+          $crearReporte = new ControladorReporte();
+          $crearReporte->generarPdf();
+
+          ?>
+
+
 
 
         </form>
@@ -111,7 +125,7 @@
 
       <div class="box-body">
 
-        <h5 class="box-title text-center">Tabla de Reportes (Busqueda algo en especifico)</h5>
+        <h5 class="box-title text-center">Tabla de Reportes (Búsqueda del FOLIO de venta)</h5>
 
         <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
           <thead>

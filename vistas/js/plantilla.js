@@ -42,7 +42,7 @@ $(".tablas").DataTable({
 =          Date                        =
 ======================================*/
 $('.grupodefechas').datepicker({
-	format: "dd/mm/yyyy",
+	format: "yyyy/mm/dd",
 	todayBtn: "linked",
 	clearBtn: true,
 	todayHighlight: true,

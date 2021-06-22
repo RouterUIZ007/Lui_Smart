@@ -48,11 +48,14 @@ class ControladorReporte
 
             echo '<script>console.log("recorio los valores");</script>';
             $hoy = getdate();
-            $pdf->Output("reporte_$hoy[year]$hoy[mon]$hoy[mday]$hoy[hours]$hoy[minutes].pdf", "F");
+            $pdf->Output("reporte_$hoy[year]-$hoy[mon]-$hoy[mday] $hoy[hours]-$hoy[minutes].pdf",'F');
+            //$pdf->Output();
+            //$pdf->Output('D','hola.pdf');
+
             echo '<script>console.log("genero PDF");</script>';
 
 
-            /* IMPRIMIR NOTIFICACION */
+            /* IMPRIMIR NOTIFICACION
             echo '<script>
                 swal({
                     type: "success",
@@ -64,7 +67,7 @@ class ControladorReporte
                         window.location = "reportes";
                     }
                 });
-                </script>';
+                </script>'; */
         }
     }
 }

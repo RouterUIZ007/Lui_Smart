@@ -1,11 +1,9 @@
 <?php
 require('fpdf/fpdf.php');
 
-class PDF extends FPDF
-{
+class PDF extends FPDF{
     // Cabecera de página
-    function Header()
-    {
+    function Header(){
         // Logo
         // Arial bold 15
         $this->SetFont('Arial', 'B', 15);
@@ -27,8 +25,7 @@ class PDF extends FPDF
     }
 
     // Pie de página
-    function Footer()
-    {
+    function Footer(){
         // Posición: a 1,5 cm del final
         $this->SetY(-15);
         // Arial italic 8
@@ -39,11 +36,9 @@ class PDF extends FPDF
 }
 
 
-class TIKET extends FPDF
-{
+class TIKET extends FPDF{
     // Cabecera de página
-    function Header()
-    {
+    function Header(){
         // Logo
         // Arial bold 15
         $this->SetFont('Arial', 'B', 15);
@@ -63,8 +58,7 @@ class TIKET extends FPDF
     }
 
     // Pie de página
-    function Footer()
-    {
+    function Footer(){
         // Posición: a 1,5 cm del final
         $this->SetY(-15);
         // Arial italic 8
@@ -73,11 +67,9 @@ class TIKET extends FPDF
     }
 }
 
-class PRESUPEUSTOPDF extends FPDF
-{
+class PRESUPEUSTOPDF extends FPDF{
     // Cabecera de página
-    function Header()
-    {
+    function Header(){
         // Logo
         // Arial bold 15
         $this->SetFont('Arial', 'B', 15);
@@ -91,8 +83,7 @@ class PRESUPEUSTOPDF extends FPDF
     }
 
     // Pie de página
-    function Footer()
-    {
+    function Footer(){
         // Posición: a 1,5 cm del final
         $this->SetY(-15);
         // Arial italic 8

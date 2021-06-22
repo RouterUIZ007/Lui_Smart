@@ -97,13 +97,25 @@
             <!--r-->
             <div class="form-group">
               <div class="input-group">
-                <p style="color: orange">* Campos obligatorios</p>
+                <!-- <p style="color: orange">* Campos obligatorios</p> -->
               </div>
             </div>
 
             <!-- Grupo 1 -->
             <div class="row">
               <div class="col-xs-6">
+                <!-- EDITAR ID -->
+                <div class="form-group formulario__grupo" id="" hidden>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <abbr id="toltipx" title="">
+                      <div class="formulario__grupo-input">
+                        <input type="text" class="form-control input-lg " name="editarId" id="editarId" value="" onkeyup="mayus(this);">
+                        <input type="hidden" id="idActual" name="idActual">
+                      </div>
+                  </div>
+                  <p id="msj" class="formulario__input-error">Edite la fecha</p>
+                </div>
                 <!-- EDITAR FEHCA -->
                 <div class="form-group formulario__grupo" id="grupo__fecha">
                   <div class="input-group">
@@ -132,122 +144,6 @@
                 </div>
               </div>
             </div>
-            <!-- Grupo 2 -->
-            <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
-              <thead>
-                <tr>
-                  <th style="width: 10px">#</th>
-                  <th>Vehiculo</th>
-                  <th>Concepto</th>
-                  <th>Costo</th>
-                  <th>Servicio</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $item = null;
-                $valor = null;
-                $clientes = ControladorServicios::ctrMostrarServicio($item, $valor);
-                foreach ($clientes as $key => $value) {
-                  echo '<tr>
-                  <td>' . $value["codigo"] . '</td>
-                  <td>' . $value["Id_v"] . '</td>
-                  <td>' . $value["concepto"] . '</td>
-                  <td>' . $value["costo"] . '</td>
-                  <td>' . $value["tipo"] . '</td>
-                  <td>  
-                    <div class="btn-group">
-                      <abbr id="toltipx" title="Editar servicio"> 
-                      <button class="btn btn-warning btnEditarServicio" idServicio="' . $value["codigo"] . '" data-toggle="modal" data-target="#modalEditarServicio"><i class="fa fa-pencil"></i></button>
-                      </abbr>
-                      <abbr id="toltipx" title="Cancelar servicio">
-                      <button class="btn btn-danger btnEliminarServicio" idServicio="' . $value["codigo"] . '"><i class="fa fa-times"></i></button>
-                      </abbr>
-                    </div>
-                  </td>
-
-
-                </tr>';
-                }
-                ?>
-              </tbody>
-            </table>
-
-            <div id="visible" hidden>
-
-              <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
-
-                <!-- Grupo 1 -->
-                <div class="row">
-                  <div class="col-xs-4">
-
-
-                    <!-- EDITAR FEHCA -->
-                    <div class="form-group formulario__grupo" id="grupo__concepto">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <abbr id="toltipx" title="Edite el concepto">
-                          <div class="formulario__grupo-input">
-                            <input type="text" class="form-control input-lg " name="editarConcenpto" id="editarConcenpto" value="" onkeyup="mayus(this);">
-                            <input type="hidden" id="conceptoActual" name="conceptoActual">
-                          </div>
-                      </div>
-                      <p id="msj" class="formulario__input-error">Edite el concepto</p>
-                    </div>
-
-
-                  </div>
-                  <div class="col-xs-4">
-
-
-                    <!-- EDITAR FEHCA -->
-                    <div class="form-group formulario__grupo" id="grupo__costo">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <abbr id="toltipx" title="Edite el costo">
-                          <div class="formulario__grupo-input">
-                            <input type="text" class="form-control input-lg " name="editarCosto" id="editarCosto" value="" onkeyup="mayus(this);">
-                            <input type="hidden" id="costoActual" name="costoActual">
-                          </div>
-                      </div>
-                      <p id="msj" class="formulario__input-error">Edite el costo</p>
-                    </div>
-
-
-                  </div>
-
-                  <div class="col-xs-4">
-                    <!-- EDITAR PRECIO-->
-                    <div class="form-group formulario__grupo" id="grupo__tipo">
-                      <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <abbr id="toltipx" title="Edite el tipo de servicio">
-                          <div class="formulario__grupo-input">
-                            <input type="number" class="form-control input-lg " name="editarTipo" id="editarTipo" value="" onkeyup="mayus(this);">
-                            <input type="hidden" id="tipoActual" name="tipoActual">
-                          </div>
-                      </div>
-                      <p id="msj" class="formulario__input-error">Edite el tipo de servicio</p>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="row text-center">
-
-                  <div class="col-4">
-                    <abbr id="toltipx" title="Cancelar formulario del vehículo">
-                      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modalAgregarC"><i class="fa fa-edit" aria-hidden="true"></i> Guardar Servicio</button>
-                    </abbr>
-                  </div>
-
-
-                </div>
-              </form>
-
-            </div>
-
 
           </div>
 

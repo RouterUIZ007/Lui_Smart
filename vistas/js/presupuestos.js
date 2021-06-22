@@ -21,10 +21,12 @@ $(document).on("click",".btnEditarPre",function(){
       success: function(respuesta){
 
           $("#editarFecha").val(respuesta["fecha"]);
-          $("#editarPrecio").val(respuesta["precio"]);
+          $("#editarPrecio").val(respuesta["total"]);
+          $("#editarId").val(respuesta["folio_p"]);
 
           $("#fechaActual").val(respuesta["fecha"]);
-          $("#precioActual").val(respuesta["precio"]);       
+          $("#precioActual").val(respuesta["total"]);    
+          $("#idActual").val(respuesta["folio_p"]);       
 
       }
 
@@ -36,7 +38,7 @@ $(document).on("click",".btnEditarPre",function(){
 
 $(document).on("click",".btnEliminarPresupuesto",function(){
 
-    foliopresupuesto=$(this).attr("foliopresupuesto");
+  idPre=$(this).attr("idPre");
 
     
 
@@ -55,10 +57,11 @@ $(document).on("click",".btnEliminarPresupuesto",function(){
     
         if(result.value){
     
-          window.location = "index.php?ruta=ver-presupuestos&foliopresupuesto="+ foliopresupuesto;
+          window.location = "index.php?ruta=ver-presupuestos&idPre="+ idPre;
     
         }
     
       })
 
 })
+

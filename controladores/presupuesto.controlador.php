@@ -212,25 +212,24 @@ class ControladorPresupuesto
     public static function ctrEditarPresupuesto()
     {
 
-        if (isset($_POST["fecha"])) {
+        if (isset($_POST["editarPrecio"])) {
 
-            if (
-                true
-            ) {
+            echo json_encode("Hizo clic xD al btn ");
 
 
-                $tabla = "presupuesto";
+            $tabla = "presupuesto";
 
-                $datos = array(
-                    "fecha" => $_POST["editarFecha"],
-                    "precio" => $_POST["editarPrecio"]
-                );
+            $datos = array(
+                "id" => $_POST["editarId"],
+                "fecha" => $_POST["editarFecha"],
+                "total" => $_POST["editarPrecio"]
+            );
 
-                $respuesta = ModeloPresupuesto::MdlEditarPresupuesto($tabla, $datos);
+            $respuesta = ModeloPresupuesto::MdlEditarPresupuesto($tabla, $datos);
 
-                if ($respuesta == "ok") {
+            if ($respuesta == "ok") {
 
-                    echo '<script>
+                echo '<script>
 	
 						swal({
 							  type: "success",
@@ -240,13 +239,12 @@ class ControladorPresupuesto
 							  }).then(function(result){
 										if (result.value) {
 	
-										window.location = "ver-presupuesto";
+										window.location = "ver-presupuestos";
 	
 										}
 									})
 	
 						</script>';
-                }
             } else {
 
 
@@ -260,7 +258,7 @@ class ControladorPresupuesto
 							  }).then(function(result){
 								if (result.value) {
 	
-								window.location = "ver-presupuesto";
+								window.location = "ver-presupuestos";
 	
 								}
 							})
@@ -276,10 +274,10 @@ class ControladorPresupuesto
     public static function ctrBorrarPresupuestos()
     {
 
-        if (isset($_GET["foliopresupuesto"])) {
+        if (isset($_GET["idPre"])) {
 
             $tabla = "presupuesto";
-            $datos = $_GET["foliopresupuesto"];
+            $datos = $_GET["idPre"];
 
             $respuesta = ModeloPresupuesto::mdlBorrarPresupuesto($tabla, $datos);
 

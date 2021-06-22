@@ -104,14 +104,11 @@ class ModeloPresupuesto
 	public static function MdlEditarPresupuesto($tabla, $datos)
 	{
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET fecha = :fecha, precio = :precio WHERE nombre = :nombre");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET fecha = :fecha, total = :total WHERE folio_p = :folio_p");
 
+		$stmt->bindParam(":folio_p", $datos["id"], PDO::PARAM_STR);
 		$stmt->bindParam(":fecha", $datos["fecha"], PDO::PARAM_STR);
-		$stmt->bindParam(":precio", $datos["precio"], PDO::PARAM_STR);
-		$stmt->bindParam(":calle", $datos["calle"], PDO::PARAM_STR);
-		$stmt->bindParam(":inter", $datos["inter"], PDO::PARAM_STR);
-		$stmt->bindParam(":exter", $datos["exter"], PDO::PARAM_STR);
-		$stmt->bindParam(":colonia", $datos["colonia"], PDO::PARAM_STR);
+		$stmt->bindParam(":total", $datos["total"], PDO::PARAM_STR);
 
 		if ($stmt->execute()) {
 			return "ok";

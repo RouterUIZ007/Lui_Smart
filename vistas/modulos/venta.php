@@ -111,7 +111,7 @@
             <!--folio-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Folio de Venta</span>
                 <abbr id="toltipx" title="Folio de presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarFolio" placeholder="folio" id="editarFolio">
@@ -124,7 +124,7 @@
             <!--Fecha-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Fecha</span>
                 <abbr id="toltipx" title="Fecha del presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarFecha" placeholder="fecha" id="editarFecha">
@@ -136,7 +136,7 @@
             <!--Vehiculo-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Vehiculo</span>
                 <abbr id="toltipx" title="Vehiculo del presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarVeh" placeholder="vehiculo" id="editarVeh">
@@ -148,7 +148,7 @@
             <!--Bubtotal-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> SubTotal</span>
                 <abbr id="toltipx" title="Total del presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarTotal" placeholder="SubTotal" id="editarTotal" onkeyup="iva(this);">
@@ -159,7 +159,7 @@
             </div>
 
             <div class="col text-center" id="">
-              <br><br>
+              <br>
               <button type="button" class="btn btn-warning" id="btnEfectivo" onclick="mostrar(this);">
                 Ingresar Efectivo
               </button>
@@ -172,7 +172,7 @@
               <!--IVA-->
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i> IVA</span>
                   <abbr id="toltipx" title="Total del presupuesto">
                     <div class="formulario__grupo-input">
                       <input type="text" class="form-control input-lg " name="editarIva" id="editarIva" placeholder="IVA">
@@ -184,7 +184,7 @@
               <!--Total-->
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i> Total</span>
                   <abbr id="toltipx" title="Total del presupuesto">
                     <div class="formulario__grupo-input">
                       <input type="text" class="form-control input-lg " name="editarTotal2" id="editarTotal2" placeholder="Total">
@@ -196,7 +196,7 @@
               <!--DINERO-->
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i> Pago</span>
                   <abbr id="toltipx" title="Total del presupuesto">
                     <div class="formulario__grupo-input">
                       <input type="text" class="form-control input-lg " name="editarDinero" placeholder="pago" id="editarDinero" onkeyup="cambio(this);">
@@ -208,7 +208,7 @@
               <!--Cambio-->
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
-                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <span class="input-group-addon"><i class="fa fa-user"></i> Cambio</span>
                   <abbr id="toltipx" title="Total del presupuesto">
                     <div class="formulario__grupo-input">
                       <input type="text" class="form-control input-lg " name="editarCambio" id="editarCambio" placeholder="cambio">

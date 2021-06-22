@@ -78,19 +78,9 @@ class ControladorPresupuesto
                 echo '<script>console.log("genero PDF");</script>';
 
 
-
-
-
-
-
-
-
-
-
-
-
                 /* TERMINO DE GENERARCE */
                 /* NOTOFOCACION DE AGREGAR EN PRESUPUESTo */
+
                 if ($respuesta == "ok") {
                     echo '<script>
 					swal({
@@ -105,6 +95,7 @@ class ControladorPresupuesto
 					});
 					</script>';
                 }
+                
             } else {
 
                 echo '<script>

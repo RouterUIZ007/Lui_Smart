@@ -55,7 +55,7 @@ class ControladorReporte
             echo '<script>console.log("genero PDF");</script>';
 
 
-            /* IMPRIMIR NOTIFICACION
+            /* IMPRIMIR NOTIFICACION */
             echo '<script>
                 swal({
                     type: "success",
@@ -67,7 +67,7 @@ class ControladorReporte
                         window.location = "reportes";
                     }
                 });
-                </script>'; */
+                </script>';
         }
     }
 }

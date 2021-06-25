@@ -27,28 +27,9 @@ class ControladorVenta
 
                 /* AGREGAR PDF */
 
-
-                /* GENEAR PDF */
-                // Creación del objeto de la clase heredada
-                $pdf = new TIKET();
-                $pdf->AliasNbPages();
-                $pdf->AddPage();
-                $pdf->SetFont('Times', '', 12);
-
-
-                $pdf->cell(22, 10, $_POST["editarFolio"], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $_POST["editarTotal2"], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $_POST["editarIva"], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $_POST["editarTotal"], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $_POST["editarDinero"], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $_POST["editarCambio"], 1, 0, 'C', 0);
-
-                $hoy = getdate();
+                /*  $hoy = getdate();
                 $pdf->Output("Tiket_venta_$hoy[year]$hoy[mon]$hoy[mday]$hoy[hours]$hoy[minutes].pdf", "F");
-                echo '<script>console.log("genero PDF");</script>';
-
-
-
+ */
                 /* PDF AGREGADO */
                 if ($respuesta == "ok") {
                     echo '<script>

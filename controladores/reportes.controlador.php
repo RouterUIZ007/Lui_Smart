@@ -23,36 +23,7 @@ class ControladorReporte
 
             echo '<script>console.log("Entrega de resultado");</script>';
 
-
-
-
-
-
-            /* GENEAR PDF */
-            // Creación del objeto de la clase heredada
-            $pdf = new PDF();
-            $pdf->AliasNbPages();
-            $pdf->AddPage();
-            $pdf->SetFont('Times', '', 12);
-
-            foreach ($respuesta as $key => $value) {
-                $pdf->cell(22, 10, $value['folio_v'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['fecha'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['folio_p'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['id_e'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['total'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['subtotal'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['cantidad'], 1, 0, 'C', 0);
-                $pdf->cell(22, 10, $value['cambio'], 1, 1, 'C', 0);
-            }
-
-            echo '<script>console.log("recorio los valores");</script>';
-            $hoy = getdate();
-            $pdf->Output("reporte_$hoy[year]-$hoy[mon]-$hoy[mday] $hoy[hours]-$hoy[minutes].pdf",'F');
-            //$pdf->Output();
-            //$pdf->Output('D','hola.pdf');
-
-            echo '<script>console.log("genero PDF");</script>';
+            /* PDF */
 
 
             /* IMPRIMIR NOTIFICACION */

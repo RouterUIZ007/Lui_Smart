@@ -108,8 +108,27 @@ class ControladorServicios
 
         /*Pasando la tabla*/
         $tabla = "servicio";
+        $item = null;
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla,$valor);
+        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla, $valor, $item);
+        return $respuesta;
+    }
+    public static function ctrMostrarSer($item, $valor)
+    {
+
+        /*Pasando la tabla*/
+        $tabla = "servicio";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla, $valor, $item);
+        return $respuesta;
+    }
+    public static function ctrMostrarSer2($item, $valor)
+    {
+
+        /*Pasando la tabla*/
+        $tabla = "servicio";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla, $valor, $item);
         return $respuesta;
     }
 

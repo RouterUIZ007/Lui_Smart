@@ -101,13 +101,14 @@
               </div>
             </div>
 
-            <!-- Grupo 1 -->
+
+
             <div class="row">
               <div class="col-xs-6">
                 <!-- EDITAR ID -->
-                <div class="form-group formulario__grupo" id="" hidden>
+                <div class="form-group formulario__grupo" id="">
                   <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-user"></i> Folio</span>
                     <abbr id="toltipx" title="">
                       <div class="formulario__grupo-input">
                         <input type="text" class="form-control input-lg " name="editarId" id="editarId" value="" onkeyup="mayus(this);">
@@ -116,10 +117,35 @@
                   </div>
                   <p id="msj" class="formulario__input-error">Edite la fecha</p>
                 </div>
+              </div>
+
+
+              <div class="col-xs-6">
+                <!-- EDITAR VEHICULOS-->
+                <div class="form-group formulario__grupo" id="" >
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i> Vehiculo</span>
+                    <abbr id="toltipx" title="">
+                      <div class="formulario__grupo-input">
+                        <input type="number" class="form-control input-lg " name="editarVehi" id="editarVehi" value="" onkeyup="mayus(this);">
+                        <input type="hidden" id="vehiActual" name="vehiActual">
+                      </div>
+                  </div>
+                  <p id="msj" class="formulario__input-error"></p>
+                </div>
+              </div>
+
+            </div>
+
+
+            <!-- Grupo 1 -->
+            <div class="row">
+              <div class="col-xs-6">
+
                 <!-- EDITAR FEHCA -->
                 <div class="form-group formulario__grupo" id="grupo__fecha">
                   <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-user"></i> Fecha</span>
                     <abbr id="toltipx" title="Edite la fecha">
                       <div class="formulario__grupo-input">
                         <input type="text" class="form-control input-lg " name="editarFecha" id="editarFecha" value="" onkeyup="mayus(this);">
@@ -133,7 +159,7 @@
                 <!-- EDITAR PRECIO-->
                 <div class="form-group formulario__grupo" id="grupo__precio">
                   <div class="input-group">
-                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <span class="input-group-addon"><i class="fa fa-user"></i> SubTotal</span>
                     <abbr id="toltipx" title="Edite el precio">
                       <div class="formulario__grupo-input">
                         <input type="number" class="form-control input-lg " name="editarPrecio" id="editarPrecio" value="" onkeyup="mayus(this);">
@@ -144,6 +170,47 @@
                 </div>
               </div>
             </div>
+
+
+            <!-- Grupo 2 -->
+            <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+              <thead>
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Vehiculo</th>
+                  <th>Concepto</th>
+                  <th>Costo</th>
+                  <th>Servicio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+
+
+
+                if (isset($_GET["editarVehi"])) {
+                  echo json_encode($_POST["editarId"]);
+                  echo json_encode($_GET["editarVehi"]);
+
+                  $valor = $_GET["idVeh"];
+                  //$valor = 14;
+                  $item = "Id_v";
+                  $clientes = ControladorServicios::ctrMostrarSer($item, $valor);
+                  foreach ($clientes as $key => $value) {
+                    echo '<tr>
+                  <td>' . $value["codigo"] . '</td>
+                  <td>' . $value["Id_v"] . '</td>
+                  <td>' . $value["concepto"] . '</td>
+                  <td>' . $value["costo"] . '</td>
+                  <td>' . $value["tipo"] . '</td>
+                </tr>';
+                  }
+                }
+                ?>
+              </tbody>
+            </table>
+
+
 
           </div>
 

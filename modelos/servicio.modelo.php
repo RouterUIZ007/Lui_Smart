@@ -87,17 +87,51 @@ class ModeloServicio
 		$stmt = null;
 	}
 
-	public static function MdlMostrarServicioPre($tabla,$valor)
+	public static function MdlMostrarServicioPre($tabla, $valor, $item)
 	{
 
 		if ($valor != null) {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE Id_v = :Id_v");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
-			$stmt->bindParam(":Id_v", $valor, PDO::PARAM_STR);
+			$stmt->bindParam(":$item", $valor, PDO::PARAM_STR);
 
 			$stmt->execute();
 
+			return $stmt->fetchAll();
+		}
+
+		$stmt->close();
+
+		$stmt = null;
+	}
+	public static function MdlMostrarServicioPre2($tabla, $valor, $item)
+	{
+
+		if ($valor != null) {
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+			$stmt->bindParam(":$item", $valor, PDO::PARAM_STR);
+
+			$stmt->execute();
+
+			$stmt->fetchAll();
+
+			$data = [];
+
+
+			foreach ($stmt as $key => $value) {
+				$data[] = [
+					"codigo" => $value->codigo,
+					"Id_v" => $value->Id_v,
+					"concepto" => $value->concepto,
+					"costo" => $value->costo,
+					"tipo" => $value->tipo
+				];
+			}
+
+			echo json_encode(["forumsData" => $data]);
 			return $stmt->fetchAll();
 		}
 

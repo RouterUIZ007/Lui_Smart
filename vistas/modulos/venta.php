@@ -111,7 +111,7 @@
             <!--folio-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i> Folio de Venta</span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Folio de Presupuesto</span>
                 <abbr id="toltipx" title="Folio de presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarFolio" placeholder="folio" id="editarFolio">
@@ -222,23 +222,24 @@
 
 
           </div>
+        </div>
 
-          <!--footer-->
-          <div class="modal-footer">
-            <abbr id="toltipx" title="Cancelar formulario del vehículo">
-              <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
-            </abbr>
-            <abbr id="toltipx" title="Guardar formulario del vehículo">
-              <button type="submit" class="btn btn-primary btn-lg">Cobrar</button>
-            </abbr>
-          </div>
+        <!--footer-->
+        <div class="modal-footer">
+          <abbr id="toltipx" title="Cancelar formulario del vehículo">
+            <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
+          </abbr>
+          <abbr id="toltipx" title="Guardar formulario del vehículo">
+            <button type="submit" class="btn btn-primary btn-lg">Cobrar</button>
+          </abbr>
+        </div>
 
 
 
-          <?php
-          $editarVenta = new ControladorVenta();
-          $editarVenta->ctrAgregarVenta();
-          ?>
+        <?php
+        $editarVenta = new ControladorVenta();
+        $editarVenta->ctrAgregarVenta();
+        ?>
 
 
       </form>

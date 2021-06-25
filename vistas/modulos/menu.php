@@ -3,7 +3,7 @@
 	<section class="sidebar">
 		<ul class="sidebar-menu">
 			<!-- Inicio -->
-			<li class="active">
+			<li class="treeview-active">
 				<a href="inicio">
 					<i class="fa fa-home"></i>
 					<span>Inicio</span>
@@ -41,14 +41,14 @@
 			</li>
 			
 			<!-- Clientes -->
-			<li class="active">
+			<li class="treeview-active">
 				<a href="clientes">
 					<i class="fa fa-users"></i>
 					<span>Clientes</span>
 				</a>
 			</li>
 			<!-- Vehiculos -->
-			<li class="active">
+			<li class="treeview-active">
 				<a href="vehiculos">
 					<i class="fa fa-car"></i>
 					<span>Vehiculos</span>
@@ -57,21 +57,21 @@
 			
 		
 			<!-- Ventas -->
-			<li class="active">
+			<li class="treeview-active">
 				<a href="venta">
 					<i class="fa fa-shopping-basket"></i>
 					<span>Ventas</span>
 				</a>
 			</li>
 			<!-- Reportes -->
-			<li class="active">
+			<li class="treeview-active">
 				<a href="reportes">
 					<i class="fa fa-bar-chart"></i>
 					<span>Reportes</span>
 				</a>
 			</li>
 			<!-- Usuarios -->
-			<li class="active">
+			<li class="treeview-active">
 				<a href="usuarios">
 					<i class="fa fa-user"></i>
 					<span>Usuarios</span>

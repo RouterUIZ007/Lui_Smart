@@ -23,10 +23,12 @@ $(document).on("click",".btnEditarPre",function(){
           $("#editarFecha").val(respuesta["fecha"]);
           $("#editarPrecio").val(respuesta["total"]);
           $("#editarId").val(respuesta["folio_p"]);
+          $("#editarVehi").val(respuesta["id_v"]);
 
           $("#fechaActual").val(respuesta["fecha"]);
           $("#precioActual").val(respuesta["total"]);    
           $("#idActual").val(respuesta["folio_p"]);       
+          $("#vehiActual").val(respuesta["id_v"]);       
 
       }
 

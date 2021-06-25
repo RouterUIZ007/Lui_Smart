@@ -109,7 +109,7 @@ class ControladorPresupuesto
         /*Pasando la tabla*/
         $tabla = "presupuesto";
         /* Haciendo uso del modelo*/
-        $respuesta = ModeloClientes::MdlMostrarClientes($tabla, $item, $valor);
+        $respuesta = ModeloPresupuesto::MdlMostrarPresupuestoS($tabla, $item, $valor);
         return $respuesta;
     }
 

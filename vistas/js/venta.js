@@ -22,12 +22,12 @@ $(document).on("click", ".btnEditarPresupuesto", function () {
             $("#editarFolio").val(respuesta["folio_p"]);
             $("#editarFecha").val(respuesta["fecha"]);
             $("#editarTotal").val(respuesta["total"]);
-            $("#editarVeh").val(respuesta["id_v"]);
+            $("#editarVeh").val(respuesta["Matricula"]);
 
             $("#folioActual").val(respuesta["folio_p"]);
             $("#fechaActual").val(respuesta["fecha"]);
             $("#totalActual").val(respuesta["total"]);
-            $("#vehActual").val(respuesta["id_v"]);
+            $("#vehActual").val(respuesta["Matricula"]);
 
         }
 

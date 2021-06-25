@@ -40,7 +40,12 @@ class ModeloVenta
 	{
 		if ($valor != null) {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :folio_p");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla as pre
+			INNER JOIN 
+			vehiculo as veh
+			WHERE pre.id_v = veh.id_v 
+			and
+			$item = :folio_p;");
 
 			$stmt->bindParam(":folio_p", $valor, PDO::PARAM_STR);
 			$stmt->execute();
@@ -54,10 +59,10 @@ class ModeloVenta
 		}
 		$stmt->close();
 		$stmt = null;
-	}	
+	}
 
 
-	
+
 	public static function MdlMostrarVentas($tabla, $item, $valor)
 	{
 		if ($valor != null) {
@@ -69,13 +74,16 @@ class ModeloVenta
 			return $stmt->fetch();
 		} else {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla as ven
+			INNER JOIN 
+			usuarios as usu
+			WHERE ven.id_e = usu.id;
+			");
 
 			$stmt->execute();
 			return $stmt->fetchAll();
 		}
 		$stmt->close();
 		$stmt = null;
-	}	
-	
+	}
 }

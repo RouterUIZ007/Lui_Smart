@@ -57,7 +57,10 @@ class ModeloPresupuesto
 			return $stmt->fetch();
 		} else {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla as pre
+			INNER JOIN vehiculo as veh
+			WHERE pre.id_v = veh.id_v;
+			");
 
 			$stmt->execute();
 

@@ -25,7 +25,7 @@ class ControladorVenta
 
 
 
-                /* AGREGAR PDF */
+                require_once "pdf1.php";
 
                 /*  $hoy = getdate();
                 $pdf->Output("Tiket_venta_$hoy[year]$hoy[mon]$hoy[mday]$hoy[hours]$hoy[minutes].pdf", "F");

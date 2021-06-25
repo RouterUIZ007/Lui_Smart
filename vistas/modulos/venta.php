@@ -136,7 +136,7 @@
             <!--Vehiculo-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i> Vehiculo</span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Matricula Vehicular</span>
                 <abbr id="toltipx" title="Vehiculo del presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarVeh" placeholder="vehiculo" id="editarVeh">
@@ -237,6 +237,7 @@
 
 
         <?php
+        
         $editarVenta = new ControladorVenta();
         $editarVenta->ctrAgregarVenta();
         ?>

@@ -133,7 +133,7 @@
               <th style="width: 10px"># Folio</th>
               <th>Fecha</th>
               <th>Presupuesto</th>
-              <th>Empleado</th>
+              <th>Nombre del Empleado</th>
               <th>Toltal</th>
               <th>SubTotal</th>
               <th>Pago</th>
@@ -154,7 +154,7 @@
                 <td>' . $value["folio_v"] . '</td>
                 <td>' . $value["fecha"] . '</td>
                 <td>' . $value["folio_p"] . '</td>
-                <td>' . $value["id_e"] . '</td>
+                <td>' . $value["nombre"] . '</td>
                 <td>' . $value["total"] . '</td>
                 <td>' . $value["subtotal"] . '</td>
                 <td>' . $value["cantidad"] . '</td>

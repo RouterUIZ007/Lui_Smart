@@ -39,7 +39,7 @@
               <th>Modelo</th>
               <th>Color</th>
               <th>Observaciones</th>
-              <th>Cliente</th>
+              <th>Nombre del Cliente</th>
               <th>Acciones</th>
 
             </tr>
@@ -55,6 +55,7 @@
 
             $vehiculos = ControladorVehiculos::ctrMostrarVehiculos($item, $valor);
 
+            //echo json_encode($vehiculos);
             foreach ($vehiculos as $key => $value) {
 
               echo '<tr>
@@ -65,7 +66,7 @@
                 <td>' . $value["modelo"] . '</td>
                 <td>' . $value["color"] . '</td>
                 <td>' . $value["observaciones"] . '</td>
-                <td>' . $value["id_c"] . '</td>
+                <td>' . $value["nombre"] . '</td>
                 <td>
 
                   <div class="btn-group">

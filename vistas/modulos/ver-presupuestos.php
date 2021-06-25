@@ -32,7 +32,7 @@
               <th style="width: 10px">#</th>
               <th>fecha</th>
               <th>total</th>
-              <th>vehiculo</th>
+              <th>Matricula</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -40,13 +40,14 @@
             <?php
             $item = null;
             $valor = null;
-            $clientes = ControladorPresupuesto::ctrMostrarPresupuesto($item, $valor);
-            foreach ($clientes as $key => $value) {
+            $pre = ControladorPresupuesto::ctrMostrarPresupuesto($item, $valor);
+            //echo json_encode($pre);
+            foreach ($pre as $key => $value) {
               echo '<tr>
                   <td>' . $value["folio_p"] . '</td>
                   <td>' . $value["fecha"] . '</td>
                   <td>' . $value["total"] . '</td>
-                  <td>' . $value["id_v"] . '</td>
+                  <td>' . $value["Matricula"] . '</td>
                   <td>
                     <div class="btn-group">
                       <button class="btn btn-warning btnEditarPre" idPre="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalEditarPresupuesto"><i class="fa fa-pencil"></i></button>
@@ -122,7 +123,7 @@
 
               <div class="col-xs-6">
                 <!-- EDITAR VEHICULOS-->
-                <div class="form-group formulario__grupo" id="" >
+                <div class="form-group formulario__grupo" id="">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i> Vehiculo</span>
                     <abbr id="toltipx" title="">
@@ -173,7 +174,7 @@
 
 
             <!-- Grupo 2 -->
-            <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
+            <!--   <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
               <thead>
                 <tr>
                   <th style="width: 10px">#</th>
@@ -208,7 +209,7 @@
                 }
                 ?>
               </tbody>
-            </table>
+            </table> -->
 
 
 

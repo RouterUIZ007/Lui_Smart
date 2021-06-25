@@ -53,7 +53,12 @@ class ModeloVehiculos
 			return $stmt->fetch();
 		} else {
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla as veh 
+			INNER JOIN 
+			cliente as cli 
+			WHERE veh.id_c = cli.id_c;
+			
+			");
 
 			$stmt->execute();
 

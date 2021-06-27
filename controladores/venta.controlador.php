@@ -23,13 +23,6 @@ class ControladorVenta
 
                 $respuesta = ModeloVenta::mdlAgregarVenta($tabla, $datos);
 
-
-
-                require_once "pdf1.php";
-
-                /*  $hoy = getdate();
-                $pdf->Output("Tiket_venta_$hoy[year]$hoy[mon]$hoy[mday]$hoy[hours]$hoy[minutes].pdf", "F");
- */
                 /* PDF AGREGADO */
                 if ($respuesta == "ok") {
                     echo '<script>
@@ -40,7 +33,11 @@ class ControladorVenta
 						confirmButtonText: "Cerrar"
 					}).then(function(result){
 						if(result.value){
+                            console.log("abrie ventanas");
+                            window.open("extensiones/tcpdf/tiket.php?folio_p2="+'.$_POST["editarFolio"].',"_blank");
+                            console.log("abrio PDF");
 							window.location = "venta";
+                            console.log("abrie NOtify");
 						}
 					});
 					</script>';

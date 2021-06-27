@@ -55,8 +55,6 @@ function iva() {
     s.value = IVA.toFixed(2);
 
 }
-
-
 function total() {
     var dinero = document.getElementById("editarTotal").value;
     var iva = document.getElementById("editarIva").value;
@@ -65,9 +63,6 @@ function total() {
     var s = document.getElementById("editarTotal2");
     s.value = total.toFixed(2);
 }
-
-
-
 function cambio(e) {
     var total = document.getElementById("editarTotal2").value;
     var dinero = e.value;
@@ -80,3 +75,12 @@ function cambio(e) {
     }
 }
 
+
+/*Imprimir Presupuesto*/
+$(".tablas").on("click",".btnImprimirPresupuesto",function(){
+
+    var idPre = $(this).attr("idPre");
+    
+    window.open("extensiones/tcpdf/presupuesto.php?folio_p2="+idPre,"_blank");
+  
+  })

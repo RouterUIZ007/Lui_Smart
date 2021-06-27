@@ -51,9 +51,7 @@
                   <td>
                     <div class="btn-group">
 
-                      <button class="btn btn-info btnImprimirPresupuesto" idPre="' . $value["folio_p"] . '" >
-                        <i class="fa fa-print"></i>
-                      </button>
+                      <button class="btn btn-info btnImprimirPresupuesto" idPre="' . $value["folio_p"] . '" ><i class="fa fa-print"></i></button>
                       <button class="btn btn-warning btnEditarPre" idPre="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalEditarPresupuesto"><i class="fa fa-pencil"></i></button>
                       <button class="btn btn-danger btnEliminarPresupuesto"  idPre="' . $value["folio_p"] . '"><i class="fa fa-times"></i></button>
                       

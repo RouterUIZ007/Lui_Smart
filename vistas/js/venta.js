@@ -77,10 +77,9 @@ function cambio(e) {
 
 
 /*Imprimir Presupuesto*/
-$(".tablas").on("click",".btnImprimirPresupuesto",function(){
+$(".tablas").on("click", ".btnImprimirPresupuesto", function () {
 
     var idPre = $(this).attr("idPre");
-    
-    window.open("extensiones/tcpdf/presupuesto.php?folio_p2="+idPre,"_blank");
-  
+
+    window.open("extensiones/tcpdf/presupuesto.php?folio_p2=" + idPre, "_blank");
   })

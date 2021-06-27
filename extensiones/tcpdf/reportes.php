@@ -9,59 +9,29 @@ require_once "../../modelos/servicio.modelo.php";
 require_once "../../controladores/vehiculos.controlador.php";
 require_once "../../modelos/vehiculos.modelo.php";
 
+require_once "../../controladores/reportes.controlador.php";
+require_once "../../modelos/reportes.modelo.php";
+
 
 //recuperando el valor del reporte
 
 class imprimirReporte{
 
-  public $codigo;
+  public $fecha1;
+  public $fecha2;
 
   public function traerImpresionPresupuesto(){
-    
-    $itemPresupuesto = "folio_p";
-    $valorPresupuesto = $this->codigo;
 
 
-    //traemos la informacion del presupuesto
-    $respuestaPresupuesto = ControladorPresupuesto::ctrMostrarPresupuesto($itemPresupuesto, $valorPresupuesto);
-
-  
-    
-
-    $foliop = (int)$respuestaPresupuesto["folio_p"];
-    $fecha = (string)$respuestaPresupuesto["fecha"];
-    $id_v = (int)$respuestaPresupuesto["id_v"];
-    $subtotal = (int)$respuestaPresupuesto["total"];
+    $item= "fecha";
+    $f1 = $this->fecha1;
+    $f2 = $this->fecha2;
+    $datos = array($f1, $f2);
+    $tabla = "venta";
+    /* RESPUESTA PATA LA TABLA Y RELLENAR VENTAS ENTRE LAS FECHAS */
+    $respuestatiket = ModeloReportes::MdlReportes($tabla, $item, $datos);
 
 
-    //traemos la informacion de los servicios
-
-    $respuestaServicio = ControladorServicios::ctrMostrarServicioPDF($id_v);
-  
-
-    //foreach ($respuestaServicio as $key => $value) {
-
-      //$conceptos = $value["concepto"];
-      //$costos = $value["costo"];
-  
-      
-    //}
-
-
-    //traemos la informacion del Vehiculo
-    $itemautomovil = "id_v";
-    $respuestaVehiculo = ControladorVehiculos::ctrMostrarVehiculos($itemautomovil,$id_v);
-
-    $matricula = (string)$respuestaVehiculo["Matricula"];
-    $marca = (string)$respuestaVehiculo["marca"];
-    $modelo = (string)$respuestaVehiculo["modelo"];
-    $color = (string)$respuestaVehiculo["color"];
-
-  
-   
-
-
- 
 
 // Include the main TCPDF library (search for installation path).
 require_once('tcpdf.php');
@@ -90,19 +60,20 @@ $pdf->writeHTML($bloque1, false, false, false, false, '');
 
 $bloque2 = <<<EOF
 
+    <h3>Periodo</h3>
     <table style="font-size:15px; padding5px 10px;">
 
     <tr>
 
-      <td style=" background-color:white; width:390px">
+      <td style=" background-color:white;">
 
-        Folio:$foliop
+        Fecha inicio: $f1
 
       </td>
 
-      <td style=" background-color:white; width:150px; text-align:right">
+      <td style=" background-color:white; text-align:right">
 			
-				Fecha: $fecha
+				Fecha final: $f2
 
 			</td>
 
@@ -113,63 +84,6 @@ $bloque2 = <<<EOF
 EOF;
 
 $pdf->writeHTML($bloque2, false, false, false, false, '');
-
-
-// ---------------------------------------------------------
-
-$bloque3 = <<<EOF
-
-    <table style="font-size:12px; padding5px 10px;">
-
-    <tr>
-		
-		<td style="border-bottom: 1px solid #666; background-color:white; width:540px"></td>
-
-		</tr>
-
-
-
-    <tr>
-
-    <td style="border: 1px solid #666; background-color:white; width:270px">
-
-      Matricula: $matricula
-
-    </td>
-
-    <td style="border: 1px solid #666; background-color:white; width:270px; text-align:right">
-  
-      Marca: $marca
-
-    </td>
-
-    </tr>
-
-
-
-
-    <tr>
-
-      <td style="border: 1px solid #666; background-color:white; width:270px">
-
-				Modelo: $modelo
-
-			</td>
-
-			<td style="border: 1px solid #666; background-color:white; width:270px; text-align:right">
-			
-				Color: $color
-
-			</td>
-     
-
-    </tr>
-
-  </table>
-
-EOF;
-
-$pdf->writeHTML($bloque3, false, false, false, false, '');
 
 // ---------------------------------------------------------
 
@@ -324,7 +238,8 @@ $pdf->Output('presupuesto.pdf');
 
 //traer el codigo de la fatura
 $presupuesto = new imprimirReporte();
-$presupuesto -> codigo = $_GET["folio_p2"];
+$presupuesto -> fecha1 = $_GET["fecha1"];
+$presupuesto -> fecha2 = $_GET["fecha2"];
 $presupuesto -> traerImpresionPresupuesto();
 
 ?>

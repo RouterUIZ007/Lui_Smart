@@ -11,8 +11,6 @@ class ControladorReporte
 
             $tabla = "venta";
             $datos = array($_POST["fecha1"], $_POST["fecha2"]);
-            echo '<script>console.log("' . $_POST["fecha1"] . '");</script>';
-            echo '<script>console.log("' . $_POST["fecha2"] . '");</script>';
             $item = "fecha";
 
 
@@ -34,7 +32,8 @@ class ControladorReporte
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
                 }).then(function(result){
-                    if(result.value){
+                    if(result.value){   
+                        window.open("extensiones/tcpdf/tiket.php?fecha1=" + ' . $_POST["fecha1"] . ',+"fecha2 = "+' . $_POST["fecha2"] . ',"_blank");
                         window.location = "reportes";
                     }
                 });

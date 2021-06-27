@@ -230,4 +230,15 @@ class ControladorServicios
             }
         }
     }
+
+    public static function ctrMostrarServicioPDF($valor)
+    {
+        
+        $tabla = "servicio";
+        $item = "Id_v";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla, $valor, $item);
+        return $respuesta;
+    }
+
 }

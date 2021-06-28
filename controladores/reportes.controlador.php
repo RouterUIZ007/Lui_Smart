@@ -26,16 +26,18 @@ class ControladorReporte
 
             /* IMPRIMIR NOTIFICACION */
             echo '<script>
+                /* DATE */
+                const d = new Date();
+                
+                /*  */
                 swal({
                     type: "success",
                     title: "¡ PDF AGREGADO :) !",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
                 }).then(function(result){
-                    if(result.value){   
-                        console.log('. $_POST["fecha1"] .' );
-                        console.log('. $_POST["fecha2"] .' );
-                        window.open("extensiones/tcpdf/reportes.php?fecha1=" + ' . $_POST["fecha1"] . ',+"fecha2 = "+' . $_POST["fecha2"] . ',"_blank");
+                    if(result.value){
+                        window.open("extensiones/tcpdf/reportes.php?fecha1='.$_POST["fecha1"].'&fecha2='.$_POST["fecha2"].'","_blank");
                         
                         window.location = "reportes";
                     }

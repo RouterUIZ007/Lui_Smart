@@ -24,23 +24,30 @@ class imprimirReporte{
 
 
     $item= "fecha";
+
     $f1 = $this->fecha1;
+
     $f2 = $this->fecha2;
+
+    
     $datos = array($f1, $f2);
+
+    
     $tabla = "venta";
+
     /* RESPUESTA PATA LA TABLA Y RELLENAR VENTAS ENTRE LAS FECHAS */
-    $respuestareporte = ModeloReportes::MdlReportes($tabla, $item, $datos);
+    $respuestareporte = ControladorReporte::generarPdf($datos);
 
-	echo json_encode($respuestareporte);
+    echo json_encode($respuestareporte);
 
-	$folioventa = (int)$respuestareporte["folio_v"];
-	$fechaventa = (string)$respuestareporte["fecha"];
-	$foliopresu = (int)$respuestareporte["folio_p"];
-	$idemp = (int)$respuestareporte["id_e"];
-	$subtotalventa = (int)$respuestareporte["subtotal"];
-	$totalventa = (int)$respuestareporte["total"];
-	$cantidadventa = (int)$respuestareporte["cantidad"];
-	$cambioventa = (int)$respuestareporte["cambio"];
+	  $folioventa = (int)$respuestareporte["folio_v"];
+	  $fechaventa = (string)$respuestareporte["fecha"];
+	  $foliopresu = (int)$respuestareporte["folio_p"];
+  	$idemp = (int)$respuestareporte["id_e"];
+	  $subtotalventa = (int)$respuestareporte["subtotal"];
+	  $totalventa = (int)$respuestareporte["total"];
+	  $cantidadventa = (int)$respuestareporte["cantidad"];
+	  $cambioventa = (int)$respuestareporte["cambio"];
 
 
 
@@ -98,7 +105,7 @@ $pdf->writeHTML($bloque2, false, false, false, false, '');
 
 // ---------------------------------------------------------
 
-$bloque4 = <<<EOF
+$bloque3 = <<<EOF
 
 	<table style="font-size:12px; padding:5px 10px;">
 
@@ -137,7 +144,7 @@ $bloque4 = <<<EOF
 
 EOF;
 
-$pdf->writeHTML($bloque4, false, false, false, false, '');
+$pdf->writeHTML($bloque3, false, false, false, false, '');
 
 // ---------------------------------------------------------
 

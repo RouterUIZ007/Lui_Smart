@@ -3,7 +3,7 @@
 class ControladorReporte
 {
 
-    public static function generarPdf()
+    public static function generarPdf($valor)
     {
 
 
@@ -16,7 +16,7 @@ class ControladorReporte
 
             echo '<script>console.log("reconocio el input");</script>';
 
-            $respuesta = ModeloReportes::MdlReportes($tabla, $item, $datos);
+            $respuesta = ModeloReportes::MdlReportes($tabla, $item, $valor);
 
 
             echo '<script>console.log("Entrega de resultado");</script>';
@@ -45,4 +45,5 @@ class ControladorReporte
                 </script>';
         }
     }
+
 }

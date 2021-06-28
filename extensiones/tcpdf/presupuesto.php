@@ -164,6 +164,13 @@ $bloque3 = <<<EOF
 
     </tr>
 
+    <tr>
+      <td>
+      <p style="font-size: 7px; background-color:white; width:540px; text-center:right">* Este presupuesto solo sera vigente los proximos 7 dias depues de su emisión</p>
+			</td>
+
+    </tr>
+
   </table>
 
 EOF;

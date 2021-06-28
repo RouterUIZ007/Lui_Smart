@@ -52,18 +52,18 @@ class imprimirReporte
     //echo json_encode($respuestareporte);
     //$count =0;
     //foreach ($respuestareporte as $key => $value) {
-      # code...
-      //$count = $count + 1;
-      
-      //echo json_encode($count);
-      //$folioventa = (int)$value["folio_v"];
-      //$fechaventa = (string)$value["fecha"];
-      //$foliopresu = (int)$value["folio_p"];
-      //$idemp = (int)$value["id_e"];
-      //$subtotalventa = (int)$value["subtotal"];
-      //$totalventa = (int)$value["total"];
-      //$cantidadventa = (int)$value["cantidad"];
-      //$cambioventa = (int)$value["cambio"];
+    # code...
+    //$count = $count + 1;
+
+    //echo json_encode($count);
+    //$folioventa = (int)$value["folio_v"];
+    //$fechaventa = (string)$value["fecha"];
+    //$foliopresu = (int)$value["folio_p"];
+    //$idemp = (int)$value["id_e"];
+    //$subtotalventa = (int)$value["subtotal"];
+    //$totalventa = (int)$value["total"];
+    //$cantidadventa = (int)$value["cantidad"];
+    //$cambioventa = (int)$value["cambio"];
     //}
 
 
@@ -118,7 +118,7 @@ EOF;
     $pdf->writeHTML($bloque2, false, false, false, false, '');
 
     // ---------------------------------------------------------
-    
+
     $bloque3 = <<<EOF
 
     <table style="font-size:15px; padding5px 10px;">
@@ -150,7 +150,7 @@ EOF;
 
     $pdf->writeHTML($bloque3, false, false, false, false, '');
 
-// ---------------------------------------------------------
+    // ---------------------------------------------------------
 
     $bloque4 = <<<EOF
 
@@ -192,7 +192,7 @@ EOF;
 EOF;
 
     $pdf->writeHTML($bloque4, false, false, false, false, '');
-
+$tod = 0;
     // ---------------------------------------------------------
 
     foreach ($respuestareporte as $key => $value) {
@@ -204,8 +204,8 @@ EOF;
       $totalventa = (int)$value["total"];
       $cantidadventa = (int)$value["cantidad"];
       $cambioventa = (int)$value["cambio"];
-    
-    $bloque5 = <<<EOF
+      $tod = $tod + $totalventa;
+      $bloque5 = <<<EOF
     
       <table style="font-size:8px; padding:2px 10px;">
     
@@ -247,15 +247,37 @@ EOF;
       </table>
     
     EOF;
-    
-    $pdf->writeHTML($bloque5, false, false, false, false, '');
-    
+
+      $pdf->writeHTML($bloque5, false, false, false, false, '');
     }
 
 
     // ---------------------------------------------------------
+    $bloquex = <<<EOF
+
+      <table style="font-size:9px; padding:5px 10px;">
+
+        <tr>
+        
+          <td style=" background-color:white; width:540px"></td>
+
+        </tr>
+
+        <tr>
+        
+        <td style="border: 1px solid #666; background-color:white; width:67x; text-align:center">Total </td>
+        <td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">$ $tod.00</td>
+
+        </tr>
+
+      </table>
+
+      EOF;
+
+    $pdf->writeHTML($bloquex, false, false, false, false, '');
 
 
+    // ---------------------------------------------------------
 
 
     //salida del archivo

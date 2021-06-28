@@ -16,8 +16,6 @@ class ControladorReporte
 
             echo '<script>console.log("reconocio el input");</script>';
 
-            $respuesta = ModeloReportes::MdlReportes($tabla, $item, $datos);
-
 
             echo '<script>console.log("Entrega de resultado");</script>';
 

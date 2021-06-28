@@ -15,68 +15,85 @@ require_once "../../modelos/reportes.modelo.php";
 
 //recuperando el valor del reporte
 
-class imprimirReporte{
+class imprimirReporte
+{
 
   public $fecha1;
   public $fecha2;
 
-  public function traerImpresionPresupuesto(){
+  public function traerImpresionPresupuesto()
+  {
 
 
-    $item= "fecha";
+    $item = "fecha";
 
     $f1 = $this->fecha1;
+    /*    $f1 = str_replace ( '/', '', $f11);
+    echo json_encode($f1);
+    
+    $f = date_format($f1, "Y/m/d");
+    echo json_encode($f);
+ */
+
 
     $f2 = $this->fecha2;
+    /*     $f2 = str_replace ( '/', '', $f22);
+    echo json_encode($f2);*/
 
-    
     $datos = array($f1, $f2);
 
-    
+
     $tabla = "venta";
 
     /* RESPUESTA PATA LA TABLA Y RELLENAR VENTAS ENTRE LAS FECHAS */
-    $respuestareporte = ControladorReporte::generarPdf($datos);
+    $respuestareporte = ModeloReportes::MdlReportes($tabla, $item, $datos);
+
 
     echo json_encode($respuestareporte);
-
-	  $folioventa = (int)$respuestareporte["folio_v"];
-	  $fechaventa = (string)$respuestareporte["fecha"];
-	  $foliopresu = (int)$respuestareporte["folio_p"];
-  	$idemp = (int)$respuestareporte["id_e"];
-	  $subtotalventa = (int)$respuestareporte["subtotal"];
-	  $totalventa = (int)$respuestareporte["total"];
-	  $cantidadventa = (int)$respuestareporte["cantidad"];
-	  $cambioventa = (int)$respuestareporte["cambio"];
-
-
-
-// Include the main TCPDF library (search for installation path).
-require_once('tcpdf.php');
-
-// create new PDF document
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    $count =0;
+    foreach ($respuestareporte as $key => $value) {
+      # code...
+      $count = $count + 1;
+      
+      echo json_encode($count);
+      $folioventa = (int)$value["folio_v"];
+      $fechaventa = (string)$value["fecha"];
+      $foliopresu = (int)$value["folio_p"];
+      $idemp = (int)$value["id_e"];
+      $subtotalventa = (int)$value["subtotal"];
+      $totalventa = (int)$value["total"];
+      $cantidadventa = (int)$value["cantidad"];
+      $cambioventa = (int)$value["cambio"];
+    }
 
 
-$pdf ->startPageGroup();
 
-$pdf ->AddPage('P','A7');
+    // Include the main TCPDF library (search for installation path).
+    require_once('tcpdf.php');
 
-// ---------------------------------------------------------
+    // create new PDF document
+    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-$bloque1 = <<<EOF
+
+    $pdf->startPageGroup();
+
+    $pdf->AddPage('P', 'A7');
+
+    // ---------------------------------------------------------
+
+    $bloque1 = <<<EOF
 			
 			<p style="width:540px"><img src="images/cabecera2.jpg"></p>
 EOF;
 
 
-$pdf->writeHTML($bloque1, false, false, false, false, '');
+    $pdf->writeHTML($bloque1, false, false, false, false, '');
 
 
 
-// ---------------------------------------------------------
+    // ---------------------------------------------------------
 
-$bloque2 = <<<EOF
+    $bloque2 = <<<EOF
 
     <h3>Periodo</h3>
     <table style="font-size:15px; padding5px 10px;">
@@ -101,11 +118,11 @@ $bloque2 = <<<EOF
 
 EOF;
 
-$pdf->writeHTML($bloque2, false, false, false, false, '');
+    $pdf->writeHTML($bloque2, false, false, false, false, '');
 
-// ---------------------------------------------------------
+    // ---------------------------------------------------------
 
-$bloque3 = <<<EOF
+    $bloque3 = <<<EOF
 
 	<table style="font-size:12px; padding:5px 10px;">
 
@@ -144,32 +161,28 @@ $bloque3 = <<<EOF
 
 EOF;
 
-$pdf->writeHTML($bloque3, false, false, false, false, '');
+    $pdf->writeHTML($bloque3, false, false, false, false, '');
 
-// ---------------------------------------------------------
-
-
+    // ---------------------------------------------------------
 
 
 
 
-// ---------------------------------------------------------
+
+
+    // ---------------------------------------------------------
 
 
 
 
-//salida del archivo
-$pdf->Output('presupuesto.pdf');
-
-}
-
+    //salida del archivo
+    $pdf->Output('presupuesto.pdf');
+  }
 }
 
 
 //traer el codigo de la fatura
 $presupuesto = new imprimirReporte();
-$presupuesto -> fecha1 = $_GET["fecha1"];
-$presupuesto -> fecha2 = $_GET["fecha2"];
-$presupuesto -> traerImpresionPresupuesto();
-
-?>
+$presupuesto->fecha1 = $_GET["fecha1"];
+$presupuesto->fecha2 = $_GET["fecha2"];
+$presupuesto->traerImpresionPresupuesto();

@@ -13,7 +13,6 @@ class ModeloReportes
 
 			$stmt = Conexion::conectar()->prepare($consulta);
 
-
 			$stmt->execute();
 
 			return $stmt->fetchAll();

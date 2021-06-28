@@ -65,6 +65,11 @@ class imprimirReporte{
     $totalventa = (int)$respuestaVentas["total"];
     $pagoventa = (int)$respuestaVentas["cantidad"];
     $cambioventa = (int)$respuestaVentas["cambio"];
+
+
+    date_default_timezone_set('America/Mexico_City');
+    $hora = date('H:i:s');
+    
     
  
 
@@ -78,7 +83,6 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 $pdf ->startPageGroup();
 
 $pdf ->AddPage('P','A7');
-
 // ---------------------Ancho 150------------------------------------
 
 $bloque1 = <<<EOF
@@ -123,7 +127,7 @@ $bloque2 = <<<EOF
 
       <td style=" background-color:white; width:75px; text-align:right">
 
-        Hora:
+        Hora: $hora
 
       </td>
 
@@ -332,6 +336,18 @@ $bloque6 = <<<EOF
 
 		</tr>
 
+    <tr>
+		
+      <td style=" background-color:white; width:150px"></td>
+
+    </tr>
+
+    <tr>
+		
+      <td style=" background-color:white; width:150px"></td>
+
+    </tr>
+
     
 
 
@@ -343,6 +359,14 @@ $pdf->writeHTML($bloque6, false, false, false, false, '');
 
 
 // ---------------------------------------------------------
+$bloque7 = <<<EOF
+			
+			<p style="width:150px; font-size:5px; text-align:center">¡GRACIAS POR SU COMPRA!</p>
+EOF;
+
+
+$pdf->writeHTML($bloque7, false, false, false, false, '');
+
 
 
 

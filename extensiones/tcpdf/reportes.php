@@ -49,22 +49,22 @@ class imprimirReporte
     $respuestareporte = ModeloReportes::MdlReportes($tabla, $item, $datos);
 
 
-    echo json_encode($respuestareporte);
-    $count =0;
-    foreach ($respuestareporte as $key => $value) {
+    //echo json_encode($respuestareporte);
+    //$count =0;
+    //foreach ($respuestareporte as $key => $value) {
       # code...
-      $count = $count + 1;
+      //$count = $count + 1;
       
-      echo json_encode($count);
-      $folioventa = (int)$value["folio_v"];
-      $fechaventa = (string)$value["fecha"];
-      $foliopresu = (int)$value["folio_p"];
-      $idemp = (int)$value["id_e"];
-      $subtotalventa = (int)$value["subtotal"];
-      $totalventa = (int)$value["total"];
-      $cantidadventa = (int)$value["cantidad"];
-      $cambioventa = (int)$value["cambio"];
-    }
+      //echo json_encode($count);
+      //$folioventa = (int)$value["folio_v"];
+      //$fechaventa = (string)$value["fecha"];
+      //$foliopresu = (int)$value["folio_p"];
+      //$idemp = (int)$value["id_e"];
+      //$subtotalventa = (int)$value["subtotal"];
+      //$totalventa = (int)$value["total"];
+      //$cantidadventa = (int)$value["cantidad"];
+      //$cambioventa = (int)$value["cambio"];
+    //}
 
 
 
@@ -77,7 +77,7 @@ class imprimirReporte
 
     $pdf->startPageGroup();
 
-    $pdf->AddPage('P', 'A7');
+    $pdf->AddPage();
 
     // ---------------------------------------------------------
 
@@ -94,13 +94,43 @@ EOF;
     // ---------------------------------------------------------
 
     $bloque2 = <<<EOF
-
-    <h3>Periodo</h3>
     <table style="font-size:15px; padding5px 10px;">
+      <tr>
+    
+          <td style=" background-color:white;width:540px;text-align:center">
 
+          <h3>Reporte de Ventas</h3>
+
+          </td>
+
+      </tr>
+
+      <tr>
+		
+		      <td style="background-color:white; width:540px"></td>
+
+		  </tr>
+
+    </table>
+
+EOF;
+
+    $pdf->writeHTML($bloque2, false, false, false, false, '');
+
+    // ---------------------------------------------------------
+    
+    $bloque3 = <<<EOF
+
+    <table style="font-size:15px; padding5px 10px;">
     <tr>
+    
+      <td style=" background-color:white;width:100px;text-align:center">
 
-      <td style=" background-color:white;">
+        Periodo: 
+
+      </td>
+
+      <td style=" background-color:white;text-align:right">
 
         Fecha inicio: $f1
 
@@ -115,16 +145,16 @@ EOF;
     </tr>
 
     </table>
-
+    
 EOF;
 
-    $pdf->writeHTML($bloque2, false, false, false, false, '');
+    $pdf->writeHTML($bloque3, false, false, false, false, '');
 
-    // ---------------------------------------------------------
+// ---------------------------------------------------------
 
-    $bloque3 = <<<EOF
+    $bloque4 = <<<EOF
 
-	<table style="font-size:12px; padding:5px 10px;">
+	<table style="font-size:9px; padding:5px 10px;">
 
     <tr>
 		
@@ -148,7 +178,7 @@ EOF;
 		
 		<td style="border: 1px solid #666; background-color:white; width:67x; text-align:center">Folio venta</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Fecha</td>
-		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Folio Presupuesto</td>
+		<td style="border: 1px solid #666; background-color:white; width:71px; text-align:center">Folio Presupuesto</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Empleado</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Subtotal</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Total</td>
@@ -161,13 +191,66 @@ EOF;
 
 EOF;
 
-    $pdf->writeHTML($bloque3, false, false, false, false, '');
+    $pdf->writeHTML($bloque4, false, false, false, false, '');
 
     // ---------------------------------------------------------
 
+    foreach ($respuestareporte as $key => $value) {
+      $folioventa = (int)$value["folio_v"];
+      $fechaventa = (string)$value["fecha"];
+      $foliopresu = (int)$value["folio_p"];
+      $idemp = (int)$value["id_e"];
+      $subtotalventa = (int)$value["subtotal"];
+      $totalventa = (int)$value["total"];
+      $cantidadventa = (int)$value["cantidad"];
+      $cambioventa = (int)$value["cambio"];
+    
+    $bloque5 = <<<EOF
+    
+      <table style="font-size:8px; padding:2px 10px;">
+    
+        <tr>
+          
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">
+                $folioventa
+          </td>
+    
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">
+                $fechaventa
+          </td>
 
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:71px; text-align:center">
+                $foliopresu
+          </td>
+    
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">
+                $idemp 
+          </td>
 
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">$
+                $subtotalventa.00 
+          </td>
+    
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">$
+                $totalventa.00
+          </td>
 
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">$
+                $cantidadventa.00
+          </td>
+    
+          <td style="border: 1px solid #666; color:#333; background-color:white; width:67px; text-align:center">$
+                $cambioventa.00 
+          </td>
+    </tr>
+    
+      </table>
+    
+    EOF;
+    
+    $pdf->writeHTML($bloque5, false, false, false, false, '');
+    
+    }
 
 
     // ---------------------------------------------------------

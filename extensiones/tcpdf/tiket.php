@@ -9,6 +9,9 @@ require_once "../../modelos/servicio.modelo.php";
 require_once "../../controladores/vehiculos.controlador.php";
 require_once "../../modelos/vehiculos.modelo.php";
 
+require_once "../../controladores/venta.controlador.php";
+require_once "../../modelos/venta.modelo.php";
+
 
 //recuperando el valor del reporte
 
@@ -37,15 +40,7 @@ class imprimirReporte{
     //traemos la informacion de los servicios
 
     $respuestaServicio = ControladorServicios::ctrMostrarServicioPDF($id_v);
-  
 
-    //foreach ($respuestaServicio as $key => $value) {
-
-      //$conceptos = $value["concepto"];
-      //$costos = $value["costo"];
-  
-      
-    //}
 
 
     //traemos la informacion del Vehiculo
@@ -55,12 +50,22 @@ class imprimirReporte{
     $matricula = (string)$respuestaVehiculo["Matricula"];
     $marca = (string)$respuestaVehiculo["marca"];
     $modelo = (string)$respuestaVehiculo["modelo"];
-    $color = (string)$respuestaVehiculo["color"];
 
-  
+    //traemos la informacion de las ventas
+
    
 
+    $respuestaVentas = ControladorVenta::ctrMostrarventasPDF($valorPresupuesto);
+   
 
+    $folioventa = (int)$respuestaVentas["folio_v"];
+    $fechaventa = (string)$respuestaVentas["fecha"];
+    $subtotalventa = (int)$respuestaVentas["subtotal"];
+    $iva = $subtotalventa * .16;
+    $totalventa = (int)$respuestaVentas["total"];
+    $pagoventa = (int)$respuestaVentas["cantidad"];
+    $cambioventa = (int)$respuestaVentas["cambio"];
+    
  
 
 // Include the main TCPDF library (search for installation path).
@@ -74,11 +79,11 @@ $pdf ->startPageGroup();
 
 $pdf ->AddPage('P','A7');
 
-// ---------------------------------------------------------
+// ---------------------Ancho 150------------------------------------
 
 $bloque1 = <<<EOF
 			
-			<p style="width:540px"><img src="images/cabecera2.jpg"></p>
+			<p style="width:150px"><img src="images/cabecera2.jpg"></p>
 EOF;
 
 
@@ -90,21 +95,39 @@ $pdf->writeHTML($bloque1, false, false, false, false, '');
 
 $bloque2 = <<<EOF
 
-    <table style="font-size:15px; padding5px 10px;">
+    <table style="font-size:5px; padding5px 10px;">
 
     <tr>
 
-      <td style=" background-color:white; width:390px">
+      <td style=" font-size:9px; background-color:white; width:150px;text-align:center">
 
-        Folio:$foliop
+        Ticket No. $folioventa
 
       </td>
 
-      <td style=" background-color:white; width:150px; text-align:right">
-			
-				Fecha: $fecha
+    </tr>
 
-			</td>
+    <tr>
+		
+		  <td style=" background-color:white; width:150px"></td>
+
+		</tr>
+
+    <tr>
+
+      <td style=" background-color:white; width:75px">
+
+        Fecha: $fechaventa
+
+      </td>
+
+      <td style=" background-color:white; width:75px; text-align:right">
+
+        Hora:
+
+      </td>
+
+     
 
     </tr>
 
@@ -119,11 +142,11 @@ $pdf->writeHTML($bloque2, false, false, false, false, '');
 
 $bloque3 = <<<EOF
 
-    <table style="font-size:12px; padding5px 10px;">
+    <table style="font-size:5px; padding5px 10px;">
 
     <tr>
 		
-		<td style="border-bottom: 1px solid #666; background-color:white; width:540px"></td>
+		<td style=" background-color:white; width:540px"></td>
 
 		</tr>
 
@@ -131,37 +154,23 @@ $bloque3 = <<<EOF
 
     <tr>
 
-    <td style="border: 1px solid #666; background-color:white; width:270px">
+    <td style=" background-color:white; width:50x">
 
       Matricula: $matricula
 
     </td>
 
-    <td style="border: 1px solid #666; background-color:white; width:270px; text-align:right">
+    <td style="background-color:white; width:50px; text-align:right">
   
       Marca: $marca
 
     </td>
 
-    </tr>
+    <td style="background-color:white; width:50px; text-align:right">
+  
+      Modelo: $modelo
 
-
-
-
-    <tr>
-
-      <td style="border: 1px solid #666; background-color:white; width:270px">
-
-				Modelo: $modelo
-
-			</td>
-
-			<td style="border: 1px solid #666; background-color:white; width:270px; text-align:right">
-			
-				Color: $color
-
-			</td>
-     
+    </td>
 
     </tr>
 
@@ -172,33 +181,38 @@ EOF;
 $pdf->writeHTML($bloque3, false, false, false, false, '');
 
 // ---------------------------------------------------------
-
 $bloque4 = <<<EOF
 
-	<table style="font-size:12px; padding:5px 10px;">
+	<table style="font-size:5px; padding5px 10px;">
 
     <tr>
 		
-      <td style=" background-color:white; width:540px"></td>
+      <td style=" background-color:white; width:150px"></td>
 
     </tr>
 
     <tr>
 		
-      <td style=" font-size:18px; background-color:white; width:540px;text-align:center">SERVICIOS</td>
+      <td style=" background-color:white; width:150px"></td>
 
     </tr>
 
     <tr>
 		
-      <td style=" background-color:white; width:540px"></td>
+      <td style=" font-size:5px; background-color:white; width:150px;text-align:center">SERVICIOS</td>
+
+    </tr>
+
+    <tr>
+		
+      <td style=" background-color:white; width:150px"></td>
 
     </tr>
 
 		<tr>
 		
-		<td style="border: 1px solid #666; background-color:white; width:340px; text-align:center">Concepto</td>
-		<td style="border: 1px solid #666; background-color:white; width:200px; text-align:center">Costo</td>
+		<td style="border: 1px solid #666; background-color:white; width:90px; text-align:center">Concepto</td>
+		<td style="border: 1px solid #666; background-color:white; width:60px; text-align:center">Costo</td>
 
 		</tr>
 
@@ -209,23 +223,21 @@ EOF;
 $pdf->writeHTML($bloque4, false, false, false, false, '');
 
 // ---------------------------------------------------------
-
-// ---------------------------------------------------------
 foreach ($respuestaServicio as $key => $value) {
   $conceptos = $value["concepto"];
   $costos = $value["costo"];
 
 $bloque5 = <<<EOF
 
-	<table style="font-size:12px; padding:5px 10px;">
+	<table style="font-size:5px; padding:2px 10px;">
 
     <tr>
 			
-      <td style="border: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center">
+      <td style="border: 1px solid #666; color:#333; background-color:white; width:90px; text-align:center">
               $conceptos
       </td>
 
-      <td style="border: 1px solid #666; color:#333; background-color:white; width:200px; text-align:center">$
+      <td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:center">$
              $costos
       </td>
 </tr>
@@ -237,69 +249,90 @@ EOF;
 $pdf->writeHTML($bloque5, false, false, false, false, '');
 
 }
-
-
 // ---------------------------------------------------------
-$iva = $subtotal * .16;
-$tot = $iva+$subtotal;
-
-
-
 $bloque6 = <<<EOF
 
-	<table style="font-size:10px; padding:5px 10px;">
+	<table style="font-size:5px; padding:1px 10px;">
 
-		<tr>
+  	<tr>
+		
+      <td style=" background-color:white; width:150px"></td>
+      <td style=" background-color:white; width:150px"></td>
+      <td style=" background-color:white; width:150px"></td>
 
-			<td style="color:#333; background-color:white; width:340px; text-align:center"></td>
-
-			<td style="border-bottom: 1px solid #666; background-color:white; width:100px; text-align:center"></td>
-
-			<td style="border-bottom: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center"></td>
-
-		</tr>
+    </tr>
 		
 		<tr>
 		
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:center"></td>
 
-			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
+			<td style="border: 1px solid #666;  background-color:white; width:60px; text-align:right">
 				SubTotal:
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $subtotal
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+				$ $subtotalventa.00
 			</td>
 
 		</tr>
 
 		<tr>
 
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:center"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
+			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
 				IVA (16%):
 			</td>
 		
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $iva
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+				$ $iva  
 			</td>
 
 		</tr>
 
 		<tr>
 		
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:right"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
+			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
 				Total:
 			</td>
 			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $tot
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+				$ $totalventa.00 
 			</td>
 
 		</tr>
+
+    <tr>
+		
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:right"></td>
+
+			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
+				Pago:
+			</td>
+			
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+				$ $pagoventa.00 
+			</td>
+
+		</tr>
+
+    <tr>
+		
+			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:right"></td>
+
+			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
+				Cambio:
+			</td>
+			
+			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+				$ $cambioventa.00 
+			</td>
+
+		</tr>
+
+    
 
 
 	</table>

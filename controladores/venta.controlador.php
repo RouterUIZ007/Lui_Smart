@@ -116,4 +116,14 @@ class ControladorVenta
 
         return $respuesta;
     }
+
+    public static function ctrMostrarventasPDF($valor)
+    {
+        
+        $tabla = "venta";
+        $item = "folio_p";
+        /* Haciendo uso del modelo*/
+        $respuesta = ModeloVenta::MdlMostrarventasPDF($tabla, $valor, $item);
+        return $respuesta;
+    }
 }

@@ -29,7 +29,18 @@ class imprimirReporte{
     $datos = array($f1, $f2);
     $tabla = "venta";
     /* RESPUESTA PATA LA TABLA Y RELLENAR VENTAS ENTRE LAS FECHAS */
-    $respuestatiket = ModeloReportes::MdlReportes($tabla, $item, $datos);
+    $respuestareporte = ModeloReportes::MdlReportes($tabla, $item, $datos);
+
+	echo json_encode($respuestareporte);
+
+	$folioventa = (int)$respuestareporte["folio_v"];
+	$fechaventa = (string)$respuestareporte["fecha"];
+	$foliopresu = (int)$respuestareporte["folio_p"];
+	$idemp = (int)$respuestareporte["id_e"];
+	$subtotalventa = (int)$respuestareporte["subtotal"];
+	$totalventa = (int)$respuestareporte["total"];
+	$cantidadventa = (int)$respuestareporte["cantidad"];
+	$cambioventa = (int)$respuestareporte["cambio"];
 
 
 
@@ -99,7 +110,7 @@ $bloque4 = <<<EOF
 
     <tr>
 		
-      <td style=" font-size:18px; background-color:white; width:540px;text-align:center">SERVICIOS</td>
+      <td style=" font-size:18px; background-color:white; width:540px;text-align:center">VENTAS GENERADAS</td>
 
     </tr>
 
@@ -111,8 +122,14 @@ $bloque4 = <<<EOF
 
 		<tr>
 		
-		<td style="border: 1px solid #666; background-color:white; width:340px; text-align:center">Concepto</td>
-		<td style="border: 1px solid #666; background-color:white; width:200px; text-align:center">Costo</td>
+		<td style="border: 1px solid #666; background-color:white; width:67x; text-align:center">Folio venta</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Fecha</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Folio Presupuesto</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Empleado</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Subtotal</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Total</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Cantidad</td>
+		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Cambio</td>
 
 		</tr>
 
@@ -124,103 +141,9 @@ $pdf->writeHTML($bloque4, false, false, false, false, '');
 
 // ---------------------------------------------------------
 
-// ---------------------------------------------------------
-foreach ($respuestaServicio as $key => $value) {
-  $conceptos = $value["concepto"];
-  $costos = $value["costo"];
-
-$bloque5 = <<<EOF
-
-	<table style="font-size:12px; padding:5px 10px;">
-
-    <tr>
-			
-      <td style="border: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center">
-              $conceptos
-      </td>
-
-      <td style="border: 1px solid #666; color:#333; background-color:white; width:200px; text-align:center">$
-             $costos
-      </td>
-</tr>
-
-	</table>
-
-EOF;
-
-$pdf->writeHTML($bloque5, false, false, false, false, '');
-
-}
-
-
-// ---------------------------------------------------------
-$iva = $subtotal * .16;
-$tot = $iva+$subtotal;
 
 
 
-$bloque6 = <<<EOF
-
-	<table style="font-size:10px; padding:5px 10px;">
-
-		<tr>
-
-			<td style="color:#333; background-color:white; width:340px; text-align:center"></td>
-
-			<td style="border-bottom: 1px solid #666; background-color:white; width:100px; text-align:center"></td>
-
-			<td style="border-bottom: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center"></td>
-
-		</tr>
-		
-		<tr>
-		
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
-
-			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
-				SubTotal:
-			</td>
-
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $subtotal
-			</td>
-
-		</tr>
-
-		<tr>
-
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
-
-			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
-				IVA (16%):
-			</td>
-		
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $iva
-			</td>
-
-		</tr>
-
-		<tr>
-		
-			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
-
-			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
-				Total:
-			</td>
-			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
-				$ $tot
-			</td>
-
-		</tr>
-
-
-	</table>
-
-EOF;
-
-$pdf->writeHTML($bloque6, false, false, false, false, '');
 
 
 // ---------------------------------------------------------

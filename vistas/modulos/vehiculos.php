@@ -1,3 +1,18 @@
+<?php
+
+if($_SESSION["perfil"] == "Cajero"){
+
+  echo '<script>
+
+    window.location = "inicio";
+  
+  </script>';
+
+  return;
+  
+}
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">
@@ -72,10 +87,15 @@
                   <div class="btn-group">
 
               
-                  <button class="btn btn-warning btnEditarVehiculo" idVehiculo="' . $value["id_v"] . '" data-toggle="modal" data-target="#modalEditarVehiculo"><i class="fa fa-pencil"></i></button>
-                  <button class="btn btn-danger btnEliminarVehiculo" idVehiculo="' . $value["id_v"] . '"><i class="fa fa-times"></i></button>
+                  <button class="btn btn-warning btnEditarVehiculo" idVehiculo="' . $value["id_v"] . '" data-toggle="modal" data-target="#modalEditarVehiculo"><i class="fa fa-pencil"></i></button>';
 
-                  </div>
+                  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
+
+                  echo'<button class="btn btn-danger btnEliminarVehiculo" idVehiculo="' . $value["id_v"] . '"><i class="fa fa-times"></i></button>';
+
+                  }
+                  
+                  echo'</div>
 
                 </td>
 

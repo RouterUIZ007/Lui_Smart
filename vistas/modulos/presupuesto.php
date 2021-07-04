@@ -1,3 +1,20 @@
+<?php
+
+if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
+
+  echo '<script>
+
+    window.location = "inicio";
+  
+  </script>';
+
+  return;
+  
+}
+
+
+?>
+
 <!-- Cuerpo AGREGAR SERVICIO PRESUPUESTO-->
 <div class="content-wrapper">
 

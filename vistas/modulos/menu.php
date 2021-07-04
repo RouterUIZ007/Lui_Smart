@@ -3,13 +3,9 @@
 	<section class="sidebar">
 		<ul class="sidebar-menu">
 
-		<?php				
-		echo json_encode($_SESSION["id"]);
-		echo json_encode($_SESSION["nombre"]);
-		echo json_encode($_SESSION["usuario"]);
-		echo json_encode($_SESSION["perfil"]);
+		<?php
 
-		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller" || $_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 		    
 			
 
@@ -22,7 +18,7 @@
 			</li>';
 		}
 
-		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller"){
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
 			
 			echo'<!-- Presupuesto y ver presupuesto -->
 			<li class="treeview">
@@ -56,7 +52,7 @@
 			</li>';
 		}
 
-		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller" || $_SESSION["perfil"] == "Secretaria"){
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
 			
 			echo'<!-- Clientes -->
 			<li class="treeview-active">
@@ -87,7 +83,7 @@
 			</li>';
 		}
 
-		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller" || $_SESSION["perfil"] == "Secretaria"){
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
 
 
 			echo'<!-- Reportes -->
@@ -99,7 +95,7 @@
 			</li>';
 		}
 
-		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller"){
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
 
 			echo'<!-- Usuarios -->
 			<li class="treeview-active">

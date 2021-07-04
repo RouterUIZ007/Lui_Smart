@@ -19,8 +19,10 @@
 
     <br>
     <br>
-
-    <!-- Small boxes (Stat box) -->
+  <?php
+  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
+    
+    echo'<!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
@@ -38,9 +40,12 @@
             Clic aqui <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
-      </div>
-    
-      <!-- ./col -->
+      </div>';
+  }
+
+  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
+      
+    echo'<!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-orange">
@@ -56,9 +61,11 @@
             Clic aqui <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
-      </div>
+      </div>';
+  }
 
-      <!-- ./col -->
+  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
+      echo'<!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-teal">
@@ -77,11 +84,15 @@
       </div>
       <!-- ./col -->
     </div>
-    <!-- /.row -->
+    <!-- /.row -->';
+  }
+    
+  
 
-    <br>
-    <br>
+  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Cajero"){
 
+    echo'<br>
+    <br>
     <!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-lg-4 col-xs-12 col-md-6">
@@ -99,9 +110,12 @@
             Clic aqui <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
-      </div>
+      </div>';
 
-      <!-- ./col -->
+  }
+  
+  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
+      echo'<!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-blue">
@@ -117,9 +131,11 @@
             Clic aqui <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
-      </div>
+      </div>';
+  }
 
-      <!-- ./col -->
+  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
+      echo'<!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-purple">
@@ -138,8 +154,9 @@
       </div>
       <!-- ./col -->
     </div>
-    <!-- /.row -->
-
+    <!-- /.row -->';
+  }
+  ?>
   </section>
   <!-- /.content -->
 </div>

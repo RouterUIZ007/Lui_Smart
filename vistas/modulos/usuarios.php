@@ -1,3 +1,18 @@
+<?php
+
+if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
+
+  echo '<script>
+
+    window.location = "inicio";
+  
+  </script>';
+
+  return;
+  
+}
+?>
+
 <div class="content-wrapper">
 
   <section class="content-header">

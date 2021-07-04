@@ -46,7 +46,7 @@ class ControladorUsuarios
 						$_SESSION["nombre"] = $respuesta["nombre"];
 						$_SESSION["usuario"] = $respuesta["usuario"];
 						$_SESSION["foto"] = $respuesta["foto"];
-						$_SESSION["perfil"] = $respuesta["perfil"];
+						$_SESSION["perfil"] = $respuesta["rol"];
 
 						/*Capturar la fecha y hora de inicio de sesion*/
 

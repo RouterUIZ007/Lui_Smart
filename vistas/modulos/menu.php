@@ -2,14 +2,29 @@
 
 	<section class="sidebar">
 		<ul class="sidebar-menu">
-			<!-- Inicio -->
+
+		<?php				
+		echo json_encode($_SESSION["id"]);
+		echo json_encode($_SESSION["nombre"]);
+		echo json_encode($_SESSION["usuario"]);
+		echo json_encode($_SESSION["perfil"]);
+
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller" || $_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
+		    
+			
+
+			echo '<!-- Inicio -->
 			<li class="treeview-active">
 				<a href="inicio">
 					<i class="fa fa-home"></i>
 					<span>Inicio</span>
 				</a>
-			</li>
-			<!-- Presupuesto y ver presupuesto -->
+			</li>';
+		}
+
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller"){
+			
+			echo'<!-- Presupuesto y ver presupuesto -->
 			<li class="treeview">
 				<a href="">
 					<i class="fa fa-calculator"></i>
@@ -38,49 +53,66 @@
 				
 				
 				</ul>
-			</li>
+			</li>';
+		}
+
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller" || $_SESSION["perfil"] == "Secretaria"){
 			
-			<!-- Clientes -->
+			echo'<!-- Clientes -->
 			<li class="treeview-active">
 				<a href="clientes">
 					<i class="fa fa-users"></i>
 					<span>Clientes</span>
 				</a>
 			</li>
+
+
 			<!-- Vehiculos -->
 			<li class="treeview-active">
 				<a href="vehiculos">
 					<i class="fa fa-car"></i>
 					<span>Vehiculos</span>
 				</a>
-			</li>
-			
+			</li>';
+		}
+
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Cajero"){
 		
-			<!-- Ventas -->
+			echo'<!-- Ventas -->
 			<li class="treeview-active">
 				<a href="venta">
 					<i class="fa fa-shopping-basket"></i>
 					<span>Ventas</span>
 				</a>
-			</li>
-			<!-- Reportes -->
+			</li>';
+		}
+
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller" || $_SESSION["perfil"] == "Secretaria"){
+
+
+			echo'<!-- Reportes -->
 			<li class="treeview-active">
 				<a href="reportes">
 					<i class="fa fa-bar-chart"></i>
 					<span>Reportes</span>
 				</a>
-			</li>
-			<!-- Usuarios -->
+			</li>';
+		}
+
+		if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "jefetaller"){
+
+			echo'<!-- Usuarios -->
 			<li class="treeview-active">
 				<a href="usuarios">
 					<i class="fa fa-user"></i>
 					<span>Usuarios</span>
 				</a>
-			</li>
+			</li>';
+		}
 			
-			
-		</ul>
 		
+		echo'</ul>';
+		?>
 	</section>
 	
 </aside>

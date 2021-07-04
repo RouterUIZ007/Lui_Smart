@@ -39,7 +39,7 @@
           </a>
         </div>
       </div>
-
+    
       <!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->

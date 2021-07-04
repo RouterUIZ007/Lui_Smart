@@ -19,10 +19,74 @@
 
     <br>
     <br>
-  <?php
-  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
-    
-    echo'<!-- Small boxes (Stat box) -->
+    <?php
+
+
+    if ($_SESSION["perfil"] == "Secretaria") {
+      echo '<!-- Small boxes (Stat box) -->
+  <div class="row">
+    ';
+      echo '
+    <div class="col-lg-4 col-xs-12 col-md-6">
+      <!-- small box -->
+      <div class="small-box bg-orange">
+        <div class="inner text-center">
+          <br><br><br><br>
+          <h3>Clientes</h3>
+          <p><br><br><br></p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </div>
+        <a href="clientes" class="small-box-footer">
+          Clic aqui <i class="fa fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>';
+      echo '
+    <div class="col-lg-4 col-xs-12 col-md-6">
+      <!-- small box -->
+      <div class="small-box bg-teal">
+        <div class="inner text-center">
+          <br><br><br><br>
+          <h3>Vehiculos</h3>
+          <p><br><br><br></p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-car" aria-hidden="true"></i>
+        </div>
+        <a href="vehiculos" class="small-box-footer">
+          Clic aqui <i class="fa fa-arrow-circle-right"></i>
+        </a>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-12 col-md-6">
+    <!-- small box -->
+    <div class="small-box bg-blue">
+      <div class="inner text-center">
+        <br><br><br><br>
+        <h3>Reportes</h3>
+        <p><br><br><br></p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+      </div>
+      <a href="reportes" class="small-box-footer">
+        Clic aqui <i class="fa fa-arrow-circle-right"></i>
+      </a>
+    </div>
+  </div>
+  </div>
+  <!-- /.row -->';
+    }
+
+
+
+
+    if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller") {
+
+      echo '<!-- Small boxes (Stat box) -->
     <div class="row">
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
@@ -41,11 +105,11 @@
           </a>
         </div>
       </div>';
-  }
+    }
 
-  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
-      
-    echo'<!-- ./col -->
+    if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller") {
+
+      echo '
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-orange">
@@ -62,10 +126,10 @@
           </a>
         </div>
       </div>';
-  }
+    }
 
-  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
-      echo'<!-- ./col -->
+    if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller") {
+      echo '
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-teal">
@@ -85,13 +149,15 @@
       <!-- ./col -->
     </div>
     <!-- /.row -->';
-  }
-    
-  
+    }
 
-  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Cajero"){
 
-    echo'<br>
+
+
+
+    if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Cajero") {
+
+      echo '<br>
     <br>
     <!-- Small boxes (Stat box) -->
     <div class="row">
@@ -111,11 +177,10 @@
           </a>
         </div>
       </div>';
+    }
 
-  }
-  
-  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller" || $_SESSION["perfil"] == "Secretaria"){
-      echo'<!-- ./col -->
+    if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller") {
+      echo '<!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-blue">
@@ -132,10 +197,10 @@
           </a>
         </div>
       </div>';
-  }
+    }
 
-  if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
-      echo'<!-- ./col -->
+    if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller") {
+      echo '<!-- ./col -->
       <div class="col-lg-4 col-xs-12 col-md-6">
         <!-- small box -->
         <div class="small-box bg-purple">
@@ -155,8 +220,8 @@
       <!-- ./col -->
     </div>
     <!-- /.row -->';
-  }
-  ?>
+    }
+    ?>
   </section>
   <!-- /.content -->
 </div>

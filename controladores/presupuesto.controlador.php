@@ -41,7 +41,7 @@ class ControladorPresupuesto
                     echo '<script>
 					swal({
 						type: "success",
-						title: "¡El presupuesto se agrego correctamente xD!",
+						title: "¡Los datos del presupuesto se agregaron correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 					}).then(function(result){
@@ -59,7 +59,7 @@ class ControladorPresupuesto
 					swal({
 
 						type:"error",
-						title:"¡Presupuesto no guardado :c!",
+						title:"¡Presupuesto no guardado!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false
@@ -180,7 +180,7 @@ class ControladorPresupuesto
 	
 						swal({
 							  type: "success",
-							  title: "El Presupuesto ha sido editado correctamente",
+							  title: "Los datos del presupuesto se han modificado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -199,7 +199,7 @@ class ControladorPresupuesto
 	
 						swal({
 							  type: "error",
-							  title: "¡Verifique los datos del PResupuesto recuerde no puede ir vacío o llevar caracteres especiales!",
+							  title: "¡Verifique los campos solicitados recuerde, no pueden ir vacíos o llevar caracteres especiales!",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -235,7 +235,7 @@ class ControladorPresupuesto
 
                 swal({
                       type: "success",
-                      title: "El presupuesto ha sido borrado correctamente",
+                      title: "La información del presupuesto ha sido eliminada correctamente",
                       showConfirmButton: true,
                       confirmButtonText: "Cerrar",
                       closeOnConfirm: false

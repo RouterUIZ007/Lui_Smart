@@ -18,12 +18,12 @@ if($_SESSION["perfil"] == "Cajero"){
   <section class="content-header">
 
     <h1>
-      Vehiculos
+      Vehículos
     </h1>
 
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-      <li class="active">Vehiculos</li>
+      <li class="active">Vehículos</li>
     </ol>
 
   </section>
@@ -36,7 +36,7 @@ if($_SESSION["perfil"] == "Cajero"){
 
       <div class="box-header with-border">
 
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarV">Agregar Vehiculo</button>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarV">Agregar Vehículo</button>
 
       </div>
 
@@ -49,12 +49,12 @@ if($_SESSION["perfil"] == "Cajero"){
             <tr>
 
               <th style="width: 10px">#</th>
-              <th>Matricula</th>
+              <th>Matrícula</th>
               <th>Marca</th>
               <th>Modelo</th>
               <th>Color</th>
               <th>Observaciones</th>
-              <th>Nombre del Cliente</th>
+              <th>Nombre del cliente</th>
               <th>Acciones</th>
 
             </tr>
@@ -86,12 +86,12 @@ if($_SESSION["perfil"] == "Cajero"){
 
                   <div class="btn-group">
 
-              
-                  <button class="btn btn-warning btnEditarVehiculo" idVehiculo="' . $value["id_v"] . '" data-toggle="modal" data-target="#modalEditarVehiculo"><i class="fa fa-pencil"></i></button>';
+                  <abbr id="toltipx" title="Editar los datos del vehículo"> 
+                  <button class="btn btn-warning btnEditarVehiculo" idVehiculo="' . $value["id_v"] . '" data-toggle="modal" data-target="#modalEditarVehiculo"><i class="fa fa-pencil"></i></button></abbr>';
 
                   if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
 
-                  echo'<button class="btn btn-danger btnEliminarVehiculo" idVehiculo="' . $value["id_v"] . '"><i class="fa fa-times"></i></button>';
+                  echo'<abbr id="toltipx" title="Eliminar los datos del vehículo"> <button class="btn btn-danger btnEliminarVehiculo" idVehiculo="' . $value["id_v"] . '"><i class="fa fa-times"></i></button></abbr>';
 
                   }
                   
@@ -131,7 +131,7 @@ if($_SESSION["perfil"] == "Cajero"){
 
         <div class="modal-header" style="background:#3c8dbc;color: white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Datos de Vehiculo</h4>
+          <h4 class="modal-title">Datos del Vehículo</h4>
         </div>
 
         <!--Cuerpo-->
@@ -178,10 +178,10 @@ if($_SESSION["perfil"] == "Cajero"){
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Matricula" required required onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la matrícula" required required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
+                  <p id="msj" class="formulario__input-error">Ingrese la matrícula correctamente, ejem. XX0123</p>
                 </div>
               </div>
               <div class="col-xs-6">
@@ -194,7 +194,7 @@ if($_SESSION["perfil"] == "Cajero"){
                         <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
+                  <p id="msj" class="formulario__input-error">Ingrese la marca correctamente, ejem. PORCHE</p>
                 </div>
               </div>
             </div>
@@ -208,10 +208,10 @@ if($_SESSION["perfil"] == "Cajero"){
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <abbr id="toltipx" title="Ingrese el modelo del vehículo">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar el modelo" required required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el modelo correctamente, ejem. 911 TURBO</p>
                 </div>
               </div>
               <div class="col-xs-6">
@@ -221,10 +221,10 @@ if($_SESSION["perfil"] == "Cajero"){
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <abbr id="toltipx" title="Ingrese el color del vehículo">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el color" required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el color correctamente, ejem. NEGRO</p>
                 </div>
               </div>
             </div>
@@ -254,7 +254,7 @@ if($_SESSION["perfil"] == "Cajero"){
             <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
           </abbr>
           <abbr id="toltipx" title="Guardar formulario del vehículo">
-            <button type="submit" class="btn btn-primary btn-lg">Guardar Vehiculo</button>
+            <button type="submit" class="btn btn-primary btn-lg">Guardar Vehículo</button>
           </abbr>
         </div>
 
@@ -397,7 +397,7 @@ if($_SESSION["perfil"] == "Cajero"){
             <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
           </abbr>
           <abbr id="toltipx" title="Guardar formulario del vehículo">
-            <button type="submit" class="btn btn-primary btn-lg">Modificar Vehiculo</button>
+            <button type="submit" class="btn btn-primary btn-lg">Modificar Vehículo</button>
           </abbr>
         </div>
 

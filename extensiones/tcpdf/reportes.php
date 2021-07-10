@@ -48,6 +48,9 @@ class imprimirReporte
     /* RESPUESTA PATA LA TABLA Y RELLENAR VENTAS ENTRE LAS FECHAS */
     $respuestareporte = ModeloReportes::MdlReportes($tabla, $item, $datos);
 
+    /*Respuesta para los datos del empleado*/
+    $respuesta = 
+
 
     //echo json_encode($respuestareporte);
     //$count =0;
@@ -178,7 +181,7 @@ EOF;
 		
 		<td style="border: 1px solid #666; background-color:white; width:67x; text-align:center">Folio venta</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Fecha</td>
-		<td style="border: 1px solid #666; background-color:white; width:71px; text-align:center">Folio Presupuesto</td>
+		<td style="border: 1px solid #666; background-color:white; width:71px; text-align:center">Folio presupuesto</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Empleado</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Subtotal</td>
 		<td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Total</td>
@@ -265,8 +268,8 @@ $tod = 0;
 
         <tr>
         
-        <td style="border: 1px solid #666; background-color:white; width:67x; text-align:center">Total </td>
-        <td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">$ $tod.00</td>
+        <td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Total </td>
+        <td style="border: 1px solid #666; background-color:white; width:90px; text-align:center">$ $tod.00</td>
 
         </tr>
 

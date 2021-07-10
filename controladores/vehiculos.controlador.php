@@ -38,7 +38,7 @@ class ControladorVehiculos{
 					swal({
 
 						type: "success",
-						title: "¡Vehículo agregado :)!",
+						title: "¡Los datos del vehículo se han guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -62,7 +62,7 @@ class ControladorVehiculos{
 					swal({
 
 						type:"error",
-						title:"¡Error al agregar datos del vehículo :(!",
+						title:"¡Error al agregar los datos del vehículo!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false
@@ -117,7 +117,7 @@ class ControladorVehiculos{
 					swal({
 
 						type: "success",
-						title: "¡Vehículo agregado :)!",
+						title: "¡Los datos del vehículo se han guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -141,7 +141,7 @@ class ControladorVehiculos{
 					swal({
 
 						type:"error",
-						title:"¡Error al agregar datos del vehículo :(!",
+						title:"¡Error al agregar los datos del vehículo!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false
@@ -210,7 +210,7 @@ class ControladorVehiculos{
 	
 						swal({
 							  type: "success",
-							  title: "El vehiculo ha sido editado correctamente",
+							  title: "Los datos del vehículo se han modificado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -235,7 +235,7 @@ class ControladorVehiculos{
 	
 						swal({
 							  type: "error",
-							  title: "¡Verifique los datos del vehiculo recuerde no puede ir vacío o llevar caracteres especiales!",
+							  title: "¡Verifique los campos solicitados recuerde, no pueden ir vacíos o llevar caracteres especiales!",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -274,7 +274,7 @@ class ControladorVehiculos{
 
                 swal({
                       type: "success",
-                      title: "El vehiculo ha sido borrado correctamente",
+                      title: "La información del vehículo ha sido eliminada correctamente",
                       showConfirmButton: true,
                       confirmButtonText: "Cerrar",
                       closeOnConfirm: false

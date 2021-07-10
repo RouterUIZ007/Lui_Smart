@@ -47,10 +47,10 @@ if($_SESSION["perfil"] == "Cajero"){
             <tr>
               <th style="width: 10px">#</th>
               <th>Nombre</th>
-              <th>Telefono</th>
+              <th>Teléfono</th>
               <th>Calle</th>
-              <th>Numero de Interior</th>
-              <th>Numero de Exterior</th>
+              <th>Número interior</th>
+              <th>Número exterior</th>
               <th>Colonia</th>
               <th>Acciones</th>
             </tr>
@@ -76,12 +76,11 @@ if($_SESSION["perfil"] == "Cajero"){
                   <td>
 
                     <div class="btn-group">
-
-                      <button class="btn btn-warning btnEditarCliente" idCliente="' . $value["id_c"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>';
-
+                    <abbr id="toltipx" title="Editar los datos del cliente"> 
+                      <button class="btn btn-warning btnEditarCliente" idCliente="' . $value["id_c"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button></abbr>';
                       if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "Jefetaller"){
 
-                        echo'<button class="btn btn-danger btnEliminarCliente" idCliente="' . $value["id_c"] . '"><i class="fa fa-times"></i></button>';
+                        echo'<abbr id="toltipx" title="Eliminar los datos del cliente"><button class="btn btn-danger btnEliminarCliente" idCliente="' . $value["id_c"] . '"><i class="fa fa-times"></i></button></abbr>';
 
                       }
                    
@@ -145,32 +144,32 @@ if($_SESSION["perfil"] == "Cajero"){
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el nombre del cliente">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el nombre" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni numeros</p>
+              <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni números</p>
             </div>
             <!--Ingresar telefono-->
             <div class="form-group formulario__grupo" id="grupo__telefono">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese el telefono">
+                <abbr id="toltipx" title="Ingrese el teléfono">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
+                    <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el teléfono" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero de 10 digitos</p>
+              <p id="msj" class="formulario__input-error">Ingrese el número de 10 dígitos</p>
             </div>
             <!--Ingresar Calle-->
             <div class="form-group formulario__grupo" id="grupo__calle">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese la calle">
+                <abbr id="toltipx" title="Ingrese el nombre de la calle">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar el nombre de la calle" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
+              <p id="msj" class="formulario__input-error">Ingrese el nombre de la calle, sin caracteres especiales</p>
             </div>
 
 
@@ -180,12 +179,12 @@ if($_SESSION["perfil"] == "Cajero"){
                 <div class="form-group formulario__grupo" id="grupo__inter">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                    <abbr id="toltipx" title="Ingrese número interior del domicilio">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Número interior" onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el número interior del domicilio, debe ser menor a 5 dígitos</p>
                 </div>
               </div>
               <div class="col-xs-6">
@@ -193,12 +192,12 @@ if($_SESSION["perfil"] == "Cajero"){
                 <div class="form-group formulario__grupo" id="grupo__exter">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
+                    <abbr id="toltipx" title="Ingrese número exterior del domicilio">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Número exterior" onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el número exterior del domicilio, debe ser menor a 5 dígitos</p>
                 </div>
 
 
@@ -208,12 +207,12 @@ if($_SESSION["perfil"] == "Cajero"){
             <div class="form-group formulario__grupo" id="grupo__colonia">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Agregue la colonia">
+                <abbr id="toltipx" title="Agregue el nombre de la colonia">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar el nombre de la colonia" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
+              <p id="msj" class="formulario__input-error">Ingrese el nombre de la colonia, sin caracteres especiales</p>
             </div>
 
           </div>

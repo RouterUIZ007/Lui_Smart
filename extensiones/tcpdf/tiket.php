@@ -160,7 +160,7 @@ $bloque3 = <<<EOF
 
     <td style=" background-color:white; width:50x">
 
-      Matricula: $matricula
+      Matrícula: $matricula
 
     </td>
 
@@ -271,7 +271,7 @@ $bloque6 = <<<EOF
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:center"></td>
 
 			<td style="border: 1px solid #666;  background-color:white; width:60px; text-align:right">
-				SubTotal:
+				Subtotal:
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">

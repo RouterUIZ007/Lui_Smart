@@ -41,7 +41,7 @@ class ControladorCliente
 					swal({
 
 						type: "success",
-						title: "¡El Cliente ha sido guardado correctamente!",
+						title: "¡Los datos del cliente se han guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -65,7 +65,7 @@ class ControladorCliente
 					swal({
 
 						type:"error",
-						title:"¡El Cliente no puede ir vacío o llevar caracteres especiales!",
+						title:"¡Los datos del cliente no pueden ir vacíos o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false
@@ -121,7 +121,7 @@ class ControladorCliente
 					swal({
 
 						type: "success",
-						title: "¡El Cliente ha sido guardado correctamente!",
+						title: "¡Los datos del cliente se han guardado correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -145,7 +145,7 @@ class ControladorCliente
 					swal({
 
 						type:"error",
-						title:"¡El Cliente no puede ir vacío o llevar caracteres especiales!",
+						title:"¡Los datos del cliente no pueden ir vacíos o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false
@@ -225,7 +225,7 @@ class ControladorCliente
 	
 						swal({
 							  type: "success",
-							  title: "El cliente ha sido editado correctamente",
+							  title: "Los datos del cliente se han modificado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -245,7 +245,7 @@ class ControladorCliente
 	
 						swal({
 							  type: "error",
-							  title: "¡Verifique los datos del cliente recuerde no puede ir vacío o llevar caracteres especiales!",
+							  title: "¡Verifique los campos solicitados recuerde, no pueden ir vacíos o llevar caracteres especiales!",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -281,7 +281,7 @@ class ControladorCliente
 
                 swal({
                       type: "success",
-                      title: "El cliente ha sido borrado correctamente",
+                      title: "La información del cliente ha sido eliminada correctamente",
                       showConfirmButton: true,
                       confirmButtonText: "Cerrar",
                       closeOnConfirm: false

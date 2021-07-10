@@ -54,7 +54,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
               <!-- <th>Foto</th> -->
               <th>Rol</th>
               <th>Estado</th>
-              <th>Ultimo Acceso</th>
+              <th>Último acceso</th>
               <th>Acciones</th>
 
             </tr>
@@ -107,9 +107,14 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 
                         <div class="btn-group">
 
+                          <abbr id="toltipx" title="Editar los datos del usuario"> 
                           <button class="btn btn-warning btnEditarUsuario" idUsuario="' . $value["id"] . '" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-pencil"></i></button>
+                          </abbr>
 
+                          <abbr id="toltipx" title="Eliminar los datos del usuario"> 
                           <button class="btn btn-danger btnEliminarUsuario" idUsuario="' . $value["id"] . '" fotoUsuario="' . $value["foto"] . '" usuario="' . $value["usuario"] . '"><i class="fa fa-times"></i></button>
+                          </abbr>
+
                         </div>
                       </td>
                     </tr>';
@@ -188,7 +193,6 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 
                   <option value="">Seleccionar perfil</option>
                   <option value="administrador">Administrador</option>
-                  <option value="Gerente">Gerente</option>
                   <option value="Jefetaller">Jefe de taller</option>
                   <option value="Secretaria">Secretaria</option>
                   <option value="Cajero">Cajero</option>
@@ -215,8 +219,14 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <abbr id="toltipx" title="Cancelar registro de usuario"> 
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Salir</button>
+          </abbr>
+
+          <abbr id="toltipx" title="Guardar datos del usuario"> 
           <button type="submit" class="btn btn-primary">Guardar Usuario</button>
+          </abbr>
         </div>
 
         <?php
@@ -323,8 +333,14 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 
         <!--footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+          <abbr id="toltipx" title="Salir"> 
+          <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Salir</button>
+          </abbr>
+
+          <abbr id="toltipx" title="Guardar modificaciones de los datos"> 
           <button type="submit" class="btn btn-primary">Modificar Usuario</button>
+          </abbr>
+
         </div>
 
 

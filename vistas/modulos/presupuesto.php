@@ -51,7 +51,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <h2 class="text-center">Vehiculo</h2>
+            <h2 class="text-center">Vehículo</h2>
             <abbr id="toltipx" title="Agregar vehículo">
               <button class="btn btn-block btn-success" data-toggle="modal" data-target="#modalAgregarV"><i class="fa fa-car" aria-hidden="true"></i> Agregar</button>
             </abbr>
@@ -81,13 +81,18 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 
       <!-- Body form xDF -->
       <div class="box-body">
+        <!--leyenda de campos obligatorios-->
+              <div class="input-group">
+                <p style="color: orange">* Campos obligatorios</p>
+              </div>
+
         <form role="form" method="post" enctype="multipart/form-darta">
           <!--ID vehiculo-->
           <div class="form-group">
             <!--  ID VEHICULO -->
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-key"></i></span>
-              <abbr id="toltipx" title="Ingrese el ID del vehiculo">
+              <abbr id="toltipx" title="Ingrese el ID del vehículo">
                 <?php
                 $item = null;
                 $vehiculo = ControladorVehiculos::ctrMostrarVehiculo2($item);
@@ -103,7 +108,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
               <abbr id="toltipx" title="Agregue una descripción del servicio">
-                <input type="text" class="form-control input-lg" name="nuevoConcepto" placeholder="Ingresar Concepto" required onkeyup="mayus(this);">
+                <input type="text" class="form-control input-lg" name="nuevoConcepto" placeholder="Ingresar concepto" required onkeyup="mayus(this);">
               </abbr>
             </div>
           </div>
@@ -111,8 +116,8 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
           <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-usd"></i></span>
-              <abbr id="toltipx" title="Agregue el costo del servicio">
-                <input type="number" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar Costo" required>
+              <abbr id="toltipx" title="Agregue el costo exacto del servicio (sin centavos)">
+                <input type="number" class="form-control input-lg" name="nuevoCosto" placeholder="Ingresar costo" required>
               </abbr>
             </div>
           </div>
@@ -162,7 +167,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
           <thead>
             <tr>
               <th style="width: 10px">#</th>
-              <th>Vehiculo</th>
+              <th>Vehículo</th>
               <th>Concepto</th>
               <th>Costo</th>
               <th>Servicio</th>
@@ -187,7 +192,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                       <abbr id="toltipx" title="Editar servicio"> 
                       <button class="btn btn-warning btnEditarServicio" idServicio="' . $value["codigo"] . '" data-toggle="modal" data-target="#modalEditarServicio"><i class="fa fa-pencil"></i></button>
                       </abbr>
-                      <abbr id="toltipx" title="Cancelar servicio">
+                      <abbr id="toltipx" title="Eliminar servicio">
                       <button class="btn btn-danger btnEliminarServicio" idServicio="' . $value["codigo"] . '"><i class="fa fa-times"></i></button>
                       </abbr>
                     </div>
@@ -269,7 +274,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
 
         <div class="modal-header" style="background:#3c8dbc;color: white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Datos de Vehiculo</h4>
+          <h4 class="modal-title">Datos del Vehículo</h4>
         </div>
 
         <!--Cuerpo-->
@@ -318,10 +323,10 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <abbr id="toltipx" title="Ingrese la matrícula del vehículo">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la Matricula" required required onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoMatricula" id="nuevoMatricula" placeholder="Ingresar la matrícula" required required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese la Matricula correctamente, Ejem. XX0123</p>
+                  <p id="msj" class="formulario__input-error">Ingrese la matrícula correctamente, ejem. XX0123</p>
                 </div>
               </div>
               <div class="col-xs-6">
@@ -334,7 +339,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                         <input type="text" class="form-control input-lg " name="nuevoMarca" id="nuevoMarca" placeholder="Ingresar la marca" required required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese la Marca correctamente, Ejem. PORCHE</p>
+                  <p id="msj" class="formulario__input-error">Ingrese la marca correctamente, ejem. PORCHE</p>
                 </div>
               </div>
             </div>
@@ -348,10 +353,10 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <abbr id="toltipx" title="Ingrese el modelo del vehículo">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar la Modelo" required required onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoModelo" id="nuevoModelo" placeholder="Ingresar el modelo" required required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el Modelo correctamente, Ejem. 911 TURBO</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el modelo correctamente, ejem. 911 TURBO</p>
                 </div>
               </div>
               <div class="col-xs-6">
@@ -361,10 +366,10 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <abbr id="toltipx" title="Ingrese el color del vehículo">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el Color" required onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoColor" id="nuevoColor" placeholder="Ingresar el color" required onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el Color correctamente, Ejem. NEGRO</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el color correctamente, ejem. NEGRO</p>
                 </div>
               </div>
             </div>
@@ -446,7 +451,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
             <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
           </abbr>
           <abbr id="toltipx" title="Guardar formulario del vehículo">
-            <button type="submit" class="btn btn-primary btn-lg">Guardar Vehiculo</button>
+            <button type="submit" class="btn btn-primary btn-lg">Guardar Vehículo</button>
           </abbr>
         </div>
 
@@ -500,32 +505,32 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                 <abbr id="toltipx" title="Ingrese el nombre del cliente">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el Nombre" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoNombre" id="nuevoNombre" placeholder="Ingresar el nombre" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni numeros</p>
+              <p id="msj" class="formulario__input-error">Ingrese el nombre completo, sin caracteres especiales ni números</p>
             </div>
             <!--Ingresar telefono-->
             <div class="form-group formulario__grupo" id="grupo__telefono">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese el telefono">
+                <abbr id="toltipx" title="Ingrese el teléfono">
                   <div class="formulario__grupo-input">
-                    <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el Telefono" required required onkeyup="mayus(this);">
+                    <input type="number" class="form-control input-lg " name="nuevoTelefono" id="nuevoTelefono" placeholder="Ingresar el teléfono" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese el numero de 10 digitos</p>
+              <p id="msj" class="formulario__input-error">Ingrese el número de 10 dígitos</p>
             </div>
             <!--Ingresar Calle-->
             <div class="form-group formulario__grupo" id="grupo__calle">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Ingrese la calle">
+                <abbr id="toltipx" title="Ingrese el nombre de la calle">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar la Calle" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoCalle" id="nuevoCalle" placeholder="Ingresar el nombre de la calle" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
+              <p id="msj" class="formulario__input-error">Ingrese el nombre de la calle, sin caracteres especiales</p>
             </div>
             <!--Ingresar num inter-
             <div class="form-group formulario__grupo" id="grupo__inter">
@@ -555,12 +560,12 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                 <div class="form-group formulario__grupo" id="grupo__inter">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <abbr id="toltipx" title="Ingrese numero interior del domicilio">
+                    <abbr id="toltipx" title="Ingrese número interior del domicilio">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Numero interior" onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoInter" id="nuevoInter" placeholder="Número interior" onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el numero interior de la calle y menor a 5 dígitos</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el número interior del domicilio, debe ser menor a 5 dígitos</p>
                 </div>
               </div>
               <div class="col-xs-6">
@@ -568,12 +573,12 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                 <div class="form-group formulario__grupo" id="grupo__exter">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <abbr id="toltipx" title="Ingrese numero exterior del domicilio">
+                    <abbr id="toltipx" title="Ingrese número exterior del domicilio">
                       <div class="formulario__grupo-input">
-                        <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Ingresar el Numero exterior" onkeyup="mayus(this);">
+                        <input type="text" class="form-control input-lg " name="nuevoExter" id="nuevoExter" placeholder="Número exterior" onkeyup="mayus(this);">
                       </div>
                   </div>
-                  <p id="msj" class="formulario__input-error">Ingrese el numero exterior de la calle y menor a 5 dígitos</p>
+                  <p id="msj" class="formulario__input-error">Ingrese el número exterior del domicilio, debe ser menor a 5 dígitos</p>
                 </div>
 
 
@@ -583,12 +588,12 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
             <div class="form-group formulario__grupo" id="grupo__colonia">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                <abbr id="toltipx" title="Agregue la colonia">
+                <abbr id="toltipx" title="Agregue el nombre de la colonia">
                   <div class="formulario__grupo-input">
-                    <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar la Colonia" required required onkeyup="mayus(this);">
+                    <input type="text" class="form-control input-lg " name="nuevoColonia" id="nuevoColonia" placeholder="Ingresar el nombre de la colonia" required required onkeyup="mayus(this);">
                   </div>
               </div>
-              <p id="msj" class="formulario__input-error">Ingrese la calle, sin caracteres especiales</p>
+              <p id="msj" class="formulario__input-error">Ingrese el nombre de la colonia, sin caracteres especiales</p>
             </div>
 
           </div>

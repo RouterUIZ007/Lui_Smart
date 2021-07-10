@@ -132,7 +132,7 @@ $bloque3 = <<<EOF
 
     <td style="border: 1px solid #666; background-color:white; width:270px">
 
-      Matricula: $matricula
+      Matrícula: $matricula
 
     </td>
 
@@ -179,7 +179,7 @@ $bloque3 = <<<EOF
 
     <tr>
       <td style="font-size: 11px; background-color:white; width:540px; text-align:center">
-        * Este presupuesto solo será vigente los próximos 7 días depués de su emisión
+        * Este presupuesto solo será vigente los próximos 7 días después de su emisión.
 			</td>
 
     </tr>
@@ -283,7 +283,7 @@ $bloque6 = <<<EOF
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
 			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
-				SubTotal:
+				Subtotal:
 			</td>
 
 			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">

@@ -46,9 +46,9 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
           <thead>
             <tr>
               <th style="width: 10px">#</th>
-              <th>fecha</th>
-              <th>total</th>
-              <th>Matricula</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Matrícula</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -66,11 +66,15 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                   <td>' . $value["Matricula"] . '</td>
                   <td>
                     <div class="btn-group">
-
+                      <abbr id="toltipx" title="Imprimir presupuesto">
                       <button class="btn btn-info btnImprimirPresupuesto" idPre="' . $value["folio_p"] . '" ><i class="fa fa-print"></i></button>
+                      </abbr>
+                      <abbr id="toltipx" title="Editar presupuesto">
                       <button class="btn btn-warning btnEditarPre" idPre="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalEditarPresupuesto"><i class="fa fa-pencil"></i></button>
+                      </abbr>
+                      <abbr id="toltipx" title="Eliminar presupuesto">
                       <button class="btn btn-danger btnEliminarPresupuesto"  idPre="' . $value["folio_p"] . '"><i class="fa fa-times"></i></button>
-                      
+                      </abbr>
 
                     </div>
                   </td>

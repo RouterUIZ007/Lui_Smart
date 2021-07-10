@@ -28,7 +28,7 @@ class ControladorVenta
                     echo '<script>
 					swal({
 						type: "success",
-						title: "¡ Venta agregada :) !",
+						title: "¡Venta registrada!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 					}).then(function(result){
@@ -45,7 +45,7 @@ class ControladorVenta
                     echo '<script>
                         swal({
                             type:"error",
-                            title:"¡ Error al agregar la venta BD :( !",
+                            title:"¡Error al registrar la venta!",
                             showConfirmButton: true,
                             confirmButtonText:"Cerrar",
                             closeOnConfirm:false
@@ -100,7 +100,7 @@ class ControladorVenta
             echo '<script>
 					swal({
 						type:"error",
-						title:"Ventas no encontradas",
+						title:"Venta no encontrada",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false

@@ -39,7 +39,7 @@
           <i class="fa fa-users" aria-hidden="true"></i>
         </div>
         <a href="clientes" class="small-box-footer">
-          Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          Clic aquí <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>';
@@ -49,14 +49,14 @@
       <div class="small-box bg-teal">
         <div class="inner text-center">
           <br><br><br><br>
-          <h3>Vehiculos</h3>
+          <h3>Vehículos</h3>
           <p><br><br><br></p>
         </div>
         <div class="icon">
           <i class="fa fa-car" aria-hidden="true"></i>
         </div>
         <a href="vehiculos" class="small-box-footer">
-          Clic aqui <i class="fa fa-arrow-circle-right"></i>
+          Clic aquí <i class="fa fa-arrow-circle-right"></i>
         </a>
       </div>
     </div>
@@ -73,7 +73,7 @@
         <i class="fa fa-bar-chart" aria-hidden="true"></i>
       </div>
       <a href="reportes" class="small-box-footer">
-        Clic aqui <i class="fa fa-arrow-circle-right"></i>
+        Clic aquí <i class="fa fa-arrow-circle-right"></i>
       </a>
     </div>
   </div>
@@ -101,7 +101,7 @@
             <i class="fa fa-file-text" aria-hidden="true"></i>
           </div>
           <a href="presupuesto" class="small-box-footer">
-            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+            Clic aquí <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>';
@@ -122,7 +122,7 @@
             <i class="fa fa-users" aria-hidden="true"></i>
           </div>
           <a href="clientes" class="small-box-footer">
-            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+            Clic aquí <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>';
@@ -135,14 +135,14 @@
         <div class="small-box bg-teal">
           <div class="inner text-center">
             <br><br><br><br>
-            <h3>Vehiculos</h3>
+            <h3>Vehículos</h3>
             <p><br><br><br></p>
           </div>
           <div class="icon">
             <i class="fa fa-car" aria-hidden="true"></i>
           </div>
           <a href="vehiculos" class="small-box-footer">
-            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+            Clic aquí <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>
@@ -173,7 +173,7 @@
             <i class="fa fa-usd" aria-hidden="true"></i>
           </div>
           <a href="venta" class="small-box-footer">
-            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+            Clic aquí <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>';
@@ -193,7 +193,7 @@
             <i class="fa fa-bar-chart" aria-hidden="true"></i>
           </div>
           <a href="reportes" class="small-box-footer">
-            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+            Clic aquí <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>';
@@ -213,7 +213,7 @@
             <i class="ion ion-person-add"></i>
           </div>
           <a href="usuarios" class="small-box-footer">
-            Clic aqui <i class="fa fa-arrow-circle-right"></i>
+            Clic aquí <i class="fa fa-arrow-circle-right"></i>
           </a>
         </div>
       </div>

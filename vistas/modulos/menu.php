@@ -67,7 +67,7 @@
 			<li class="treeview-active">
 				<a href="vehiculos">
 					<i class="fa fa-car"></i>
-					<span>Vehiculos</span>
+					<span>Vehículos</span>
 				</a>
 			</li>';
 		}

@@ -38,7 +38,7 @@ class ControladorServicios
 					swal({
 
 						type: "success",
-						title: "¡Se agrego de manera correcta el servicio xD :)!",
+						title: "¡Los datos del servicio se agregaron correctamente!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 
@@ -62,7 +62,7 @@ class ControladorServicios
 					swal({
 
 						type:"error",
-						title:"¡Error al ingresar el servicio, verifique los datos :(!",
+						title:"¡Error al ingresar los datos del servicio!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false
@@ -158,7 +158,7 @@ class ControladorServicios
 	
 						swal({
 							  type: "success",
-							  title: "El Servicio ha sido editado correctamente",
+							  title: "Los datos del servicio se han modificado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -178,7 +178,7 @@ class ControladorServicios
 	
 						swal({
 							  type: "error",
-							  title: "¡Verifique los datos del Servicio recuerde no puede ir vacío o llevar caracteres especiales!",
+							  title: "¡Verifique los campos solicitados recuerde, no pueden ir vacíos o llevar caracteres especiales!",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
@@ -214,7 +214,7 @@ class ControladorServicios
 
                 swal({
                       type: "success",
-                      title: "El Servicio ha sido borrado correctamente",
+                      title: "La información del servicio ha sido eliminada correctamente",
                       showConfirmButton: true,
                       confirmButtonText: "Cerrar",
                       closeOnConfirm: false

@@ -35,7 +35,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
     <div class="box">
 
       <div class="box-header with-border">
-        <h1 class="text-center">Seleccione el Presupuesto a Cobrar</h1>
+        <h1 class="text-center">Seleccione el presupuesto a cobrar</h1>
 
         <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarV">Agregar Venta</button> -->
 
@@ -49,7 +49,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
               <th style="width: 10px"># Folio</th>
               <th>Fecha</th>
               <th>Total</th>
-              <th>Vehiculo</th>
+              <th>Vehículo</th>
               <th></th>
             </tr>
           </thead>
@@ -70,7 +70,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
                 <td>' . $value["id_v"] . '</td>
                 <td class="text-center" style="width: 200 px">
                   <div class="btn-group">
-                    <button class="btn btn-success btnEditarPresupuesto" idPres="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalAgregarVenta"><i class="fa fa-pencil"> Cobrar Presupuesto</i></button>
+                    <button class="btn btn-success btnEditarPresupuesto" idPres="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalAgregarVenta"><i class="fa fa-pencil"> Cobrar presupuesto</i></button>
                   </div>
                 </td>
               </tr>';
@@ -106,7 +106,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
 
         <div class="modal-header" style="background:#3c8dbc;color: white">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Editar Vehiculo</h4>
+          <h4 class="modal-title">Registrar Venta</h4>
         </div>
 
         <!--Cuerpo-->
@@ -118,7 +118,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
             <!--r-->
             <div class="form-group">
               <div class="input-group">
-                <p>* Verifique Datos</p>
+                <p style="color: orange">* Verifique Datos</p>
               </div>
             </div>
 
@@ -126,7 +126,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
             <!--folio-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i> Folio de Presupuesto</span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Folio de presupuesto</span>
                 <abbr id="toltipx" title="Folio de presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarFolio" placeholder="folio" id="editarFolio">
@@ -151,8 +151,8 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
             <!--Vehiculo-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i> Matricula Vehicular</span>
-                <abbr id="toltipx" title="Vehiculo del presupuesto">
+                <span class="input-group-addon"><i class="fa fa-user"></i> Matrícula vehicular</span>
+                <abbr id="toltipx" title="Matrícula del vehículo">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarVeh" placeholder="vehiculo" id="editarVeh">
                     <input type="hidden" id="vehActual" name="vehActual">
@@ -163,7 +163,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
             <!--Bubtotal-->
             <div class="form-group formulario__grupo" id="">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user"></i> SubTotal</span>
+                <span class="input-group-addon"><i class="fa fa-user"></i> Subtotal</span>
                 <abbr id="toltipx" title="Total del presupuesto">
                   <div class="formulario__grupo-input">
                     <input type="text" class="form-control input-lg " name="editarTotal" placeholder="SubTotal" id="editarTotal" onkeyup="iva(this);">
@@ -175,9 +175,11 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
 
             <div class="col text-center" id="">
               <br>
+              <abbr id="toltipx" title="Ingresar efectivo"> 
               <button type="button" class="btn btn-warning" id="btnEfectivo" onclick="mostrar(this);">
                 Ingresar Efectivo
               </button>
+              </abbr>
               <br><br>
             </div>
 
@@ -188,7 +190,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user"></i> IVA</span>
-                  <abbr id="toltipx" title="Total del presupuesto">
+                  <abbr id="toltipx" title="IVA">
                     <div class="formulario__grupo-input">
                       <input type="text" class="form-control input-lg " name="editarIva" id="editarIva" placeholder="IVA">
                       <input type="hidden" id="ivaActual" name="ivaActual">
@@ -212,9 +214,9 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user"></i> Pago</span>
-                  <abbr id="toltipx" title="Total del presupuesto">
+                  <abbr id="toltipx" title="Pago">
                     <div class="formulario__grupo-input">
-                      <input type="text" class="form-control input-lg " name="editarDinero" placeholder="pago" id="editarDinero" onkeyup="cambio(this);">
+                      <input type="text" class="form-control input-lg " name="editarDinero" placeholder="Pago" id="editarDinero" onkeyup="cambio(this);">
                       <input type="hidden" id="dineroActual" name="dineroActual">
                     </div>
                 </div>
@@ -224,9 +226,9 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
               <div class="form-group formulario__grupo" id="">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-user"></i> Cambio</span>
-                  <abbr id="toltipx" title="Total del presupuesto">
+                  <abbr id="toltipx" title="Cambio">
                     <div class="formulario__grupo-input">
-                      <input type="text" class="form-control input-lg " name="editarCambio" id="editarCambio" placeholder="cambio">
+                      <input type="text" class="form-control input-lg " name="editarCambio" id="editarCambio" placeholder="Cambio">
                       <input type="hidden" id="cambioActual" name="cambioActual">
                     </div>
                 </div>
@@ -241,10 +243,10 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
 
         <!--footer-->
         <div class="modal-footer">
-          <abbr id="toltipx" title="Cancelar formulario del vehículo">
+          <abbr id="toltipx" title="Cancelar venta">
             <button type="button" class="btn btn-danger btn-lg pull-left" data-dismiss="modal">Salir</button>
           </abbr>
-          <abbr id="toltipx" title="Guardar formulario del vehículo">
+          <abbr id="toltipx" title="Cobrar venta">
             <button type="submit" class="btn btn-primary btn-lg">Cobrar</button>
           </abbr>
         </div>

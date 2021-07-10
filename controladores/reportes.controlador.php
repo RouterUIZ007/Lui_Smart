@@ -30,7 +30,7 @@ class ControladorReporte
                 /*  */
                 swal({
                     type: "success",
-                    title: "¡ PDF AGREGADO :) !",
+                    title: "¡Reporte generado!",
                     showConfirmButton: true,
                     confirmButtonText: "Cerrar"
                 }).then(function(result){

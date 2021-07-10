@@ -43,14 +43,14 @@ $(document).on("click", ".btnEliminarServicio", function () {
 
   swal({
 
-    title: "¿Está seguro de borrar el Servicio?",
-    text: "¡Si no lo está puede cancelar la acción!",
+    title: "¿Está seguro de eliminar el servicio?",
+    text: "¡Si no lo está, puede cancelar la acción!",
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
     cancelButtonText: 'Cancelar',
-    confirmButtonText: '¡Si, borrar Servicio!'
+    confirmButtonText: '¡Si, eliminar el servicio!'
 
   }).then((result) => {
 

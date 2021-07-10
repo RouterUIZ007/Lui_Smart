@@ -49,7 +49,7 @@ if($_SESSION["perfil"] == "Cajero"){
 
       <div class="box-body">
         <form role="form" method="post" class="formulario" id="formulario" enctype="multipart/form-darta">
-          <h5 class="box-title text-center">Selecciones el rango de fechas para el reporte</h5>
+          <h5 class="box-title text-center">Seleccione el rango de fechas para el reporte</h5>
 
 
           <br>
@@ -85,7 +85,7 @@ if($_SESSION["perfil"] == "Cajero"){
 
           <!--footer-->
           <div class="text-center">
-            <abbr id="toltipx" title="Guardar formulario del cliente">
+            <abbr id="toltipx" title="Generar reporte en PDF">
               <button id="botonpdf" type="submit" class="btn btn-primary btn-lg">Generar PDF </button>
             </abbr>
           </div>
@@ -150,8 +150,8 @@ if($_SESSION["perfil"] == "Cajero"){
               <th>Fecha</th>
               <th>Presupuesto</th>
               <th>Nombre del Empleado</th>
-              <th>Toltal</th>
-              <th>SubTotal</th>
+              <th>Total</th>
+              <th>Subtotal</th>
               <th>Pago</th>
               <th>Cambio</th>
               <th></th>

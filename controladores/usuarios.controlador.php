@@ -33,8 +33,8 @@ class ControladorUsuarios
 
 				if ($respuesta == false) {
 					$respuesta["usuario"] = "";
-					echo '<br><div class="alert alert-danger">Usurio incorecta</div>';
-					echo '<div class="alert alert-warning">En caso de no acordarse, consulte con el jefe del taller.</div>';
+					echo '<br><div class="alert alert-danger">Usuario incorrecto.</div>';
+					echo '<div class="alert alert-warning">Si tiene problemas para acceder, consulte con el jefe del taller.</div>';
 				}
 
 				if ($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar) {
@@ -76,12 +76,13 @@ class ControladorUsuarios
 					} else {
 
 						echo '<br>
-							<div class"alert alert-danger">El usuario aún no está activado</div>';
+							<div class"alert alert-danger">El usuario aún no está activado.</div>';
 					}
 				} else {
-					echo '<br><div class="alert alert-danger">Contraseña incorecta. </div>
-					<div class="alert alert-warning">La contraseña debe tener Una Mayuscula, minusculas y numeros. 
-					<br>Sin caracteres especiales </div>';
+					echo '<br><div class="alert alert-danger">Contraseña incorrecta. </div>
+					<div class="alert alert-warning">La contraseña debe tener: 
+					<br>Una mayúscula, minúscula y números. 
+					<br>Sin caracteres especiales.</div>';
 				}
 			}
 		}

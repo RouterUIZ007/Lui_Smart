@@ -9,7 +9,15 @@ class ModeloReportes
 		if ($valor != null) {
 
 			/* $consulta = "SELECT * FROM $tabla WHERE $item BETWEEN '2021/6/1' AND '2021/6/21'"; */
-			$consulta = "SELECT * FROM $tabla WHERE $item BETWEEN '$valor[0]' AND '$valor[1]'";
+			//$consulta = "SELECT * FROM $tabla WHERE $item BETWEEN '$valor[0]' AND '$valor[1]'";
+			$consulta = "
+			SELECT * FROM $tabla as v
+			INNER JOIN 
+			usuarios as user
+			WHERE v.id_e = user.id
+            and 
+            v.$item BETWEEN '$valor[0]' AND '$valor[1]'"
+			;
 
 			$stmt = Conexion::conectar()->prepare($consulta);
 

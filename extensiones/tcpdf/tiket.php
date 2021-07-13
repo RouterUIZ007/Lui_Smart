@@ -270,11 +270,11 @@ $bloque6 = <<<EOF
 		
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:center"></td>
 
-			<td style="border: 1px solid #666;  background-color:white; width:60px; text-align:right">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666;  background-color:white; width:60px; text-align:right">
 				Subtotal:
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
 				$ $subtotalventa.00
 			</td>
 
@@ -284,11 +284,11 @@ $bloque6 = <<<EOF
 
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:center"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; background-color:white; width:60px; text-align:right">
 				IVA (16%):
 			</td>
 		
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
 				$ $iva  
 			</td>
 
@@ -298,11 +298,11 @@ $bloque6 = <<<EOF
 		
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:right"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; background-color:white; width:60px; text-align:right">
 				Total:
 			</td>
 			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
 				$ $totalventa.00 
 			</td>
 
@@ -312,11 +312,11 @@ $bloque6 = <<<EOF
 		
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:right"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; background-color:white; width:60px; text-align:right">
 				Pago:
 			</td>
 			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
 				$ $pagoventa.00 
 			</td>
 
@@ -326,11 +326,11 @@ $bloque6 = <<<EOF
 		
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:30px; text-align:right"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:60px; text-align:right">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; background-color:white; width:60px; text-align:right">
 				Cambio:
 			</td>
 			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
+			<td style="font-weight: bold; font-size:5px;border: 1px solid #666; color:#333; background-color:white; width:60px; text-align:left">
 				$ $cambioventa.00 
 			</td>
 

@@ -48,7 +48,6 @@ if($_SESSION["perfil"] == "Cajero"){
 
             <tr>
 
-              <th style="width: 10px">#</th>
               <th>Matrícula</th>
               <th>Marca</th>
               <th>Modelo</th>
@@ -75,7 +74,6 @@ if($_SESSION["perfil"] == "Cajero"){
 
               echo '<tr>
 
-                <td>' . $value["id_v"] . '</td>
                 <td>' . $value["Matricula"] . '</td>
                 <td>' . $value["marca"] . '</td>
                 <td>' . $value["modelo"] . '</td>

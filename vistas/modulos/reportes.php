@@ -154,7 +154,6 @@ if($_SESSION["perfil"] == "Cajero"){
               <th>Subtotal</th>
               <th>Pago</th>
               <th>Cambio</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -171,16 +170,11 @@ if($_SESSION["perfil"] == "Cajero"){
                 <td>' . $value["fecha"] . '</td>
                 <td>' . $value["folio_p"] . '</td>
                 <td>' . $value["nombre"] . '</td>
-                <td>' . $value["total"] . '</td>
-                <td>' . $value["subtotal"] . '</td>
-                <td>' . $value["cantidad"] . '</td>
-                <td>' . $value["cambio"] . '</td>
-                <td class="text-center" style="width: 200 px">
-                  <div class="btn-group">
-                    
-                  
-                  </div>
-                </td>
+                <td>$ ' . $value["total"] . '</td>
+                <td>$ ' . $value["subtotal"] . '</td>
+                <td>$ ' . $value["cantidad"] . '</td>
+                <td>$ ' . $value["cambio"] . '</td>
+                
               </tr>';
             }
 

@@ -268,8 +268,8 @@ $tod = 0;
 
         <tr>
         
-        <td style="border: 1px solid #666; background-color:white; width:67px; text-align:center">Total </td>
-        <td style="border: 1px solid #666; background-color:white; width:90px; text-align:center">$ $tod.00</td>
+        <td style="font-weight: bold; font-size:12px; border: 1px solid #666; background-color:white; width:67px; text-align:center">Total </td>
+        <td style="font-weight: bold; font-size:12px; border: 1px solid #666; background-color:white; width:90px; text-align:center">$ $tod.00</td>
 
         </tr>
 

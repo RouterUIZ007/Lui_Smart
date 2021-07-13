@@ -68,10 +68,25 @@ function cambio(e) {
     var dinero = e.value;
     var cambio = dinero - total;
     /* 	console.log(total); */
-    if (cambio > 0) {
+    if (cambio >= 0) {
         var s = document.getElementById("editarCambio");
         console.log(cambio.toFixed(2));
         s.value = cambio.toFixed(2);
+        s.style.color = "black"
+        document.getElementById('btncobrar').disabled=false;
+    }
+    if (total == dinero) {
+        var s = document.getElementById("editarCambio");
+        document.getElementById('btncobrar').disabled=false;
+        s.value = 0;
+        s.style.color = "black"
+    }
+    if (cambio < 0) {
+        var s = document.getElementById("editarCambio");
+        console.log(cambio.toFixed(2));        
+        s.value = "El Dinero es Insuficiente";
+        s.style.color = "red"
+        document.getElementById('btncobrar').disabled=true;
     }
 }
 
@@ -81,5 +96,5 @@ $(".tablas").on("click", ".btnImprimirPresupuesto", function () {
 
     var idPre = $(this).attr("idPre");
 
-    window.open("extensiones/tcpdf/presupuesto.php?folio_p2=" + idPre, "_blank");
+    window.open("extensiones/tcpdf/presupuesto.php?folio_p2=" + idPre, "_blank"); 
   })

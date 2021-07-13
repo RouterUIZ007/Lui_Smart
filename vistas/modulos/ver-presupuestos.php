@@ -62,7 +62,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
               echo '<tr>
                   <td>' . $value["folio_p"] . '</td>
                   <td>' . $value["fecha"] . '</td>
-                  <td>' . $value["total"] . '</td>
+                  <td>$ ' . $value["total"] . '</td>
                   <td>' . $value["Matricula"] . '</td>
                   <td>
                     <div class="btn-group">

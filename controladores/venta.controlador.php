@@ -28,7 +28,7 @@ class ControladorVenta
                     echo '<script>
 					swal({
 						type: "success",
-						title: "¡Venta registrada!",
+						title: "¡Pago del servicio registrado!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
 					}).then(function(result){
@@ -45,7 +45,7 @@ class ControladorVenta
                     echo '<script>
                         swal({
                             type:"error",
-                            title:"¡Error al registrar la venta!",
+                            title:"¡Error al registrar el Pago del servicio!",
                             showConfirmButton: true,
                             confirmButtonText:"Cerrar",
                             closeOnConfirm:false

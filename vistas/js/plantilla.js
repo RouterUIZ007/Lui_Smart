@@ -43,6 +43,8 @@ $(".tablas").DataTable({
 ======================================*/
 $('.grupodefechas').datepicker({
 	format: "yyyy/mm/dd",
+	startDate: "2021/03/08",
+	endDate: "Today",
 	todayBtn: "linked",
 	clearBtn: true,
 	todayHighlight: true,

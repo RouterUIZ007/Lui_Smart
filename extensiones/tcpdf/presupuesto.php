@@ -282,11 +282,11 @@ $bloque6 = <<<EOF
 		
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
-			<td style="border: 1px solid #666;  background-color:white; width:100px; text-align:center">
-				Subtotal:
+			<td style="font-weight: bold; font-size:12px;border: 1px solid #666;  background-color:white; width:100px; text-align:center">
+				SUBTOTAL:
 			</td>
 
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+			<td style="font-weight: bold; font-size:12px;border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
 				$ $subtotal
 			</td>
 
@@ -296,11 +296,11 @@ $bloque6 = <<<EOF
 
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
+			<td style="font-weight: bold; font-size:12px;border: 1px solid #666; background-color:white; width:100px; text-align:center">
 				IVA (16%):
 			</td>
 		
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+			<td style="font-weight: bold; font-size:12px;border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
 				$ $iva
 			</td>
 
@@ -310,11 +310,11 @@ $bloque6 = <<<EOF
 		
 			<td style="border-right: 1px solid #666; color:#333; background-color:white; width:340px; text-align:center"></td>
 
-			<td style="border: 1px solid #666; background-color:white; width:100px; text-align:center">
-				Total:
+			<td style="font-weight: bold; font-size:12px;border: 1px solid #666; background-color:white; width:100px; text-align:center">
+				TOTAL:
 			</td>
 			
-			<td style="border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
+			<td style="font-weight: bold; font-size:12px;border: 1px solid #666; color:#333; background-color:white; width:100px; text-align:center">
 				$ $tot
 			</td>
 

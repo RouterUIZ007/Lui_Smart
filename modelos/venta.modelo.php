@@ -12,6 +12,10 @@ class ModeloVenta
 	public static function mdlAgregarVenta($tabla, $datos)
 	{
 
+		$st = Conexion::conectar()->prepare("UPDATE presupuesto SET estado='1' WHERE folio_p = :p");
+		$st->bindParam(":p", $datos["folio_p"], PDO::PARAM_STR);
+		$st->execute();
+
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(
             folio_p,fecha, id_e, total, subtotal, cantidad, cambio) 
             VALUES 

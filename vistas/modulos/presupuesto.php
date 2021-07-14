@@ -183,7 +183,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
             foreach ($clientes as $key => $value) {
               echo '<tr>
                   <td>' . $value["codigo"] . '</td>
-                  <td>' . $value["Id_v"] . '</td>
+                  <td>' . $value["Matricula"] . '</td>
                   <td>' . $value["concepto"] . '</td>
                   <td>$ ' . $value["costo"] . '</td>
                   <td>' . $value["tipo"] . '</td>

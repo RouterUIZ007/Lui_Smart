@@ -46,7 +46,7 @@ class ControladorPresupuesto
 						confirmButtonText: "Cerrar"
 					}).then(function(result){
 						if(result.value){
-							window.location = "presupuesto";
+							window.location = "ver-presupuestos";
 						}
 					});
 					</script>';
@@ -59,7 +59,7 @@ class ControladorPresupuesto
 					swal({
 
 						type:"error",
-						title:"¡Presupuesto no guardado!",
+						title:"¡Presupuesto no guardado, verifique la información!",
 						showConfirmButton: true,
 						confirmButtonText:"Cerrar",
 						closeOnConfirm:false

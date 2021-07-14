@@ -20,6 +20,39 @@ class ControladorVehiculos{
 				/*valor a consultar que viene del form*/
 				$valor = $_POST["nuevoMatricula"];
 
+                $lista = ModeloVehiculos::mdlRecuperarMs();
+                
+                echo json_encode($lista);
+                
+
+                foreach($lista as $key => $value) {
+                    if ($value["Matricula"] == $_POST["nuevoMatricula"]){
+                        echo '<script>
+
+                        swal({
+    
+                            type:"error",
+                            title:"¡Error al agregar los datos, la matricula ya existe !",
+                            showConfirmButton: true,
+                            confirmButtonText:"Cerrar",
+                            closeOnConfirm:false
+    
+                            }).then((result)=>{
+    
+                                if(result.value){
+    
+                                    window.location = "presupuesto";
+    
+                                }
+    
+                            });
+    
+                        </script>';
+                        return null;
+                    }
+                }
+
+
                 $datos = array(
                     "id_c" => $_POST["nuevoId_c"],
                     "matricula" => $_POST["nuevoMatricula"],

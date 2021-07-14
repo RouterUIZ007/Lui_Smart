@@ -60,20 +60,23 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Jefetaller"){
             $valor = null;
 
             $press = ControladorVenta::ctrMostrarPresupuestoVenta($item, $valor);
-
+            echo json_encode($press[0][4]);
             foreach ($press as $key => $value) {
-              echo '
-              <tr>
-                <td>' . $value["folio_p"] . '</td>
-                <td>' . $value["fecha"] . '</td>
-                <td>$ ' . $value["total"] . '</td>
-                <td>' . $value["id_v"] . '</td>
-                <td class="text-center" style="width: 200 px">
-                  <div class="btn-group">
-                    <button class="btn btn-success btnEditarPresupuesto" idPres="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalAgregarVenta"><i class="fa fa-pencil"> Cobrar presupuesto</i></button>
-                  </div>
-                </td>
-              </tr>';
+              if ($value["estado"] == 0){
+                echo '
+                <tr>
+                  <td>' . $value["folio_p"] . '</td>
+                  <td>' . $value["fecha"] . '</td>
+                  <td>$ ' . $value["total"] . '</td>
+                  <td>' . $value["id_v"] . '</td>
+                  <td class="text-center" style="width: 200 px">
+                    <div class="btn-group">
+                      <button class="btn btn-success btnEditarPresupuesto" idPres="' . $value["folio_p"] . '" data-toggle="modal" data-target="#modalAgregarVenta"><i class="fa fa-pencil"> Cobrar presupuesto</i></button>
+                    </div>
+                  </td>
+                </tr>';
+              }
+              
             }
 
 

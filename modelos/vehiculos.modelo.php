@@ -144,4 +144,19 @@ class ModeloVehiculos
             // Array = {115}
         //Respuesta= 115
     }
+
+
+    public static function mdlRecuperarMs(){
+        $stmt = Conexion::conectar()->prepare("SELECT Matricula FROM vehiculo");
+        $stmt->execute();
+        $respuesta = $stmt->fetchAll();
+        //echo 'Respuesta: ',$respuesta[0];
+        if ($respuesta!=null)
+            return $respuesta;
+        return null;
+            // Array = {115}
+        //Respuesta= 115
+    }
+
+
 }

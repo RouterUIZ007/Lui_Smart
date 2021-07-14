@@ -294,5 +294,14 @@ class ControladorVehiculos{
 
     }
 
+    public static function ctrRecuperarIdVehiculo($Matricula){
+
+        $tabla = "vehiculo";
+        // echo 'Matricula: ', $Matricula;
+        $respuesta = ModeloVehiculos::mdlRecuperarIDVehiculo($tabla,$Matricula);
+
+        return $respuesta;
+    }
+
     
 }

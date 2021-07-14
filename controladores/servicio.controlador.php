@@ -9,7 +9,7 @@ class ControladorServicios
         if (isset($_POST["nuevoV"])) {
 
             if (
-                preg_match('/^[0-9]+$/', $_POST["nuevoV"]) &&
+                preg_match('/^[A-Z]{2}[0-9]{4}$/', $_POST["nuevoV"]) && //ID entero AI de nuevo vehiculo &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoConcepto"]) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["nuevoCosto"]) &&
                 preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoServicio"])
@@ -17,13 +17,16 @@ class ControladorServicios
 
                 $tabla = "servicio";
 
+                $id_vehiculo = ControladorVehiculos::ctrRecuperarIdVehiculo($_POST["nuevoV"]);
+                $id_vehiculo2 = (int) $id_vehiculo;
+
                 /*consultando en el campo matricula*/
                 $item = "Id_v";
                 /*valor a consultar que viene del form*/
                 $valor = $_POST["nuevoV"];
 
                 $datos = array(
-                    "Id_v" => $_POST["nuevoV"],
+                    "Id_v" => $id_vehiculo2,
                     "concepto" => $_POST["nuevoConcepto"],
                     "costo" => $_POST["nuevoCosto"],
                     "tipo" => $_POST["nuevoServicio"]
@@ -240,5 +243,6 @@ class ControladorServicios
         $respuesta = ModeloServicio::MdlMostrarServicioPre($tabla, $valor, $item);
         return $respuesta;
     }
+
 
 }

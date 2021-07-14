@@ -98,7 +98,7 @@ if($_SESSION["perfil"] == "Secretaria" || $_SESSION["perfil"] == "Cajero"){
                 $vehiculo = ControladorVehiculos::ctrMostrarVehiculo2($item);
 
                 # echo json_encode($vehiculo);
-                echo '<input type="number" class="form-control input-lg" name="nuevoV" placeholder="Ingresar Id Vehiculo" value="' . $vehiculo[0] . '" required>'
+                echo '<input  class="form-control input-lg" name="nuevoV" placeholder="Ingresar Id Vehiculo" value="' . $vehiculo[0] . '" required>'
                 ?>
               </abbr>
             </div>

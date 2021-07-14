@@ -71,23 +71,23 @@ class ModeloVehiculos
 	}
 
 
-
 	public static function MdlMostrarVehiculo2($tabla, $item)
-	{
+    {
 
-		if ($item == null) {
+        if ($item == null) {
 
-			$stmt = Conexion::conectar()->prepare("SELECT MAX(id_v) FROM $tabla");
+            // $stmt = Conexion::conectar()->prepare("SELECT MAX(id_v) FROM $tabla");
+            $stmt = Conexion::conectar()->prepare("SELECT Matricula FROM $tabla WHERE id_v = (SELECT MAX(id_v) FROM $tabla)");
+            $stmt->execute();
 
-			$stmt->execute();
-
-			return $stmt->fetch();
-		}
+            return $stmt->fetch();
+        }
 
 
-		$stmt->close();
-		$stmt = null;
-	}
+        $stmt->close();
+        $stmt = null;
+    }
+	
 	/*Editar vehiculo*/
 
 	public static function mdlEditarVehiculo($tabla, $datos)
@@ -129,4 +129,19 @@ class ModeloVehiculos
 		$stmt->close();
 		$stmt = null;
 	}
+
+	//=============================================
+    //Recuperar el ID_Vehiculo, Modificado
+    //=============================================/
+    public static function mdlRecuperarIDVehiculo($tabla, $Matricula){
+        $stmt = Conexion::conectar()->prepare("SELECT id_v FROM $tabla WHERE Matricula = '$Matricula'");
+        $stmt->execute();
+        $respuesta = $stmt->fetch();
+        //echo 'Respuesta: ',$respuesta[0];
+        if ($respuesta!=null)
+            return $respuesta[0];
+        return null;
+            // Array = {115}
+        //Respuesta= 115
+    }
 }
